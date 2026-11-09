@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sistemas para Academias</title>
+<meta name="description" content="Desarrollamos sistemas a medida para academias preuniversitarias: matrícula, pagos, exámenes con ficha óptica y avisos a padres por WhatsApp.">
+<meta property="og:title" content="Sistemas a medida para academias">
+<meta property="og:description" content="Matrícula, pagos, exámenes con ficha óptica y avisos a padres por WhatsApp, hechos a la medida de su academia.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: landing clara de producto — hero con pantalla del sistema, tres pilares con su pantalla simulada, catálogo de módulos, comparación, FAQ y contacto.
+   Tema único claro (lo pidió el cliente): colores fijados explícitamente. */
+:root{
+  --bg:#ffffff; --soft:#f1f7fe; --sky:#1a8cf0; --sky-2:#5fb8ff; --teal:#13b5a6;
+  --ink:#10243f; --muted:#5a6b83; --line:#e2ebf5; --ok:#16a34a; --bad:#e2475b; --warn:#f59e0b; --wa:#25d366;
+  --display:"Sora","Segoe UI",system-ui,sans-serif;
+  --body:"DM Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--body);overflow-x:hidden}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:5rem}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(2.1rem,5vw,3.5rem);font-weight:700;letter-spacing:-.025em}
+h2{font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:700;letter-spacing:-.015em}
+h3{font-size:1.25rem;font-weight:600}
+p{margin:0;max-width:62ch}
+.eyebrow{display:inline-block;font:700 .75rem/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--sky)}
+.lead{font-size:1.12rem;color:var(--muted)}
+.grad{background:linear-gradient(90deg,var(--sky),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+:focus-visible{outline:3px solid var(--sky-2);outline-offset:3px;border-radius:6px}
+.head{display:grid;gap:.8rem;margin-bottom:2.8rem;max-width:720px}
+.head.center{margin-inline:auto;text-align:center;justify-items:center}
+
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(26,140,240,.45)}
+.btn.primary{background:linear-gradient(90deg,var(--sky),var(--teal));color:#fff;border-color:transparent}
+.btn.wa{background:var(--wa);color:#fff;border-color:transparent}
+
+/* animación al entrar en pantalla (el estado de reposo es visible) */
+.rv.in{animation:up .7s cubic-bezier(.2,.7,.2,1) both}
+.rv.in.d1{animation-delay:.08s}.rv.in.d2{animation-delay:.16s}.rv.in.d3{animation-delay:.24s}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* HERO */
+.hero{background:radial-gradient(1200px 500px at 85% -10%,#dff0ff 0,transparent 60%),radial-gradient(800px 400px at -10% 20%,#e3fbf7 0,transparent 55%),var(--bg);padding-block:4rem 5rem;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:3rem;align-items:center}
+.hero .copy{display:grid;gap:1.4rem;min-width:0}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{font-size:.85rem;padding:.35rem .8rem;border-radius:999px;background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+.chip b{color:var(--sky)}
+
+/* ventana de app simulada */
+.app{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 60px -30px rgba(16,36,63,.35);overflow:hidden;min-width:0}
+.app .bar{display:flex;align-items:center;gap:.4rem;padding:.6rem .9rem;background:var(--soft);border-bottom:1px solid var(--line)}
+.app .bar i{width:10px;height:10px;border-radius:50%;background:#cfdcea}
+.app .bar span{margin-left:.6rem;font:500 .72rem var(--mono);color:var(--muted)}
+.dash{display:grid;grid-template-columns:3.2rem 1fr}
+.side{background:linear-gradient(180deg,var(--sky),var(--teal));display:grid;align-content:start;gap:.9rem;padding:1rem 0;justify-items:center}
+.side i{width:22px;height:22px;border-radius:7px;background:rgba(255,255,255,.35)}
+.side i:first-child{background:#fff}
+.dmain{padding:1rem;display:grid;gap:.8rem;min-width:0}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}
+.kpi{background:var(--soft);border-radius:10px;padding:.6rem .7rem;min-width:0}
+.kpi small{display:block;font-size:.68rem;color:var(--muted)}
+.kpi strong{font:600 1.15rem var(--display);font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:.68rem;color:var(--ok)}
+.chart{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.7rem .8rem .5rem}
+.chart header{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);margin-bottom:.4rem}
+.bars{display:grid;grid-template-columns:repeat(8,1fr);gap:.45rem;align-items:end;height:110px;border-bottom:1px solid var(--line);background:repeating-linear-gradient(0deg,transparent 0 27px,#eef3f9 27px 28px)}
+.bars span{background:linear-gradient(180deg,var(--sky-2),var(--sky));border-radius:5px 5px 0 0;height:var(--h);transform-origin:bottom;animation:grow 1.1s cubic-bezier(.2,.7,.2,1) both}
+.bars span:nth-child(odd){background:linear-gradient(180deg,#7fe3d8,var(--teal))}
+@keyframes grow{from{transform:scaleY(0)}}
+.months{display:grid;grid-template-columns:repeat(8,1fr);gap:.45rem;font:500 .6rem var(--mono);color:var(--muted);text-align:center;margin-top:.25rem}
+.list{display:grid;gap:.35rem}
+.li{display:flex;justify-content:space-between;align-items:center;gap:.5rem;font-size:.78rem;padding:.4rem .6rem;border-radius:8px;background:var(--soft)}
+.pill{font-size:.66rem;font-weight:700;padding:.15rem .5rem;border-radius:999px;white-space:nowrap}
+.pill.ok{background:#dcfce7;color:#15803d}.pill.warn{background:#fef3c7;color:#b45309}.pill.bad{background:#ffe1e5;color:#c0263a}
+
+.hero-art{position:relative;min-width:0}
+.toast{position:absolute;right:-10px;bottom:-26px;display:flex;gap:.6rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.7rem .9rem;box-shadow:0 18px 36px -18px rgba(16,36,63,.4);max-width:270px;animation:float 5s ease-in-out infinite}
+.toast .wa-ic{flex:none;width:34px;height:34px;border-radius:50%;background:var(--wa);display:grid;place-items:center}
+.toast p{font-size:.78rem;line-height:1.35}
+.toast b{display:block;font-size:.72rem;color:var(--muted);font-weight:500}
+@keyframes float{50%{transform:translateY(-8px)}}
+
+/* CIFRAS */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:-2.6rem;position:relative}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.3rem;box-shadow:0 14px 30px -24px rgba(16,36,63,.4)}
+.stat strong{display:block;font:700 2rem var(--display);color:var(--sky);font-variant-numeric:tabular-nums}
+.stat span{font-size:.9rem;color:var(--muted)}
+
+/* PILARES */
+.pillar{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;padding-block:3rem}
+.pillar>*{min-width:0}
+.pillar.flip .txt{order:2}
+.txt{display:grid;gap:1rem}
+.ticks{list-style:none;padding:0;margin:.3rem 0 0;display:grid;gap:.55rem}
+.ticks li{display:flex;gap:.6rem;align-items:flex-start}
+.ticks li::before{content:"";flex:none;width:20px;height:20px;margin-top:.15rem;border-radius:50%;background:var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a8cf0' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/12px no-repeat}
+.num{font:600 .8rem var(--mono);color:var(--teal)}
+
+/* pagos */
+.pay table{width:100%;border-collapse:collapse;font-size:.8rem}
+.pay th{text-align:left;font-weight:500;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;padding:.5rem .6rem;border-bottom:1px solid var(--line)}
+.pay td{padding:.55rem .6rem;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.pay tr.hl td{animation:hl 4s ease-in-out infinite}
+@keyframes hl{0%,60%,100%{background:transparent}20%,40%{background:#e8f5ff}}
+.scroll{overflow-x:auto}
+.pay .sum{display:flex;justify-content:space-between;gap:1rem;padding:.8rem;flex-wrap:wrap;font-size:.82rem}
+.meter{height:8px;border-radius:99px;background:var(--soft);overflow:hidden;flex:1 1 140px;align-self:center}
+.meter i{display:block;height:100%;width:78%;background:linear-gradient(90deg,var(--sky),var(--teal));border-radius:99px;animation:fill 1.6s ease both}
+@keyframes fill{from{width:0}}
+
+/* exámenes: 3 pasos */
+.exam{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;padding:1rem}
+.exam>div{min-width:0;background:var(--soft);border-radius:12px;padding:.8rem;display:grid;gap:.5rem;align-content:start}
+.exam h4{font-size:.78rem;font-weight:600;display:flex;gap:.4rem;align-items:center}
+.exam h4 span{width:18px;height:18px;border-radius:50%;background:var(--sky);color:#fff;font:600 .65rem var(--mono);display:grid;place-items:center}
+.q{font-size:.68rem;background:#fff;border-radius:6px;padding:.35rem .45rem;color:var(--muted)}
+.q b{color:var(--ink)}
+.omr{display:grid;gap:.28rem}
+.orow{display:grid;grid-template-columns:1.1rem repeat(5,1fr) .9rem;gap:.18rem;align-items:center;font:500 .55rem var(--mono);color:#e86a7c}
+.ob{aspect-ratio:1;border:1px solid #f0a3ae;border-radius:50%;max-width:15px;width:100%;justify-self:center;transition:background .2s}
+.ob.on{background:#2b2f36;border-color:#2b2f36}
+.res{font-size:.7rem;text-align:center;font-weight:700}
+.res.ok{color:var(--ok)}.res.bad{color:var(--bad)}
+.score{font:600 .72rem var(--mono);text-align:center;color:var(--ink);background:#fff;border-radius:6px;padding:.3rem}
+.rank{display:grid;gap:.3rem}
+.rk{display:grid;grid-template-columns:1rem 1fr auto;gap:.35rem;align-items:center;font-size:.66rem;background:#fff;border-radius:6px;padding:.3rem .4rem}
+.rk b{font-family:var(--mono);color:var(--sky)}
+.rk i{font-style:normal;font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* WhatsApp */
+.phone{width:min(300px,100%);margin-inline:auto;background:#10243f;border-radius:34px;padding:10px;box-shadow:0 30px 60px -28px rgba(16,36,63,.55)}
+.screen{border-radius:26px;overflow:hidden;background:#efe7dc}
+.wahead{background:#0b7d6e;color:#fff;display:flex;gap:.6rem;align-items:center;padding:.8rem .9rem;font-size:.82rem}
+.wahead i{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--sky-2),var(--teal))}
+.wahead small{display:block;font-size:.66rem;opacity:.8}
+.chat{display:grid;gap:.5rem;padding:.9rem .7rem 1.1rem;min-height:330px;align-content:start}
+.msg{background:#fff;border-radius:10px 10px 10px 2px;padding:.5rem .65rem;font-size:.74rem;line-height:1.4;max-width:92%;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.msg time{display:block;text-align:right;font-size:.6rem;color:#8a96a3;margin-top:.15rem}
+.msg strong{color:#0b7d6e}
+.m1{animation:m1 12s infinite}.m2{animation:m2 12s infinite}.m3{animation:m3 12s infinite}.m4{animation:m4 12s infinite}
+@keyframes m1{0%,4%{opacity:0;transform:translateY(10px)}9%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes m2{0%,22%{opacity:0;transform:translateY(10px)}27%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes m3{0%,40%{opacity:0;transform:translateY(10px)}45%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes m4{0%,58%{opacity:0;transform:translateY(10px)}63%,94%{opacity:1;transform:none}100%{opacity:0}}
+
+/* MÓDULOS */
+.mods-sec{background:linear-gradient(180deg,var(--soft),#fff)}
+.mods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.1rem}
+.mod{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.4rem;display:grid;gap:.7rem;align-content:start;transition:transform .25s,box-shadow .25s,border-color .25s}
+.mod:hover{transform:translateY(-5px);box-shadow:0 22px 40px -26px rgba(26,140,240,.55);border-color:#bfe0ff}
+.ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#e3f2ff,#dcfaf5)}
+.ic svg{width:24px;height:24px;stroke:var(--sky);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mod ul{margin:0;padding-left:1.05rem;color:var(--muted);font-size:.9rem;display:grid;gap:.25rem}
+
+/* COMPARACIÓN */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.col{border-radius:18px;padding:1.6rem;display:grid;gap:.9rem;align-content:start}
+.col.before{background:#f7f8fa;border:1px dashed #cfd6df}
+.col.after{background:linear-gradient(160deg,#eaf5ff,#e6fbf8);border:1px solid #c7e5ff}
+.col h3{display:flex;align-items:center;gap:.6rem}
+.col ul{list-style:none;margin:0;padding:0;display:grid;gap:.7rem}
+.col li{display:grid;grid-template-columns:1.4rem 1fr;gap:.5rem;font-size:.97rem}
+.col.before li::before{content:"✕";color:#9aa4b2;font-weight:700}
+.col.after li::before{content:"✓";color:var(--teal);font-weight:700}
+
+/* OTROS */
+.others{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem}
+.other{border:1px solid var(--line);border-radius:16px;padding:1.4rem;display:grid;gap:.6rem;align-content:start;background:#fff}
+.other p{color:var(--muted);font-size:.93rem}
+.tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.tags span{font:500 .7rem var(--mono);padding:.22rem .55rem;border-radius:6px;background:var(--soft);color:var(--muted)}
+
+/* PROCESO */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1rem;counter-reset:s;position:relative}
+.steps li{counter-increment:s;display:grid;gap:.4rem;align-content:start;position:relative}
+.steps li::before{content:counter(s);width:2.6rem;height:2.6rem;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--teal));color:#fff;display:grid;place-items:center;font:600 1rem var(--display);position:relative;z-index:1}
+.steps li:not(:last-child)::after{content:"";position:absolute;top:1.3rem;left:2.8rem;right:-.6rem;height:2px;background:repeating-linear-gradient(90deg,#bfe0ff 0 6px,transparent 6px 12px)}
+.steps p{color:var(--muted);font-size:.92rem}
+
+/* FAQ */
+.faq{display:grid;gap:.7rem;max-width:800px;margin-inline:auto}
+details{border:1px solid var(--line);border-radius:14px;background:#fff;padding:0 1.2rem}
+summary{cursor:pointer;list-style:none;padding:1rem 0;font-weight:700;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--sky);font-size:1.3rem;line-height:1;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding-bottom:1rem;color:var(--muted)}
+
+/* CONTACTO */
+.contact{background:linear-gradient(120deg,var(--sky),var(--teal));color:#fff;border-radius:26px;padding:3rem max(1.4rem,4vw);display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}
+.contact>*{min-width:0}
+.contact h2{color:#fff}
+.contact p{color:#e8f6ff}
+.card{background:#fff;color:var(--ink);border-radius:18px;padding:1.4rem;display:grid;gap:.8rem}
+.card small{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700}
+.card .n{font:600 1.35rem var(--display);user-select:all;overflow-wrap:anywhere}
+.row2{display:flex;flex-wrap:wrap;gap:.6rem}
+.copy{font:700 .85rem var(--body);padding:.75rem 1.1rem;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+footer.site{padding-block:2.4rem;color:var(--muted);font-size:.85rem;text-align:center}
+.note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:.8rem;max-width:none}
+
+@media (max-width:960px){
+  .hero .wrap,.pillar,.contact{grid-template-columns:1fr}
+  .pillar.flip .txt{order:0}
+  .mods{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .others{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .steps li{grid-template-columns:2.6rem 1fr;column-gap:1rem}
+  .steps li::before{grid-row:span 2}
+  .steps li:not(:last-child)::after{display:none}
+  .toast{right:0}
+}
+@media (max-width:620px){
+  .mods,.vs{grid-template-columns:1fr}
+  .exam{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stat strong{font-size:1.6rem}
+  .toast{position:relative;bottom:auto;margin:1rem 0 0 auto}
+}
+[hidden]{display:none!important}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} img{max-width:100%}
+/* ===== EFECTOS ===== */
+/* barra de progreso de lectura */
+.progress{position:fixed;top:0;left:0;right:0;height:calc(4px + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px);z-index:50;pointer-events:none}
+.progress i{display:block;height:4px;width:100%;background:linear-gradient(90deg,var(--sky),var(--teal),#7c5cff);transform-origin:left;transform:scaleX(var(--p,0))}
+
+/* manchas de color que se mueven en el fondo del hero */
+.hero{overflow:hidden}
+.hero .wrap{position:relative;z-index:1}
+.blobs{position:absolute;inset:0;pointer-events:none;filter:blur(60px);opacity:.55}
+.blobs i{position:absolute;border-radius:50%;animation:drift 18s ease-in-out infinite alternate}
+.blobs i:nth-child(1){width:420px;height:420px;background:#8fd0ff;top:-120px;right:8%}
+.blobs i:nth-child(2){width:340px;height:340px;background:#8ff0e2;bottom:-140px;left:-60px;animation-duration:22s}
+.blobs i:nth-child(3){width:260px;height:260px;background:#c9b8ff;top:30%;left:40%;animation-duration:26s}
+@keyframes drift{to{transform:translate(60px,40px) scale(1.15)}}
+/* puntos de cuadrícula sutiles */
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(#cfe3f7 1px,transparent 1px);background-size:22px 22px;mask-image:linear-gradient(180deg,#000 0,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000 0,transparent 85%);opacity:.7}
+
+/* texto del título con degradado en movimiento */
+.grad{background-image:linear-gradient(90deg,var(--sky),var(--teal),#7c5cff,var(--sky));background-size:300% 100%;animation:shine 8s linear infinite}
+@keyframes shine{to{background-position:300% 0}}
+
+/* palabra que se escribe sola */
+.rotator{font:600 1.15rem var(--display);color:var(--ink);display:flex;flex-wrap:wrap;gap:.4rem;align-items:baseline}
+.rotator .w{color:var(--sky);border-right:3px solid var(--teal);padding-right:.15rem;animation:caret .9s steps(1) infinite;min-height:1.4em}
+@keyframes caret{50%{border-color:transparent}}
+
+/* ventana 3D que sigue al mouse */
+.hero-art{perspective:1200px}
+.hero-art .app{transform:rotateY(var(--ry,-8deg)) rotateX(var(--rx,4deg));transition:transform .25s ease-out;transform-style:preserve-3d}
+.hero-art .app::after{content:"";position:absolute;inset:0;border-radius:16px;pointer-events:none;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%);background-size:250% 100%;animation:sheen 6s ease-in-out infinite}
+.hero-art .app{position:relative}
+@keyframes sheen{0%,60%{background-position:150% 0}100%{background-position:-50% 0}}
+
+/* botón principal con brillo que pasa */
+.btn.primary{position:relative;overflow:hidden;background-size:200% 100%;background-image:linear-gradient(90deg,var(--sky),var(--teal),var(--sky))}
+.btn.primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-100%);animation:pass 3.2s ease-in-out infinite}
+@keyframes pass{60%,100%{transform:translateX(100%)}}
+
+/* cinta de módulos que corre */
+.marquee{overflow:hidden;padding-block:2.2rem .4rem;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:.8rem;width:max-content;animation:run 38s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.track span{display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap;padding:.55rem 1.1rem;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:500;box-shadow:0 6px 16px -12px rgba(16,36,63,.35)}
+.track span::before{content:"";width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--teal))}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* filtros de módulos */
+.filters{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin:-1rem 0 2rem}
+.f{font:600 .9rem var(--body);padding:.55rem 1.1rem;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:all .2s}
+.f span{font:500 .72rem var(--mono);background:var(--soft);color:var(--sky);padding:.1rem .45rem;border-radius:99px;margin-left:.2rem}
+.f:hover{border-color:#bfe0ff;transform:translateY(-1px)}
+.f.on{background:linear-gradient(90deg,var(--sky),var(--teal));color:#fff;border-color:transparent;box-shadow:0 10px 22px -12px rgba(26,140,240,.6)}
+.f.on span{background:rgba(255,255,255,.25);color:#fff}
+.mod.pop{animation:popin .45s cubic-bezier(.2,.8,.2,1.2) both}
+@keyframes popin{from{opacity:0;transform:scale(.92) translateY(10px)}}
+.cat{font:700 .68rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+
+/* foco de luz que sigue al mouse sobre cada módulo */
+.mod{position:relative;overflow:hidden;isolation:isolate}
+.mod::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(260px circle at var(--x,50%) var(--y,0%),rgba(95,184,255,.22),transparent 60%);opacity:0;transition:opacity .3s}
+.mod:hover::before{opacity:1}
+.mod:hover .ic{transform:rotate(-8deg) scale(1.08)}
+.ic{transition:transform .3s}
+
+/* borde de degradado animado en el contacto */
+.contact{background-size:200% 200%;animation:flow 10s ease infinite}
+@keyframes flow{50%{background-position:100% 50%}}
+.card{animation:float 6s ease-in-out infinite}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.hero-art .app{transform:none}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="progress" aria-hidden="true"><i id="prog"></i></div>
+<header class="hero">
+  <div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="copy">
+      <span class="eyebrow">Desarrollo de sistemas a medida</span>
+      <h1>Construimos el sistema que <span class="grad">su academia necesita</span></h1>
+      <p class="rotator" aria-label="Para matrículas, pagos, exámenes, avisos por WhatsApp y reportes">Para <span class="w" id="rot" aria-hidden="true">matrículas</span></p>
+      <p class="lead">No vendemos un programa ya hecho. Escuchamos cómo trabaja su academia y desarrollamos un sistema a su medida: matrícula, pagos, exámenes con ficha óptica, avisos a los padres por WhatsApp o lo que usted necesite.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contacto">Conversemos su proyecto</a>
+        <a class="btn" href="#modulos">Ver qué podemos construir</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><b>✓</b> Hecho a su medida</span>
+        <span class="chip"><b>✓</b> Funciona sin internet</span>
+        <span class="chip"><b>✓</b> Desde la PC o el celular</span>
+        <span class="chip"><b>✓</b> Capacitación incluida</span>
+      </div>
+    </div>
+
+    <div class="hero-art rv">
+      <div class="app" role="img" aria-label="Pantalla simulada del panel principal con ingresos del mes y estado de pagos">
+        <div class="bar"><i></i><i></i><i></i><span>panel · inicio</span></div>
+        <div class="dash">
+          <div class="side"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="dmain">
+            <div class="kpis">
+              <div class="kpi"><small>Alumnos activos</small><strong class="count" data-to="486">486</strong><em>▲ 12%</em></div>
+              <div class="kpi"><small>Cobrado del mes</small><strong>S/ <span class="count" data-to="38450">38450</span></strong><em>▲ 8%</em></div>
+              <div class="kpi"><small>Asistencia hoy</small><strong><span class="count" data-to="94">94</span>%</strong><em>▲ 3%</em></div>
+            </div>
+            <div class="chart">
+              <header><span>Ingresos por mes (S/)</span><span>Ciclo 2026-II</span></header>
+              <div class="bars"><span style="--h:42%"></span><span style="--h:55%"></span><span style="--h:48%"></span><span style="--h:66%"></span><span style="--h:60%"></span><span style="--h:78%"></span><span style="--h:72%"></span><span style="--h:90%"></span></div>
+              <div class="months"><span>Abr</span><span>May</span><span>Jun</span><span>Jul</span><span>Ago</span><span>Set</span><span>Oct</span><span>Nov</span></div>
+            </div>
+            <div class="list">
+              <div class="li"><span>Ana Quispe · Cuota 3</span><span class="pill ok">Pagado</span></div>
+              <div class="li"><span>Luis Rojas · Cuota 3</span><span class="pill warn">Vence hoy</span></div>
+              <div class="li"><span>Diego Ramos · Cuota 2</span><span class="pill bad">Atrasado</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="toast" aria-hidden="true">
+        <span class="wa-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></span>
+        <p><b>Aviso enviado al apoderado</b>Diego quedó en el puesto 12 del Simulacro 3.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CIFRAS -->
+<div class="wrap">
+  <div class="stats">
+    <div class="stat rv"><strong><span class="count" data-to="16">16</span> módulos</strong><span>que podemos construir y combinar</span></div>
+    <div class="stat rv d1"><strong><span class="count" data-to="100">100</span> preguntas</strong><span>por ficha óptica, leídas con el celular</span></div>
+    <div class="stat rv d2"><strong>24/7</strong><span>avisos automáticos a padres por WhatsApp</span></div>
+    <div class="stat rv d3"><strong><span class="count" data-to="0">0</span> papeles</strong><span>perdidos: todo queda guardado por ciclo</span></div>
+  </div>
+</div>
+<div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+
+<!-- PILARES -->
+<section id="experiencia">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Experiencia comprobada</span>
+      <h2>Ya lo hicimos para otras academias</h2>
+      <p class="lead">Hemos desarrollado sistemas a medida para academias preuniversitarias que hoy los usan en su trabajo diario. Cada uno se construyó según lo que esa academia necesitaba; estas son tres de las soluciones que más les cambiaron el día a día.</p>
+    </div>
+
+    <!-- Pagos -->
+    <div class="pillar">
+      <div class="txt rv">
+        <span class="num">PAGOS</span>
+        <h3 style="font-size:1.7rem">Sepa quién debe, cuánto y desde cuándo</h3>
+        <p class="lead">Cada alumno tiene su plan de cuotas. Secretaría registra el pago, imprime el ticket y el sistema actualiza la deuda al instante.</p>
+        <ul class="ticks"><li>Cuotas, pagos parciales, descuentos y becas</li><li>Ticket impreso en impresora térmica por cada pago</li><li>Lista de morosos con un clic y recordatorio por WhatsApp</li><li>Cierre de caja diario y mensual</li></ul>
+      </div>
+      <div class="app pay rv d1" role="img" aria-label="Pantalla simulada de control de pagos">
+        <div class="bar"><i></i><i></i><i></i><span>pagos · ciclo 2026-II</span></div>
+        <div class="scroll"><table>
+          <thead><tr><th>Alumno</th><th>Cuota</th><th>Monto</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td>Ana Quispe</td><td>3 de 4</td><td>S/ 250.00</td><td><span class="pill ok">Pagado</span></td></tr>
+            <tr class="hl"><td>Luis Rojas</td><td>3 de 4</td><td>S/ 250.00</td><td><span class="pill warn">Vence hoy</span></td></tr>
+            <tr><td>María Soto</td><td>2 de 4</td><td>S/ 125.00</td><td><span class="pill ok">Parcial</span></td></tr>
+            <tr><td>Diego Ramos</td><td>2 de 4</td><td>S/ 250.00</td><td><span class="pill bad">Atrasado</span></td></tr>
+            <tr><td>Rosa Huamán</td><td>3 de 4</td><td>S/ 200.00</td><td><span class="pill ok">Beca 20%</span></td></tr>
+          </tbody>
+        </table></div>
+        <div class="sum"><span>Cobrado del ciclo: <b>78%</b></span><div class="meter"><i></i></div><span>S/ 38 450 de S/ 49 300</span></div>
+      </div>
+    </div>
+
+    <!-- Exámenes -->
+    <div class="pillar flip">
+      <div class="txt rv">
+        <span class="num">EXÁMENES</span>
+        <h3 style="font-size:1.7rem">Crear, calificar y publicar resultados el mismo día</h3>
+        <p class="lead">El docente carga las preguntas y la clave, se imprimen las fichas ópticas y se califican con la cámara del celular. El ranking sale solo.</p>
+        <ul class="ticks"><li><b>Creación:</b> banco de preguntas, solucionario y clave por área</li><li><b>Evaluación:</b> fichas ópticas personalizadas leídas con el celular</li><li><b>Resultados:</b> ranking general y por área, exportable a Excel y PDF</li><li>Puntaje con la escala de la academia (ej. +6 / −0,07 / 0)</li></ul>
+      </div>
+      <div class="app rv d1" role="img" aria-label="Pantalla simulada del flujo de examen: creación, calificación de ficha óptica y ranking">
+        <div class="bar"><i></i><i></i><i></i><span>exámenes · simulacro 3</span></div>
+        <div class="exam">
+          <div>
+            <h4><span>1</span>Creación</h4>
+            <div class="q"><b>P1.</b> Si 3x − 5 = 16, x =</div>
+            <div class="q"><b>P2.</b> Sinónimo de «efímero»</div>
+            <div class="q"><b>P3.</b> Unidad de la fuerza (SI)</div>
+            <div class="q"><b>Clave B:</b> C A D B E …</div>
+          </div>
+          <div>
+            <h4><span>2</span>Evaluación</h4>
+            <div class="omr" id="omr"></div>
+            <div class="score" id="score">Leyendo…</div>
+          </div>
+          <div>
+            <h4><span>3</span>Resultados</h4>
+            <div class="rank">
+              <div class="rk"><b>1</b><span>Rosa H.</span><i>1 412.6</i></div>
+              <div class="rk"><b>2</b><span>Ana Q.</span><i>1 380.2</i></div>
+              <div class="rk"><b>3</b><span>Luis R.</span><i>1 351.9</i></div>
+              <div class="rk"><b>4</b><span>María S.</span><i>1 298.4</i></div>
+              <div class="rk"><b>5</b><span>Diego R.</span><i>1 245.3</i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WhatsApp -->
+    <div class="pillar">
+      <div class="txt rv">
+        <span class="num">AVISOS A PADRES</span>
+        <h3 style="font-size:1.7rem">Los padres se enteran por WhatsApp, sin que nadie tenga que escribir</h3>
+        <p class="lead">El sistema envía los mensajes solo, desde el número de la academia. Los padres reciben la información en la app que ya usan todos los días.</p>
+        <ul class="ticks"><li>Recordatorio de cuotas antes del vencimiento</li><li>Notas y puesto en cada simulacro</li><li>Faltas y tardanzas del día</li><li>Comunicados generales a todo un ciclo o aula</li></ul>
+      </div>
+      <div class="rv d1">
+        <div class="phone" role="img" aria-label="Celular simulado recibiendo avisos de la academia por WhatsApp">
+          <div class="screen">
+            <div class="wahead"><i></i><div>Academia<small>en línea</small></div></div>
+            <div class="chat">
+              <div class="msg m1">Buenos días, Sra. Ramos. Le recordamos que la <strong>cuota 2</strong> de Diego (S/ 250.00) vence el 15/11.<time>08:00</time></div>
+              <div class="msg m2">Diego registró <strong>tardanza</strong> hoy a las 8:12 a. m.<time>08:13</time></div>
+              <div class="msg m3">Resultados del <strong>Simulacro 3</strong>: Diego obtuvo 1 245.3 pts, puesto 12 de 180 en el Área B.<time>18:30</time></div>
+              <div class="msg m4">Comunicado: el sábado 22/11 habrá clase de reforzamiento de 9 a 12 h.<time>19:00</time></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="note">Pantallas simuladas con datos de ejemplo.</p>
+  </div>
+</section>
+
+<!-- MÓDULOS -->
+<section id="modulos" class="mods-sec">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Todo lo que podemos ofrecerle</span>
+      <h2>Ideas de lo que podemos construir para usted</h2>
+      <p class="lead">No es un paquete cerrado. Usted elige qué necesita, lo diseñamos según su forma de trabajar y podemos agregar funciones que no estén en esta lista. Todo comparte la misma información, así que nada se escribe dos veces.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filtrar módulos por área">
+      <button type="button" class="f on" data-f="all">Todos <span>16</span></button>
+      <button type="button" class="f" data-f="sec">Secretaría</button>
+      <button type="button" class="f" data-f="fin">Finanzas</button>
+      <button type="button" class="f" data-f="aca">Académico</button>
+      <button type="button" class="f" data-f="com">Comunicación</button>
+      <button type="button" class="f" data-f="dir">Dirección</button>
+    </div>
+    <div class="mods">
+      <article class="mod rv" data-cat="sec"><div class="ic"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></div><span class="cat">Secretaría</span><h3>Matrícula</h3><ul><li>Registro por DNI con foto</li><li>Turno, área y carrera</li><li>Datos del apoderado y poder para menores</li><li>Ficha A4 y ticket al instante</li></ul></article>
+      <article class="mod rv" data-cat="sec"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h4"/><circle cx="18" cy="18" r="4" fill="#fff"/><path d="M16.5 18l1 1 2-2"/></svg></div><span class="cat">Secretaría</span><h3>Preinscripción en línea</h3><ul><li>Formulario web para postulantes</li><li>Llegan como interesados al sistema</li><li>Secretaría confirma y matricula</li><li>Útil para campañas de inicio de ciclo</li></ul></article>
+      <article class="mod rv" data-cat="sec"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></svg></div><span class="cat">Secretaría</span><h3>Asistencia con QR</h3><ul><li>Carnet del alumno con código QR</li><li>Se marca en la puerta con un celular</li><li>Faltas y tardanzas al instante</li><li>Aviso inmediato al apoderado</li></ul></article>
+      <article class="mod rv" data-cat="fin"><div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div><span class="cat">Finanzas</span><h3>Pagos</h3><ul><li>Plan de cuotas por alumno</li><li>Pagos parciales, descuentos y becas</li><li>Ticket por cada pago</li><li>Lista de morosos y cierre de caja</li></ul></article>
+      <article class="mod rv" data-cat="fin"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h3"/></svg></div><span class="cat">Finanzas</span><h3>Boletas electrónicas</h3><ul><li>Conexión con facturación electrónica</li><li>Boleta o factura en cada pago</li><li>Envío al correo o WhatsApp del cliente</li><li>Reporte para el contador</li></ul></article>
+      <article class="mod rv" data-cat="fin"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/><path d="M17 3l2 2-2 2"/></svg></div><span class="cat">Finanzas</span><h3>Pago a docentes</h3><ul><li>Horas dictadas por docente</li><li>Cálculo automático del pago</li><li>Adelantos y descuentos</li><li>Constancia de pago imprimible</li></ul></article>
+      <article class="mod rv" data-cat="fin"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><span class="cat">Finanzas</span><h3>Gastos y ganancia</h3><ul><li>Registro de alquiler, luz y materiales</li><li>Caja chica</li><li>Ganancia real de cada ciclo</li><li>Comparación entre ingresos y gastos</li></ul></article>
+      <article class="mod rv" data-cat="aca"><div class="ic"><svg viewBox="0 0 24 24"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div><span class="cat">Académico</span><h3>Portal docente</h3><ul><li>Cuenta propia para cada docente</li><li>Ve solo sus cursos y aulas</li><li>Sube preguntas y solucionarios</li><li>Registra asistencia y notas</li></ul></article>
+      <article class="mod rv" data-cat="aca"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></div><span class="cat">Académico</span><h3>Exámenes</h3><ul><li>Banco de preguntas y claves por área</li><li>Fichas ópticas con QR</li><li>Calificación con el celular</li><li>Ranking general y por área</li></ul></article>
+      <article class="mod rv" data-cat="aca"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M7 13h3M14 13h3M7 17h3"/></svg></div><span class="cat">Académico</span><h3>Horarios y aulas</h3><ul><li>Horario por aula y por docente</li><li>Detecta cruces de horario</li><li>Cambios avisados a alumnos</li><li>Horario visible desde el celular</li></ul></article>
+      <article class="mod rv" data-cat="aca"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/><path d="M10 7l4 3-4 3z"/></svg></div><span class="cat">Académico</span><h3>Aula virtual</h3><ul><li>Separatas y material en PDF</li><li>Videos de clases grabadas</li><li>Solucionarios de cada simulacro</li><li>Acceso solo para alumnos matriculados</li></ul></article>
+      <article class="mod rv" data-cat="com"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></div><span class="cat">Comunicación</span><h3>Avisos por WhatsApp</h3><ul><li>Recordatorios de pago automáticos</li><li>Notas, faltas y tardanzas</li><li>Comunicados masivos por ciclo o aula</li><li>Desde el número de la academia</li></ul></article>
+      <article class="mod rv" data-cat="com"><div class="ic"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2M9 7h6M9 11h6"/></svg></div><span class="cat">Comunicación</span><h3>App para alumnos y padres</h3><ul><li>Notas y puesto en cada simulacro</li><li>Deudas y fechas de pago</li><li>Asistencia del mes</li><li>Se instala en el celular como una app</li></ul></article>
+      <article class="mod rv" data-cat="dir"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div><span class="cat">Dirección</span><h3>Reportes</h3><ul><li>Ingresos por día, mes y ciclo</li><li>Asistencia por alumno y aula</li><li>Notas y evolución por simulacro</li><li>Descarga en Excel y PDF</li></ul></article>
+      <article class="mod rv" data-cat="dir"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></div><span class="cat">Dirección</span><h3>Dashboards</h3><ul><li>Resumen del día al abrir el sistema</li><li>Gráficos de ingresos y matrícula</li><li>Alertas de deudas y faltas</li><li>Vista para dirección y para caja</li></ul></article>
+      <article class="mod rv" data-cat="dir"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg></div><span class="cat">Dirección</span><h3>Información histórica</h3><ul><li>Todos los ciclos guardados</li><li>Historial completo de cada alumno</li><li>Comparación entre ciclos</li><li>Copias de seguridad automáticas</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<!-- ANTES / DESPUÉS -->
+<section>
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Antes y después</span>
+      <h2>Del cuaderno y el Excel a un sistema</h2>
+    </div>
+    <div class="vs">
+      <div class="col before rv"><h3>Con cuaderno y Excel</h3><ul>
+        <li>Buscar a qué alumno le falta pagar toma horas</li>
+        <li>Calificar un simulacro a mano toma días</li>
+        <li>Cada archivo de Excel tiene datos distintos</li>
+        <li>Llamar uno por uno a los padres</li>
+        <li>Si se pierde el cuaderno, se pierde la información</li>
+      </ul></div>
+      <div class="col after rv d1"><h3>Con un sistema a su medida</h3><ul>
+        <li>La lista de morosos sale con un clic</li>
+        <li>Las fichas se califican con el celular y el ranking sale el mismo día</li>
+        <li>Una sola base de datos para toda la academia</li>
+        <li>Los avisos llegan solos por WhatsApp</li>
+        <li>Todo queda guardado en la nube con copias de seguridad</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- OTROS -->
+<section style="padding-top:1rem">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Otros proyectos</span>
+      <h2>También hemos desarrollado</h2>
+    </div>
+    <div class="others">
+      <article class="other rv"><h3>Plataforma de notas escolares</h3><p>Paneles para administración, docentes, estudiantes y soporte. Registro de calificaciones por curso y ranking de estudiantes.</p><div class="tags"><span>React</span><span>TypeScript</span></div></article>
+      <article class="other rv d1"><h3>Plataforma de orientación académica</h3><p>Mapa de la carrera, test de especialización, planificador de horarios, calculadora de promedios y simulador de avance.</p><div class="tags"><span>React</span><span>Vite</span></div></article>
+      <article class="other rv d2"><h3>Generador de FUT para universitarios</h3><p>Genera el Formulario Único de Trámite en minutos, sin buscar el PDF, imprimirlo ni pasarlo a Word para editarlo. El estudiante escribe qué necesita, el sistema le sugiere el trámite, completa sus datos con su código y le da los textos ya redactados (solicito, sumilla, fundamentación). Al final descarga el documento en Word y PDF.</p><div class="tags"><span>Python</span><span>Word · PDF</span><span>Asistente paso a paso</span></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section style="padding-top:1rem">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Cómo trabajamos</span>
+      <h2>De la primera reunión al sistema en uso</h2>
+    </div>
+    <ol class="steps">
+      <li class="rv"><h3>Escuchamos</h3><p>Conocemos cómo matricula, cobra y evalúa hoy, y qué problemas quiere resolver.</p></li>
+      <li class="rv d1"><h3>Diseñamos</h3><p>Proponemos el sistema a su medida y le mostramos cómo se verá.</p></li>
+      <li class="rv d2"><h3>Desarrollamos</h3><p>Lo construimos por etapas y usted lo revisa en cada avance.</p></li>
+      <li class="rv d3"><h3>Capacitación</h3><p>Enseñamos a secretaría y docentes a usarlo.</p></li>
+      <li class="rv"><h3>Soporte</h3><p>Acompañamos el ciclo y atendemos mejoras.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding-top:1rem">
+  <div class="wrap">
+    <div class="head center rv"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que suelen preguntarnos</h2></div>
+    <div class="faq">
+      <details open><summary>¿Es un sistema ya hecho que me venden?</summary><p>No. Cada sistema lo construimos desde lo que su academia necesita: sus áreas, sus cuotas, su forma de calificar y sus formatos. Lo que ve en esta página son ejemplos de lo que ya hemos hecho, no un paquete cerrado.</p></details>
+      <details><summary>¿Funciona si se va el internet?</summary><p>Sí. Se puede seguir matriculando y cobrando sin conexión, y todo se sincroniza solo cuando vuelve la red.</p></details>
+      <details><summary>¿Tengo que comprar equipos nuevos?</summary><p>No. Funciona en las computadoras y celulares que ya tiene la academia, desde el navegador. Para los tickets basta una impresora térmica común de 80 mm.</p></details>
+      <details><summary>¿Cómo se leen las fichas ópticas?</summary><p>Con la cámara de cualquier celular, dentro del mismo sistema. No se necesita un lector óptico especial.</p></details>
+      <details><summary>¿Los mensajes de WhatsApp salen de mi número?</summary><p>Sí. Se vincula el número de la academia y los avisos salen desde ahí, como si los escribiera la secretaria.</p></details>
+      <details><summary>¿Mis datos están seguros?</summary><p>Cada usuario entra con su propia cuenta y solo ve lo que le corresponde. La información se guarda en la nube con copias de seguridad.</p></details>
+      <details><summary>¿Cuánto tarda en estar listo?</summary><p>Depende de los módulos y ajustes que necesite. Lo definimos juntos en la primera reunión.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="contact rv">
+      <div style="display:grid;gap:1rem">
+        <h2>Cuéntenos qué necesita su academia</h2>
+        <p>Vamos a su academia, escuchamos sus necesidades y le mostramos ejemplos de lo que ya construimos. A partir de ahí diseñamos su sistema.</p>
+      </div>
+      <div class="card">
+        <small>WhatsApp · Pablo</small>
+        <span class="n" id="wa">+51 916 037 021</span>
+        <div class="row2">
+          <a class="btn wa" href="https://wa.me/51916037021?text=Hola%20Pablo%2C%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20academia" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          <button class="copy" type="button" id="copy">Copiar número</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site wrap">Desarrollo de software a medida para instituciones educativas · Perú</footer>
+
+<script>
+const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// contadores: muestran el valor final en reposo y cuentan desde 0 al aparecer
+function count(el){
+  const to=+el.dataset.to; if(still||!to) return;
+  const t0=performance.now(), dur=1200;
+  const step=t=>{const k=Math.min(1,(t-t0)/dur);el.textContent=Math.round(to*(1-Math.pow(1-k,3))).toLocaleString('es-PE');if(k<1)requestAnimationFrame(step)};
+  requestAnimationFrame(step);
+}
+document.querySelectorAll('.count').forEach(el=>el.textContent=(+el.dataset.to).toLocaleString('es-PE'));
+
+if('IntersectionObserver' in window && !still){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting) return;
+    e.target.classList.add('in');
+    e.target.querySelectorAll('.count').forEach(count);
+    io.unobserve(e.target);
+  }),{threshold:.15});
+  document.querySelectorAll('.rv,.stat').forEach(el=>io.observe(el));
+}
+
+// ficha óptica que se califica sola: correcta +6, incorrecta −0,07, en blanco 0
+const key=[2,0,3,1,4,2,0,1], ans=[2,0,1,1,4,-1,0,3], omr=document.getElementById('omr'), sc=document.getElementById('score');
+const rows=key.map((k,i)=>{
+  const r=document.createElement('div');r.className='orow';
+  r.innerHTML=`<span>${i+1}</span>`+'ABCDE'.split('').map(()=>'<span class="ob"></span>').join('')+'<span class="res"></span>';
+  omr.appendChild(r);return r;
+});
+function points(n){let p=0;for(let i=0;i<n;i++){if(ans[i]<0)continue;p+=ans[i]===key[i]?6:-0.07}return p}
+console.assert(Math.abs(points(8)-(5*6-2*0.07))<1e-9,'puntaje de ejemplo');
+function paint(n){
+  rows.forEach((r,i)=>{
+    const bs=r.querySelectorAll('.ob'), res=r.querySelector('.res');
+    bs.forEach((b,j)=>b.classList.toggle('on',i<n&&ans[i]===j));
+    res.className='res'; res.textContent='';
+    if(i<n){ if(ans[i]<0){res.textContent='–'} else if(ans[i]===key[i]){res.textContent='✓';res.classList.add('ok')} else {res.textContent='✕';res.classList.add('bad')} }
+  });
+  sc.textContent=n<key.length?'Leyendo… '+n+'/'+key.length:'Puntaje: '+points(n).toFixed(2).replace('.',',');
+}
+if(still){paint(key.length)}else{
+  let n=0; paint(0);
+  setInterval(()=>{n=n>key.length+5?0:n+1;paint(Math.min(n,key.length))},550);
+}
+
+// barra de progreso
+const prog=document.getElementById('prog');
+addEventListener('scroll',()=>{const h=document.documentElement;prog.style.setProperty('--p',h.scrollTop/((h.scrollHeight-h.clientHeight)||1))},{passive:true});
+
+// cinta: los nombres salen de las tarjetas de módulos, duplicados para el bucle
+const names=[...document.querySelectorAll('.mod h3')].map(h=>h.textContent);
+document.getElementById('track').innerHTML=[...names,...names].map(n=>`<span>${n}</span>`).join('');
+
+// palabra que se escribe y se borra
+const words=['matrículas','pagos y cuotas','exámenes con ficha óptica','avisos por WhatsApp','reportes y dashboards','lo que su academia necesite'], rot=document.getElementById('rot');
+if(!still){
+  let wi=0,ci=words[0].length,del=true;
+  (function tick(){
+    const w=words[wi];
+    if(del){ci--; if(ci<=0){del=false;wi=(wi+1)%words.length}}
+    else{ci++; if(ci>=words[wi].length){del=true;rot.textContent=words[wi];return setTimeout(tick,1700)}}
+    rot.textContent=words[wi].slice(0,Math.max(ci,0))||' ';
+    setTimeout(tick,del?35:70);
+  })();
+}
+
+// ventana del hero que se inclina con el mouse
+const art=document.querySelector('.hero-art'), win=art.querySelector('.app');
+if(!still && matchMedia('(hover:hover)').matches){
+  art.addEventListener('mousemove',e=>{const r=art.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;win.style.setProperty('--ry',(x*14)+'deg');win.style.setProperty('--rx',(-y*10)+'deg')});
+  art.addEventListener('mouseleave',()=>{win.style.removeProperty('--ry');win.style.removeProperty('--rx')});
+}
+
+// módulos: foco de luz, escalonado y filtros
+const mods=[...document.querySelectorAll('.mod')];
+mods.forEach((m,i)=>{
+  m.style.animationDelay=(i%4)*.08+'s';
+  m.addEventListener('pointermove',e=>{const r=m.getBoundingClientRect();m.style.setProperty('--x',e.clientX-r.left+'px');m.style.setProperty('--y',e.clientY-r.top+'px')});
+});
+document.querySelectorAll('.f').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.f').forEach(x=>x.classList.toggle('on',x===b));
+  const f=b.dataset.f; let k=0;
+  mods.forEach(m=>{
+    const show=f==='all'||m.dataset.cat===f;
+    m.hidden=!show; m.classList.remove('pop','rv','in');
+    if(show&&!still){void m.offsetWidth;m.style.animationDelay=(k++%4)*.06+'s';m.classList.add('pop')}
+  });
+}));
+
+document.getElementById('copy').addEventListener('click',e=>{
+  const b=e.currentTarget, el=document.getElementById('wa');
+  navigator.clipboard.writeText(el.textContent.replace(/\s/g,'')).then(()=>{b.textContent='Copiado'},()=>{getSelection().selectAllChildren(el)});
+});
+</script>
+</body>
+</html>
