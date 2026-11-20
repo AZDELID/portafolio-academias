@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Demos de sistemas</title>
+<meta name="description" content="Pruebe diez demos con datos de ejemplo: cobros, exámenes, avisos por WhatsApp, notas, orientación académica, trámites, punto de venta, reservas, pedidos e impresiones.">
+<meta property="og:title" content="Pruebe nuestros sistemas">
+<meta property="og:description" content="Diez demos que puede usar desde el celular: cobros, exámenes, WhatsApp, ventas, citas, pedidos, impresiones y más.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://portafolio-academias.vercel.app/demos.html">
+<meta property="og:image" content="https://portafolio-academias.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Sistemas a medida">
+<meta property="og:locale" content="es_PE">
+<link rel="canonical" href="https://portafolio-academias.vercel.app/demos.html">
+<script defer src="/_vercel/insights/script.js"></script>
+<meta name="theme-color" content="#1a8cf0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231a8cf0'/%3E%3Cstop offset='1' stop-color='%2313b5a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath d='M24 22l-10 10 10 10M40 22l10 10-10 10M35 18l-6 28' stroke='white' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Demos del portafolio. Mismos colores y componentes que index.html: si cambia un color allá, cámbielo también aquí. */
+:root{
+  --bg:#ffffff; --soft:#f1f7fe; --sky:#1a8cf0; --sky-2:#5fb8ff; --teal:#13b5a6;
+  --ink:#10243f; --muted:#5a6b83; --line:#e2ebf5; --ok:#16a34a; --bad:#e2475b; --warn:#f59e0b; --wa:#25d366;
+  --display:"Sora","Segoe UI",system-ui,sans-serif;
+  --body:"DM Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+html{scroll-behavior:smooth;scroll-padding-top:76px;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--body);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:41;background:#fff}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4,h5{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(1.9rem,4.2vw,2.8rem);font-weight:700;letter-spacing:-.02em}
+h2{font-size:clamp(1.3rem,2.4vw,1.7rem);font-weight:700}
+p{margin:0;max-width:62ch}
+.eyebrow{display:inline-block;font:700 .75rem/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--sky)}
+.lead{font-size:1.08rem;color:var(--muted)}
+.muted{color:var(--muted)}
+.num{font:600 .78rem var(--mono);color:var(--teal)}
+:focus-visible{outline:3px solid var(--sky-2);outline-offset:3px;border-radius:6px}
+[hidden]{display:none!important}
+@keyframes popin{from{opacity:0;transform:scale(.96) translateY(8px)}}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(26,140,240,.45)}
+.btn.primary{background:linear-gradient(90deg,var(--sky),var(--teal));color:#fff;border-color:transparent}
+.btn.wa{background:var(--wa);color:#fff;border-color:transparent}
+
+/* menú fijo */
+.topnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topnav .wrap{display:flex;align-items:center;gap:1.2rem;min-height:60px}
+.brand{display:flex;align-items:center;gap:.55rem;font:700 1rem var(--display);text-decoration:none;color:var(--ink);margin-right:auto;white-space:nowrap}
+.brand i{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--sky),var(--teal));display:grid;place-items:center;color:#fff;font:700 .8rem var(--mono);font-style:normal}
+.back{font-weight:600;font-size:.93rem;color:var(--muted);text-decoration:none;white-space:nowrap}
+.back:hover{color:var(--sky)}
+.topnav .btn{padding:.55rem 1.05rem;font-size:.9rem}
+@media (max-width:560px){.back{display:none}}
+@media (max-width:380px){.topnav .wrap{gap:.6rem}.brand{font-size:.9rem;gap:.4rem}.brand i{width:24px;height:24px;font-size:.7rem}.topnav .btn{padding:.45rem .75rem;font-size:.8rem}}
+
+/* encabezado */
+.dhero{background:radial-gradient(900px 380px at 85% -20%,#dff0ff 0,transparent 60%),radial-gradient(700px 320px at -10% 10%,#e3fbf7 0,transparent 55%);padding-block:2.4rem 1.4rem}
+.dhero .wrap{display:grid;gap:.8rem}
+
+/* menú de demos a la izquierda, demo elegida a la derecha */
+.lab{display:grid;grid-template-columns:240px minmax(0,1fr);gap:2.2rem;align-items:start;padding-block:1rem 3rem}
+.dnav{position:sticky;top:76px;display:grid;gap:1.1rem}
+.grp{display:grid;gap:.25rem}
+.grp h2{font:700 .7rem var(--body);letter-spacing:.11em;text-transform:uppercase;color:var(--teal);margin:0 0 .2rem .3rem}
+.dnav a{display:flex;align-items:center;gap:.65rem;padding:.5rem .7rem;border-radius:12px;border:1.5px solid transparent;text-decoration:none;color:var(--ink);font-weight:600;font-size:.92rem;line-height:1.25;transition:background .2s,border-color .2s}
+.dnav a:hover{background:var(--soft)}
+.dnav a[aria-current="true"]{background:#eef7ff;border-color:var(--sky);box-shadow:0 10px 22px -16px rgba(26,140,240,.75)}
+.dnav .t{display:grid}
+.dnav small{display:none;font:700 .6rem var(--body);letter-spacing:.09em;text-transform:uppercase;color:var(--teal)}
+.ic{flex:none;width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,#e3f2ff,#dcfaf5)}
+.ic svg{width:17px;height:17px;stroke:var(--sky);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* cada demo */
+.stage{display:grid;gap:1rem;min-width:0}
+.panel{display:grid;gap:1rem}
+.panel:not([hidden]){animation:popin .35s both}
+.phead{display:grid;gap:.6rem}
+.flow{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem;counter-reset:f}
+.flow li{counter-increment:f;display:flex;align-items:center;gap:.45rem;font-size:.86rem;background:var(--soft);border-radius:999px;padding:.28rem .8rem .28rem .3rem}
+.flow li::before{content:counter(f);flex:none;width:1.4rem;height:1.4rem;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--teal));color:#fff;font:600 .7rem var(--mono);display:grid;place-items:center}
+.try{font-size:.88rem;background:#fff8e6;border:1px solid #fde7b0;border-radius:12px;padding:.6rem .9rem;max-width:none}
+.note{font-size:.8rem;color:var(--muted);max-width:none}
+
+/* ventana de app simulada y sus piezas */
+.app{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 60px -30px rgba(16,36,63,.35);overflow:hidden;min-width:0}
+.app .bar{display:flex;align-items:center;gap:.4rem;padding:.6rem .9rem;background:var(--soft);border-bottom:1px solid var(--line)}
+.app .bar i{width:10px;height:10px;border-radius:50%;background:#cfdcea}
+.app .bar span{margin-left:.6rem;font:500 .72rem var(--mono);color:var(--muted)}
+.demo{padding:1.1rem;display:grid;gap:.85rem;align-content:start;min-height:400px;font-size:.88rem}
+.split{display:grid;grid-template-columns:1.25fr 1fr;gap:.9rem;align-items:start}
+.split>*{min-width:0}
+.dbtn{font:700 .82rem var(--body);padding:.55rem .95rem;border-radius:10px;border:0;background:linear-gradient(90deg,var(--sky),var(--teal));color:#fff;cursor:pointer;transition:transform .15s,opacity .2s}
+.dbtn:hover{transform:translateY(-1px)}
+.dbtn.ghost{background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+.dbtn[aria-pressed="true"]{background:var(--ink);color:#fff}
+.dbtn:disabled{opacity:.4;cursor:default;transform:none}
+.drow{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.din{font:500 .85rem var(--body);padding:.5rem .65rem;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);min-width:0;box-sizing:border-box}
+.din:focus{outline:none;border-color:var(--sky-2)}
+.din:disabled{background:var(--soft)}
+.scroll{overflow-x:auto}
+.dt{width:100%;border-collapse:collapse;font-size:.84rem}
+.dt th{text-align:left;font-weight:500;color:var(--muted);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;padding:.45rem .5rem;border-bottom:1px solid var(--line)}
+.dt td{padding:.5rem;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.dt .din{width:3.4rem;padding:.3rem .4rem;text-align:center}
+.dt tr.pick{cursor:pointer}.dt tr.pick:hover td{background:#f6fbff}
+.dt tr.sel td{background:#eaf5ff}
+.pill{font-size:.68rem;font-weight:700;padding:.15rem .5rem;border-radius:999px;white-space:nowrap}
+.pill.ok{background:#dcfce7;color:#15803d}.pill.warn{background:#fef3c7;color:#b45309}.pill.bad{background:#ffe1e5;color:#c0263a}
+.box{background:var(--soft);border-radius:12px;padding:.8rem;display:grid;gap:.5rem}
+.box h4,.kcol h4{font-size:.82rem;font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}
+.kpi{background:var(--soft);border-radius:10px;padding:.6rem .75rem;min-width:0}
+.kpi small{display:block;font-size:.72rem;color:var(--muted)}
+.kpi strong{font:600 1.15rem var(--display);font-variant-numeric:tabular-nums}
+.meter{height:8px;border-radius:99px;background:var(--soft);overflow:hidden;flex:1 1 140px;align-self:center}
+.meter i{display:block;height:100%;width:var(--w,0%);background:linear-gradient(90deg,var(--sky),var(--teal));border-radius:99px;transition:width .4s}
+.ticket{font:500 .74rem/1.5 var(--mono);background:#fff;border:1px dashed #b9c7d6;border-radius:6px;padding:.8rem 1rem;max-width:300px;white-space:pre;overflow-x:auto;animation:popin .35s both}
+/* exámenes */
+.ql{margin:0;padding-left:1.1rem;display:grid;gap:.25rem;font-size:.8rem;color:var(--muted)}
+.ql b{color:var(--ink)}
+.omrcard{position:relative;background:#fff;border:1px solid #f6c7ce;border-radius:10px;padding:.7rem;display:grid;gap:.4rem;overflow:hidden}
+.omrcard.scan::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--teal);box-shadow:0 0 14px 2px var(--teal);animation:scan 1.1s linear}
+@keyframes scan{to{top:100%}}
+.bub{display:grid;grid-template-columns:1.2rem repeat(5,1fr);gap:.3rem;align-items:center;font:500 .7rem var(--mono);color:#e86a7c}
+.bub button{aspect-ratio:1;width:100%;max-width:30px;justify-self:center;border-radius:50%;border:1.5px solid #f0a3ae;background:#fff;color:#e86a7c;font:600 .66rem var(--mono);cursor:pointer;padding:0}
+.bub button.on{background:#2b2f36;border-color:#2b2f36;color:#fff}
+.rank{display:grid;gap:.3rem}
+.rk{display:grid;grid-template-columns:1.2rem 1fr auto;gap:.4rem;align-items:center;font-size:.8rem;background:#fff;border-radius:8px;padding:.35rem .5rem}
+.rk b{font-family:var(--mono);color:var(--sky)}
+.rk i{font-style:normal;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.rk.me{outline:2px solid var(--teal);animation:popin .4s both}
+.score{font:600 .78rem var(--mono);text-align:center;color:var(--ink);background:#fff;border-radius:8px;padding:.35rem}
+/* WhatsApp */
+.acts{display:grid;gap:.45rem}
+.acts .dbtn{text-align:left}
+.phone{width:min(300px,100%);margin-inline:auto;background:#10243f;border-radius:34px;padding:10px;box-shadow:0 30px 60px -28px rgba(16,36,63,.55)}
+.screen{border-radius:26px;overflow:hidden;background:#efe7dc}
+.wahead{background:#0b7d6e;color:#fff;display:flex;gap:.6rem;align-items:center;padding:.8rem .9rem;font-size:.82rem}
+.wahead i{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--sky-2),var(--teal))}
+.wahead small{display:block;font-size:.66rem;opacity:.8}
+.typing{font-style:italic}
+.chat{display:grid;gap:.5rem;padding:.9rem .7rem 1.1rem;min-height:330px;max-height:360px;overflow:hidden;align-content:start}
+.msg{background:#fff;border-radius:10px 10px 10px 2px;padding:.5rem .65rem;font-size:.78rem;line-height:1.4;max-width:92%;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.msg time{display:block;text-align:right;font-size:.62rem;color:#8a96a3;margin-top:.15rem}
+.msg strong{color:#0b7d6e}
+.msg.pop{animation:popin .35s both}
+.wamini{background:#efe7dc;border-radius:12px;padding:.7rem;display:grid}
+/* notas y orientación */
+.card2{background:#fff;border:1px solid var(--line);border-radius:12px;padding:.9rem;display:grid;gap:.5rem}
+.big2{font:700 1.8rem/1 var(--display);font-variant-numeric:tabular-nums}
+.rng{display:grid;grid-template-columns:8rem 1fr 2rem;gap:.5rem;align-items:center;font-size:.84rem}
+.rng input{accent-color:var(--sky);width:100%}
+.rng b{font-family:var(--mono);text-align:right}
+.rng.low b{color:var(--bad)}
+/* FUT */
+.chips2{display:flex;flex-wrap:wrap;gap:.35rem}
+.chips2 button{font:600 .76rem var(--body);padding:.3rem .7rem;border-radius:999px;border:1px dashed #9fcdf5;background:#fff;color:var(--sky);cursor:pointer}
+.chips2 button[aria-pressed="true"]{background:var(--sky);color:#fff;border-style:solid}
+.hoja{background:#fff;border:1px solid #d9e2ec;border-radius:4px;padding:1rem 1.1rem;font-size:.76rem;line-height:1.45;display:grid;gap:.45rem;box-shadow:0 12px 30px -20px rgba(16,36,63,.5);animation:popin .4s both}
+.hoja h5{text-align:center;font-size:.82rem;letter-spacing:.05em}
+.hoja dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.2rem .6rem}
+.hoja dt{font-weight:700}.hoja dd{margin:0}
+.step-off{opacity:.45;pointer-events:none}
+/* tienda */
+.prods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;align-content:start}
+.prod{font:500 .8rem var(--body);text-align:left;display:grid;gap:.2rem;padding:.6rem .7rem;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:border-color .2s,transform .15s}
+.prod:hover{border-color:#bfe0ff;transform:translateY(-1px)}
+.prod:disabled{opacity:.5;cursor:default;transform:none}
+.prod .pill{justify-self:start}
+.cart{display:grid;gap:.3rem}
+.cline{display:grid;grid-template-columns:1fr auto auto;gap:.5rem;align-items:center;font-size:.8rem;background:#fff;border-radius:8px;padding:.35rem .5rem}
+.mini{width:1.6rem;height:1.6rem;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;font-weight:700;line-height:1;padding:0}
+/* citas */
+.slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.45rem}
+.slot{font:600 .82rem var(--mono);display:grid;gap:.1rem;padding:.55rem .4rem;border-radius:10px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;text-align:center;min-width:0}
+.slot small{font:600 .66rem var(--body);color:var(--ok);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.slot:disabled{background:var(--soft);cursor:default}
+.slot:disabled small{color:var(--muted)}
+.slot[aria-pressed="true"]{border-color:var(--sky);background:#eef7ff}
+/* restaurante */
+.menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}
+.dish{font:600 .8rem var(--body);text-align:left;display:flex;justify-content:space-between;align-items:center;gap:.4rem;padding:.55rem .7rem;border-radius:10px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.dish small{display:block;font-weight:500;font-size:.72rem}
+.dish em{font:600 .72rem var(--mono);font-style:normal;background:var(--sky);color:#fff;border-radius:99px;padding:.05rem .45rem}
+.kboard{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.kcol{display:grid;gap:.5rem;align-content:start;min-height:140px;background:var(--soft);border-radius:12px;padding:.7rem;min-width:0}
+.kcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.6rem;display:grid;gap:.35rem;font-size:.8rem;animation:popin .3s both}
+.kcard ul{margin:0;padding-left:1rem}
+
+/* copias e impresiones */
+.drop{position:relative;display:grid;gap:.2rem;justify-items:center;text-align:center;padding:1rem;border:2px dashed #9fcdf5;border-radius:12px;background:#fff;cursor:pointer;transition:border-color .2s,background .2s}
+.drop:hover,.drop.over{border-color:var(--sky);background:#eef7ff}
+.drop:focus-within{outline:3px solid var(--sky-2);outline-offset:2px}
+.drop input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.drop b{font-size:.88rem}
+.drop small{color:var(--muted);font-size:.74rem}
+.docrow{display:flex;gap:.7rem;align-items:center;color:var(--ink)}
+.docrow canvas,.docrow img{width:56px;height:auto;max-height:78px;object-fit:cover;border:1px solid var(--line);border-radius:4px;background:#fff;flex:none}
+.cuenta{background:#fff;border-radius:10px;padding:.6rem .75rem;display:grid;gap:.25rem;font-size:.8rem;font-variant-numeric:tabular-nums}
+.cuenta:empty{display:none}
+.cuenta .tot{display:flex;justify-content:space-between;font:700 1rem var(--display);border-top:1px dashed var(--line);padding-top:.35rem;margin-top:.15rem}
+.yape{display:flex;gap:.8rem;align-items:center;background:#fff;border-radius:10px;padding:.6rem}
+.yape b{display:block;font:700 1.2rem var(--display)}
+.yape span,.yape small{display:block;font-size:.76rem;color:var(--muted)}
+.qr{width:72px;height:72px;flex:none;border-radius:8px;border:5px solid #fff;outline:1px solid var(--line);background:repeating-conic-gradient(#10243f 0 25%,#fff 0 50%) 0 0/12px 12px}
+.recibo{background:#fff;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:.6rem .75rem;display:grid;gap:.15rem;font-size:.8rem}
+.recibo small{font:700 .62rem var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.res-ok,.res-bad{border-radius:12px;padding:.75rem .9rem;font-size:.84rem;animation:popin .35s both}
+.res-ok{background:#dcfce7;color:#14532d}
+.res-bad{background:#ffe1e5;color:#7f1d2d}
+.ownhead{background:#10243f;color:#fff;display:flex;gap:.6rem;align-items:center;padding:.8rem .9rem;font-size:.82rem}
+.ownhead i{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,var(--teal))}
+.ownhead small{display:block;font-size:.66rem;opacity:.8}
+.cp-chat{min-height:200px;max-height:240px}
+.logt{width:100%;border-collapse:collapse;font-size:.76rem}
+.logt td{padding:.3rem .35rem;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+#cp-cola{display:grid;gap:.45rem}
+.colaitem{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.55rem .65rem;display:grid;gap:.3rem;font-size:.8rem;animation:popin .3s both}
+
+/* cierre */
+.endcta{background:linear-gradient(120deg,var(--sky),var(--teal));color:#fff;border-radius:24px;padding:2.2rem max(1.2rem,3vw);display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between;margin-bottom:2rem}
+.endcta h2{color:#fff}
+.endcta p{color:#e8f6ff;margin-top:.4rem}
+.endcta .btn{border-color:transparent}
+.row2{display:flex;flex-wrap:wrap;gap:.6rem}
+.foot{background:#0d1f38;color:#b9cde3;margin-top:2rem;padding-block:3.5rem 1.6rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:2rem}
+.foot-grid>*{min-width:0}
+.foot .brand{color:#fff;margin:0}
+.foot-brand{display:grid;gap:1rem;justify-items:start}
+.foot p{color:#b9cde3;font-size:.92rem}
+.foot h3{font:700 .75rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:#7fd8ff;margin-bottom:.4rem}
+.foot-col{display:grid;gap:.45rem;align-content:start;font-size:.93rem}
+.foot a{color:#d6e6f5;text-decoration:none}
+.foot a:hover{color:#fff;text-decoration:underline}
+.foot .btn.wa{color:#fff;text-decoration:none}
+.foot-bar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem;border-top:1px solid rgba(255,255,255,.12);margin-top:2.4rem;padding-top:1.2rem;padding-right:72px;font-size:.85rem}
+@media (max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
+.wa-float{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:45;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 26px -8px rgba(37,211,102,.7);transition:transform .2s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float span{position:absolute;right:68px;white-space:nowrap;background:#fff;color:var(--ink);font-weight:700;font-size:.85rem;padding:.45rem .8rem;border-radius:999px;box-shadow:0 8px 20px -10px rgba(16,36,63,.4);opacity:0;transform:translateX(6px);transition:all .2s;pointer-events:none}
+.wa-float:hover span,.wa-float:focus-visible span{opacity:1;transform:none}
+
+@media (max-width:960px){
+  .lab{grid-template-columns:1fr;gap:1.1rem}
+  .dnav{position:static;display:flex;gap:.5rem;overflow-x:auto;padding:.2rem .1rem .6rem;scrollbar-width:thin}
+  .grp{display:contents}
+  .grp h2,.dnav .ic{display:none}
+  .dnav a{flex:none;border-color:var(--line);background:#fff;padding:.5rem .85rem}
+  .dnav small{display:block}
+}
+@media (max-width:620px){
+  .split{grid-template-columns:1fr}
+  .rng{grid-template-columns:6rem 1fr 2rem}
+  .demo{padding:.85rem}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Principal">
+  <div class="wrap">
+    <a class="brand" href="index.html"><i>&lt;/&gt;</i>Sistemas a medida</a>
+    <a class="back" href="index.html">← Volver al inicio</a>
+    <a class="btn primary wa-link" href="https://wa.me/51916037021" target="_blank" rel="noopener">Contactar</a>
+  </div>
+</nav>
+<a class="wa-float wa-link" href="https://wa.me/51916037021" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><span>¿Conversamos?</span><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>
+
+<header class="dhero">
+  <div class="wrap">
+    <span class="eyebrow">Pruébelo usted mismo</span>
+    <h1>Sistemas que puede usar ahora</h1>
+    <p class="lead">Elija uno y úselo como si fuera suyo. Nada de lo que haga aquí se guarda ni se envía.</p>
+  </div>
+</header>
+
+<main class="wrap lab">
+  <nav class="dnav" aria-label="Elegir demo">
+    <div class="grp"><h2>Casos reales</h2>
+      <a href="#cobros" data-d="cobros" data-n="Cobros y pagos"><span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><span class="t"><small>Caso real</small>Cobros y pagos</span></a>
+      <a href="#examenes" data-d="examenes" data-n="Exámenes"><span class="ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></span><span class="t"><small>Caso real</small>Exámenes</span></a>
+      <a href="#whatsapp" data-d="whatsapp" data-n="Avisos por WhatsApp"><span class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="t"><small>Caso real</small>Avisos por WhatsApp</span></a>
+    </div>
+    <div class="grp"><h2>Proyectos</h2>
+      <a href="#notas" data-d="notas" data-n="Notas escolares"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M8 7h8M8 11h6"/></svg></span><span class="t"><small>Proyecto</small>Notas escolares</span></a>
+      <a href="#orientacion" data-d="orientacion" data-n="Orientación académica"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8l-2 6-6 2 2-6z"/></svg></span><span class="t"><small>Proyecto</small>Orientación académica</span></a>
+      <a href="#fut" data-d="fut" data-n="Generador de FUT"><span class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></span><span class="t"><small>Proyecto</small>Generador de FUT</span></a>
+    </div>
+    <div class="grp"><h2>Ejemplos para negocios</h2>
+      <a href="#tienda" data-d="tienda" data-n="Punto de venta"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg></span><span class="t"><small>Ejemplo</small>Punto de venta</span></a>
+      <a href="#citas" data-d="citas" data-n="Reservas y citas"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span><span class="t"><small>Ejemplo</small>Reservas y citas</span></a>
+      <a href="#restaurante" data-d="restaurante" data-n="Pedidos a cocina"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 2v7a3 3 0 0 0 6 0V2M6 2v20M18 2c-2 0-3 2-3 5s1 5 3 5v10"/></svg></span><span class="t"><small>Ejemplo</small>Pedidos a cocina</span></a>
+      <a href="#copias" data-d="copias" data-n="Copias e impresiones"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><rect x="2" y="9" width="20" height="9" rx="2"/><path d="M6 14h12v8H6z"/></svg></span><span class="t"><small>Ejemplo</small>Copias e impresiones</span></a>
+    </div>
+  </nav>
+
+  <div class="stage">
+    <section class="panel" id="p-cobros" aria-labelledby="h-cobros">
+      <div class="phead">
+        <span class="num">CASO REAL · COBROS Y PAGOS</span>
+        <h2 id="h-cobros">Registre un pago y vea qué cambia</h2>
+        <ol class="flow"><li>Elija un alumno</li><li>Escriba el monto</li><li>Sale el ticket y todo se actualiza</li></ol>
+        <p class="try"><b>Pruebe:</b> toque a Diego Ramos, pague S/ 250 y active «Ver solo morosos».</p>
+      </div>
+      <div class="app"><div class="bar"><i></i><i></i><i></i><span>cobros · ciclo 2026-II</span></div><div class="demo" id="d-cobros"></div></div>
+    </section>
+
+    <section class="panel" id="p-examenes" aria-labelledby="h-examenes" hidden>
+      <div class="phead">
+        <span class="num">CASO REAL · EVALUACIONES</span>
+        <h2 id="h-examenes">Rellene la ficha y califíquela</h2>
+        <ol class="flow"><li>El docente carga la clave</li><li>El alumno marca su ficha</li><li>Una foto con el celular la califica</li></ol>
+        <p class="try"><b>Pruebe:</b> marque sus respuestas y toque «Calificar con la cámara». Correcta +6, incorrecta −0,07, en blanco 0.</p>
+      </div>
+      <div class="app"><div class="bar"><i></i><i></i><i></i><span>exámenes · simulacro 4</span></div><div class="demo" id="d-examenes"></div></div>
+    </section>
+
+    <section class="panel" id="p-whatsapp" aria-labelledby="h-whatsapp" hidden>
+      <div class="phead">
+        <span class="num">CASO REAL · AVISOS POR WHATSAPP</span>
+        <h2 id="h-whatsapp">Cada acción del sistema avisa sola</h2>
+        <ol class="flow"><li>Alguien cobra o toma asistencia</li><li>El sistema arma el mensaje</li><li>Llega al WhatsApp del cliente</li></ol>
+        <p class="try"><b>Pruebe:</b> toque las acciones y mire el celular del padre de familia.</p>
+      </div>
+      <div class="app"><div class="bar"><i></i><i></i><i></i><span>avisos</span></div><div class="demo" id="d-whatsapp"></div></div>
+    </section>
+
+    <section class="panel" id="p-notas" aria-labelledby="h-notas" hidden>
+      <div class="phead">
+        <span class="num">PROYECTO · PLATAFORMA DE NOTAS</span>
+        <h2 id="h-notas">El docente escribe, el alumno lo ve al instante</h2>
+        <ol class="flow"><li>El docente registra notas</li><li>Se calculan promedio y puesto</li><li>El estudiante ve solo lo suyo</li></ol>
+        <p class="try"><b>Pruebe:</b> cambie una nota de María Soto y luego entre como ella.</p>
+      </div>
+      <div class="app"><div class="bar"><i></i><i></i><i></i><span>notas · matemática</span></div><div class="demo" id="d-notas"></div></div>
+    </section>
+
+    <section class="panel" id="p-orientacion" aria-labelledby="h-orientacion" hidden>
+      <div class="phead">
+        <span class="num">PROYECTO · ORIENTACIÓN ACADÉMICA</span>
+        <h2 id="h-orientacion">Simule su semestre antes de vivirlo</h2>
+        <ol class="flow"><li>Ponga la nota que espera</li><li>Vea su promedio ponderado</li><li>Mire cuánto avanza en la carrera</li></ol>
+        <p class="try"><b>Pruebe:</b> mueva Física I a 11 o más y mire la barra de avance.</p>
+      </div>
+      <div class="app"><div class="bar"><i></i><i></i><i></i><span>orientación · simulador</span></div><div class="demo" id="d-orientacion"></div></div>
+    </section>
+
+    <section class="panel" id="p-fut" aria-labelledby="h-fut" hidden>
+      <div class="phead">
+        <span class="num">PROYECTO · GENERADOR DE FUT</span>
+        <h2 id="h-fut">De «necesito una constancia» al documento listo</h2>
+        <ol class="flow"><li>Escriba qué necesita</li><li>Ponga su código</li><li>Revise y descargue el FUT</li></ol>
+        <p class="try"><b>Pruebe:</b> escriba «quiero corregir mi nota» y cualquier código.</p>
+      </div>
+      <div class="app"><div class="bar"><i></i><i></i><i></i><span>fut · asistente</span></div><div class="demo" id="d-fut"></div></div>
+    </section>
+
+    <section class="panel" id="p-tienda" aria-labelledby="h-tienda" hidden>
+      <div class="phead">
+        <span class="num">EJEMPLO · TIENDA O BODEGA</span>
+        <h2 id="h-tienda">Venda y vea cómo se descuenta el stock</h2>
+        <ol class="flow"><li>Toque los productos</li><li>Cobre la venta</li><li>El stock baja solo y avisa lo que se acaba</li></ol>
+        <p class="try"><b>Pruebe:</b> venda las 2 latas de atún y mire el aviso de inventario.</p>
+      </div>
+      <div class="app"><div class="bar"><i></i><i></i><i></i><span>caja · punto de venta</span></div><div class="demo" id="d-tienda"></div></div>
+    </section>
+
+    <section class="panel" id="p-citas" aria-labelledby="h-citas" hidden>
+      <div class="phead">
+        <span class="num">EJEMPLO · CONSULTORIO</span>
+        <h2 id="h-citas">Reserve una cita y confírmela por WhatsApp</h2>
+        <ol class="flow"><li>Elija un horario libre</li><li>Escriba el nombre</li><li>Queda agendada y se confirma sola</li></ol>
+        <p class="try"><b>Pruebe:</b> elija las 10:30, escriba su nombre y reserve.</p>
+      </div>
+      <div class="app"><div class="bar"><i></i><i></i><i></i><span>agenda · consultorio</span></div><div class="demo" id="d-citas"></div></div>
+    </section>
+
+    <section class="panel" id="p-restaurante" aria-labelledby="h-restaurante" hidden>
+      <div class="phead">
+        <span class="num">EJEMPLO · RESTAURANTE</span>
+        <h2 id="h-restaurante">Del pedido a la cocina, sin papelitos</h2>
+        <ol class="flow"><li>Tome el pedido de la mesa</li><li>Llega a la pantalla de cocina</li><li>Se marca listo y se cobra</li></ol>
+        <p class="try"><b>Pruebe:</b> pida 2 lomos saltados para la Mesa 5 y envíelos a cocina.</p>
+      </div>
+      <div class="app"><div class="bar"><i></i><i></i><i></i><span>pedidos · cocina</span></div><div class="demo" id="d-restaurante"></div></div>
+    </section>
+
+    <section class="panel" id="p-copias" aria-labelledby="h-copias" hidden>
+      <div class="phead">
+        <span class="num">EJEMPLO · COPIAS E IMPRESIONES</span>
+        <h2 id="h-copias">Suba su archivo, pague con Yape y recójalo listo</h2>
+        <ol class="flow"><li>Sube su PDF y ve el precio</li><li>Paga con Yape y adjunta la captura</li><li>Se cruza con el celular del dueño</li></ol>
+        <p class="try"><b>Pruebe:</b> suba cualquier PDF (no sale de su equipo), simule el Yape y envíe el pedido. Luego pruebe con «otro monto» o cambie el monto de la captura.</p>
+      </div>
+      <div class="app"><div class="bar"><i></i><i></i><i></i><span>copias · pedido en línea</span></div><div class="demo" id="d-copias"></div></div>
+    </section>
+
+    <p class="note">Los casos reales y los proyectos ya funcionan. Los ejemplos muestran cómo haríamos el sistema de su negocio. Todos los nombres y montos son inventados.</p>
+  </div>
+</main>
+
+<section class="wrap">
+  <div class="endcta">
+    <div><h2>¿Quiere un sistema así para su negocio?</h2><p>Lo hacemos a su medida: con sus productos, sus precios y su forma de trabajar.</p></div>
+    <div class="row2"><a class="btn wa wa-link" href="https://wa.me/51916037021" target="_blank" rel="noopener">Escribir por WhatsApp</a><a class="btn" href="index.html">Volver al inicio</a></div>
+  </div>
+</section>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html"><i>&lt;/&gt;</i>Sistemas a medida</a>
+        <p>Desarrollamos sistemas, páginas web y apps a la medida de cada negocio.</p>
+        <a class="btn wa wa-link" href="https://wa.me/51916037021" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
+      <nav class="foot-col" aria-label="Secciones del sitio"><h3>Explorar</h3><a href="index.html#experiencia">Casos reales</a><a href="index.html#negocios">Para quién trabajamos</a><a href="index.html#modulos">Módulos</a><a href="index.html#trabajo">Cómo trabajamos</a><a href="index.html#armar">Arme su sistema</a><a href="index.html#faq">Preguntas frecuentes</a></nav>
+      <nav class="foot-col" aria-label="Recursos"><h3>Recursos</h3><a href="demos.html">Demos</a><a href="caso-academia.html">Caso de estudio</a><a href="privacidad.html">Aviso de privacidad</a></nav>
+      <div class="foot-col"><h3>Contacto</h3><a href="https://wa.me/51916037021" target="_blank" rel="noopener">WhatsApp +51 916 037 021</a><span>Atención por WhatsApp</span><span>Perú</span></div>
+    </div>
+    <div class="foot-bar"><span>© <span class="year">2026</span> Sistemas a medida · Hecho en Perú</span><a href="privacidad.html">Aviso de privacidad</a></div>
+  </div>
+</footer>
+
+<script>
+const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=s=>document.querySelector(s), soles=n=>'S/ '+n.toFixed(2), dec=(n,d=2)=>n.toFixed(d).replace('.',','), esc=s=>s.replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
+
+document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());
+
+// menú: muestra una demo a la vez; el #hash permite abrir una demo directa desde el inicio (demos.html#tienda)
+const WA='51916037021', links=[...document.querySelectorAll('.dnav a')];
+let curId;
+function show(id){
+  if(!document.getElementById('p-'+id)) id='cobros';
+  curId=id;
+  links.forEach(a=>a.setAttribute('aria-current',a.dataset.d===id));
+  document.querySelectorAll('.panel').forEach(p=>p.hidden=p.id!=='p-'+id);
+  const cur=links.find(a=>a.dataset.d===id), nav=cur.closest('.dnav');
+  nav.scrollLeft+=cur.getBoundingClientRect().left-nav.getBoundingClientRect().left-16; // en celular el menú es una fila: la corre hasta la demo elegida
+  const href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola Pablo, probé la demo «'+cur.dataset.n+'» y quisiera conversar sobre un sistema para mi negocio');
+  document.querySelectorAll('.wa-link').forEach(a=>a.href=href);
+}
+links.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();show(a.dataset.d);try{history.replaceState(null,'','#'+a.dataset.d)}catch(_){}}));
+addEventListener('hashchange',()=>show(location.hash.slice(1)));
+show(location.hash.slice(1));
+document.fonts.ready.then(()=>show(curId)); // al cargar la fuente los botones se ensanchan: se vuelve a correr la fila
+
+// 1. Cobros: elegir alumno, pagar (parcial o total), ticket y avance del ciclo
+(()=>{
+  const box=$('#d-cobros'), A=[['Ana Quispe',0],['Luis Rojas',250],['María Soto',125],['Diego Ramos',500],['Rosa Huamán',200]].map(([n,d])=>({n,d})), TOTAL=5000;
+  let sel=3, only=false, tk=124;
+  box.innerHTML=`<label class="drow"><input type="checkbox" id="c-mor"> Ver solo morosos</label>
+  <div class="scroll"><table class="dt"><thead><tr><th>Alumno</th><th>Debe</th><th>Estado</th></tr></thead><tbody id="c-body"></tbody></table></div>
+  <div class="box"><span id="c-who"></span><div class="drow"><input class="din" id="c-amt" type="number" min="1" step="1" style="width:7.5rem" aria-label="Monto a pagar en soles"><button class="dbtn" id="c-pay" type="button">Registrar pago</button></div></div>
+  <div class="drow" style="justify-content:space-between"><span id="c-pct"></span><div class="meter"><i id="c-bar"></i></div></div>
+  <div id="c-tk"></div>`;
+  const st=d=>d===0?'<span class="pill ok">Al día</span>':d<=250?'<span class="pill warn">Debe</span>':'<span class="pill bad">Atrasado</span>';
+  function render(){
+    $('#c-body').innerHTML=A.map((a,i)=>only&&!a.d?'':`<tr class="pick${i===sel?' sel':''}" data-i="${i}"><td>${a.n}</td><td>${soles(a.d)}</td><td>${st(a.d)}</td></tr>`).join('');
+    const a=A[sel]; $('#c-who').innerHTML=`<b>${a.n}</b> ${a.d?'debe '+soles(a.d):'está al día'}`;
+    $('#c-amt').value=a.d||''; $('#c-amt').max=a.d; $('#c-amt').disabled=$('#c-pay').disabled=!a.d;
+    const got=TOTAL-A.reduce((s,a)=>s+a.d,0); $('#c-pct').innerHTML=`Cobrado del ciclo: <b>${Math.round(got/TOTAL*100)}%</b> · ${soles(got)}`;
+    $('#c-bar').style.setProperty('--w',got/TOTAL*100+'%');
+  }
+  $('#c-body').addEventListener('click',e=>{const r=e.target.closest('tr');if(r){sel=+r.dataset.i;render()}});
+  $('#c-mor').addEventListener('change',e=>{only=e.target.checked;render()});
+  $('#c-pay').addEventListener('click',()=>{
+    const a=A[sel], v=Math.min(Math.round(+$('#c-amt').value*100)/100,a.d); if(!(v>0)) return;
+    a.d=Math.round((a.d-v)*100)/100; tk++;
+    $('#c-tk').innerHTML=`<div class="ticket">   ACADEMIA · DEMO\nTicket N° ${String(tk).padStart(6,'0')}\n${new Date().toLocaleString('es-PE',{dateStyle:'short',timeStyle:'short'})}\n----------------------\nAlumno: ${a.n}\nPagó:   ${soles(v)}\nSaldo:  ${soles(a.d)}\n----------------------\n   ¡Gracias por su pago!</div>`;
+    render();
+  });
+  render();
+})();
+
+// 2. Exámenes: el visitante marca la ficha, se "escanea" y entra al ranking
+const Q=[['3x − 5 = 16, x =','5|6|7|8|9',2],['Sinónimo de «efímero»','eterno|breve|firme|amplio|lento',1],['Unidad de la fuerza (SI)','joule|watt|pascal|newton|voltio',3],['√81 =','7|8|9|10|11',2],['Plural de «lápiz»','lápizes|lápices|lápiz|lapis|lápizs',1]];
+const examPts=m=>m.reduce((p,a,i)=>a<0?p:p+(a===Q[i][2]?6:-0.07),0);
+console.assert(Math.abs(examPts([2,1,0,-1,1])-(18-0.07))<1e-9,'puntaje demo examen');
+(()=>{
+  const box=$('#d-examenes'), m=Q.map(()=>-1), base=[['Rosa H.',30],['Ana Q.',23.93],['Luis R.',17.86],['María S.',11.93]];
+  box.innerHTML=`<ol class="ql">${Q.map(([q,o])=>`<li><b>${q}</b> ${o.split('|').map((x,j)=>'ABCDE'[j]+') '+x).join(' · ')}</li>`).join('')}</ol>
+  <div class="split"><div class="omrcard" id="e-card">${Q.map((_,i)=>`<div class="bub"><span>${i+1}</span>${'ABCDE'.split('').map((l,j)=>`<button type="button" data-q="${i}" data-o="${j}" aria-label="Pregunta ${i+1}, opción ${l}">${l}</button>`).join('')}</div>`).join('')}
+  <div class="drow" style="margin-top:.3rem"><button class="dbtn" id="e-go" type="button">Calificar con la cámara</button><button class="dbtn ghost" id="e-new" type="button">Otra ficha</button></div></div>
+  <div class="box"><h4>Ranking · Simulacro 4</h4><div class="score" id="e-sc">Marque y califique</div><div class="rank" id="e-rk"></div></div></div>`;
+  const card=$('#e-card');
+  function rank(me){const l=[...base];if(me!=null)l.push(['Usted',me]);l.sort((a,b)=>b[1]-a[1]);$('#e-rk').innerHTML=l.map(([n,p],i)=>`<div class="rk${n==='Usted'?' me':''}"><b>${i+1}</b><span>${n}</span><i>${dec(p)}</i></div>`).join('')}
+  function paint(){card.querySelectorAll('button[data-q]').forEach(b=>b.classList.toggle('on',m[b.dataset.q]==b.dataset.o))}
+  card.addEventListener('click',e=>{const b=e.target.closest('button[data-q]');if(!b)return;const q=+b.dataset.q,o=+b.dataset.o;m[q]=m[q]===o?-1:o;paint()});
+  $('#e-go').addEventListener('click',()=>{
+    card.classList.remove('scan');void card.offsetWidth;card.classList.add('scan');$('#e-sc').textContent='Leyendo ficha…';
+    setTimeout(()=>{const p=examPts(m),ok=m.filter((a,i)=>a===Q[i][2]).length;$('#e-sc').textContent=`${ok} de ${Q.length} correctas · ${dec(p)} pts`;rank(p)},still?0:1100);
+  });
+  $('#e-new').addEventListener('click',()=>{m.fill(-1);paint();rank();$('#e-sc').textContent='Marque y califique'});
+  rank();
+})();
+
+// 3. WhatsApp: cada acción del sistema genera un mensaje en el celular
+(()=>{
+  const box=$('#d-whatsapp'), W=[['Registrar pago de Diego','Recibimos su pago de <strong>S/ 250.00</strong> por la cuota 3 de Diego. Ticket N° 000125.'],['Marcar tardanza','Diego registró <strong>tardanza</strong> hoy a las 8:12 a. m.'],['Publicar resultados','Resultados del <strong>Simulacro 4</strong>: Diego obtuvo 1 268,4 pts, puesto 9 de 180.'],['Recordar cuota','Le recordamos que la <strong>cuota 4</strong> de Diego (S/ 250.00) vence el 15/12.'],['Enviar comunicado','<strong>Comunicado:</strong> el sábado habrá clase de reforzamiento de 9 a 12 h.']];
+  box.innerHTML=`<div class="split"><div class="acts"><span class="muted">Acciones en el sistema:</span>${W.map((w,i)=>`<button class="dbtn ghost" type="button" data-w="${i}">${w[0]}</button>`).join('')}</div>
+  <div class="phone"><div class="screen"><div class="wahead"><i></i><div>Academia<small id="w-st">en línea</small></div></div><div class="chat" id="w-chat"><div class="msg">Buenos días, Sra. Ramos. Este es el canal de avisos de la academia.<time>07:58</time></div></div></div></div></div>`;
+  const chat=$('#w-chat'), stx=$('#w-st'); let busy=false;
+  box.querySelector('.acts').addEventListener('click',e=>{
+    const b=e.target.closest('[data-w]'); if(!b||busy) return; busy=true; stx.textContent='escribiendo…'; stx.classList.add('typing');
+    setTimeout(()=>{
+      const d=document.createElement('div'); d.className='msg pop'; d.innerHTML=W[b.dataset.w][1]+`<time>${new Date().toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'})}</time>`;
+      chat.appendChild(d); while(chat.children.length>5) chat.firstElementChild.remove();
+      stx.textContent='en línea'; stx.classList.remove('typing'); busy=false;
+    },still?0:700);
+  });
+})();
+
+// 4. Notas: el docente edita, el estudiante ve lo mismo al instante (escala vigesimal, aprueba con 11)
+const prom=n=>n.reduce((a,b)=>a+b,0)/n.length;
+console.assert(Math.round(prom([9,11,11]))===10 && Math.round(prom([10,11,11]))===11,'redondeo de promedio');
+(()=>{
+  const box=$('#d-notas'), N=[['Ana Quispe',[15,17,16]],['Luis Rojas',[12,10,11]],['María Soto',[9,11,8]],['Diego Ramos',[14,13,15]]];
+  let role='doc', me=2;
+  const puesto=i=>1+N.filter(x=>prom(x[1])>prom(N[i][1])).length, ok=n=>Math.round(prom(n))>=11;
+  box.innerHTML=`<div class="drow"><span class="muted">Entrar como:</span><button class="dbtn ghost" type="button" data-r="doc">Docente</button><button class="dbtn ghost" type="button" data-r="est">Estudiante</button></div><div id="n-v"></div>`;
+  const v=$('#n-v');
+  function upd(){N.forEach((x,i)=>{const p=prom(x[1]);const c=document.getElementById('n-p'+i);if(c){c.innerHTML=`<b style="color:${ok(x[1])?'var(--ok)':'var(--bad)'}">${dec(p,1)}</b>`;document.getElementById('n-u'+i).textContent=puesto(i)+'°'}})}
+  function render(){
+    box.querySelectorAll('[data-r]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.r===role));
+    if(role==='doc'){
+      v.innerHTML=`<div class="scroll"><table class="dt"><thead><tr><th>Alumno</th><th>N1</th><th>N2</th><th>N3</th><th>Prom.</th><th>Puesto</th></tr></thead><tbody>${N.map((x,i)=>`<tr><td>${x[0]}</td>${x[1].map((n,j)=>`<td><input class="din" type="number" min="0" max="20" value="${n}" data-i="${i}" data-j="${j}" aria-label="${x[0]}, nota ${j+1}"></td>`).join('')}<td id="n-p${i}"></td><td id="n-u${i}"></td></tr>`).join('')}</tbody></table></div><p class="muted">Cambie cualquier nota: promedio y puesto se recalculan solos.</p>`;
+      upd();
+    }else{
+      const x=N[me], p=prom(x[1]);
+      v.innerHTML=`<div class="drow"><select class="din" id="n-me" aria-label="Estudiante">${N.map((y,i)=>`<option value="${i}"${i===me?' selected':''}>${y[0]}</option>`).join('')}</select><span class="muted">ve solo sus notas</span></div>
+      <div class="card2"><span class="muted">Matemática · Bimestre IV</span><div class="drow" style="justify-content:space-between"><div><div class="big2">${dec(p,1)}</div><span class="muted">promedio</span></div><span class="pill ${ok(x[1])?'ok':'bad'}">${ok(x[1])?'Aprobado':'Desaprobado'}</span></div>
+      <div class="kpis">${x[1].map((n,j)=>`<div class="kpi"><small>Nota ${j+1}</small><strong>${n}</strong></div>`).join('')}</div><span>Puesto <b>${puesto(me)}°</b> de ${N.length} en el aula</span></div>`;
+      $('#n-me').addEventListener('change',e=>{me=+e.target.value;render()});
+    }
+  }
+  v.addEventListener('input',e=>{const t=e.target;if(t.dataset.i==null)return;const n=Math.max(0,Math.min(20,Math.round(+t.value||0)));N[t.dataset.i][1][t.dataset.j]=n;upd()});
+  v.addEventListener('change',e=>{const t=e.target;if(t.dataset.i!=null)t.value=N[t.dataset.i][1][t.dataset.j]});
+  box.addEventListener('click',e=>{const b=e.target.closest('[data-r]');if(b){role=b.dataset.r;render()}});
+  render();
+})();
+
+// 5. Orientación: promedio ponderado por créditos y avance de carrera
+const ponderado=c=>c.reduce((s,x)=>s+x[1]*x[2],0)/c.reduce((s,x)=>s+x[1],0);
+console.assert(ponderado([['a',4,10],['b',2,16]])===12,'promedio ponderado');
+(()=>{
+  const box=$('#d-orientacion'), C=[['Cálculo I',4,14],['Programación I',4,16],['Física I',3,9],['Comunicación',2,15],['Ética',2,13]], PREV=60, CARRERA=220;
+  box.innerHTML=`<div class="box"><h4>Semestre 2027-I · ponga la nota que espera</h4>${C.map((c,i)=>`<label class="rng" id="o-r${i}"><span>${c[0]} <small class="muted">(${c[1]} cr.)</small></span><input type="range" min="0" max="20" value="${c[2]}" data-i="${i}"><b></b></label>`).join('')}</div>
+  <div class="split"><div class="card2"><span class="muted">Promedio ponderado</span><div class="big2" id="o-p"></div><span id="o-tip" class="muted"></span></div>
+  <div class="card2"><span class="muted">Avance de la carrera</span><div class="big2" id="o-c"></div><div class="meter"><i id="o-bar"></i></div><span class="muted" id="o-t"></span></div></div>`;
+  function render(){
+    C.forEach((c,i)=>{const r=document.getElementById('o-r'+i);r.querySelector('b').textContent=c[2];r.classList.toggle('low',c[2]<11)});
+    const ap=C.filter(c=>c[2]>=11).reduce((s,c)=>s+c[1],0), tot=PREV+ap, falta=C.filter(c=>c[2]<11).sort((a,b)=>b[1]-a[1]);
+    $('#o-p').textContent=dec(ponderado(C)); $('#o-c').textContent=Math.round(tot/CARRERA*100)+'%';
+    $('#o-bar').style.setProperty('--w',tot/CARRERA*100+'%'); $('#o-t').textContent=`${tot} de ${CARRERA} créditos (+${ap} este semestre)`;
+    $('#o-tip').textContent=falta.length?`Le falta aprobar ${falta.map(c=>c[0]).join(', ')}.`:'Aprueba todo el semestre.';
+  }
+  box.addEventListener('input',e=>{const i=e.target.dataset.i;if(i!=null){C[i][2]=+e.target.value;render()}});
+  render();
+})();
+
+// 6. FUT: texto libre → trámite sugerido → datos por código → hoja lista
+(()=>{
+  const box=$('#d-fut'), T=[
+    ['Constancia de estudios',/constan|estudi|certific/i,'Por necesitar acreditar mi condición de estudiante regular, solicito se me expida la constancia de estudios del semestre en curso.'],
+    ['Rectificación de nota',/nota|rectific|correg|calific/i,'Habiendo verificado un error en el registro de mi calificación final, solicito la revisión y rectificación de la nota consignada en el acta.'],
+    ['Reserva de matrícula',/reserv|matr[ií]cula|viaj|trabaj/i,'Por motivos personales que me impiden continuar mis estudios este semestre, solicito la reserva de mi matrícula conforme al reglamento.'],
+    ['Retiro de curso',/retir|curso|asignatura/i,'Por cruce de horarios con mis demás asignaturas, solicito el retiro del curso indicado sin afectar mi récord académico.']];
+  let t=-1, code='';
+  box.innerHTML=`<div class="box"><h4>1 · ¿Qué necesita?</h4><div class="drow"><input class="din" id="f-q" style="flex:1 1 180px" placeholder="Ej.: necesito una constancia para una beca" aria-label="Qué trámite necesita"><button class="dbtn" id="f-s" type="button">Sugerir trámite</button></div><div class="chips2" id="f-ch">${T.map((x,i)=>`<button type="button" data-t="${i}" aria-pressed="false">${x[0]}</button>`).join('')}</div><span class="muted" id="f-msg"></span></div>
+  <div class="box step-off" id="f-2"><h4>2 · Su código de estudiante</h4><div class="drow"><input class="din" id="f-c" inputmode="numeric" maxlength="10" placeholder="Ej.: 2021100345" style="width:10rem" aria-label="Código de estudiante" disabled><button class="dbtn" id="f-d" type="button" disabled>Completar mis datos</button></div></div>
+  <div id="f-3"></div>`;
+  const pick=i=>{t=i;box.querySelectorAll('#f-ch button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.t===t));$('#f-msg').textContent=t<0?'No lo encontré: elija uno de la lista.':'Trámite sugerido: '+T[t][0];$('#f-2').classList.toggle('step-off',t<0);$('#f-c').disabled=$('#f-d').disabled=t<0;if(t<0)$('#f-3').innerHTML='';else if(code)sheet()};
+  $('#f-s').addEventListener('click',()=>pick(T.findIndex(x=>x[1].test($('#f-q').value))));
+  $('#f-q').addEventListener('keydown',e=>{if(e.key==='Enter')$('#f-s').click()});
+  $('#f-ch').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b)pick(+b.dataset.t)});
+  $('#f-d').addEventListener('click',()=>{code=$('#f-c').value.replace(/\D/g,'');if(code.length<4){$('#f-c').focus();return}sheet()});
+  function sheet(){
+    $('#f-3').innerHTML=`<div class="hoja"><h5>FORMULARIO ÚNICO DE TRÁMITE</h5><dl><dt>Nombre:</dt><dd>Carla Mendoza Ríos</dd><dt>Código:</dt><dd id="f-code"></dd><dt>Escuela:</dt><dd>Sistemas y Computación</dd><dt>Sumilla:</dt><dd>${T[t][0]}</dd></dl><div><b>Solicito:</b> ${T[t][0].toLowerCase()}.</div><div><b>Fundamentación:</b> ${T[t][2]}</div><div style="text-align:right">${new Date().toLocaleDateString('es-PE',{day:'numeric',month:'long',year:'numeric'})}</div></div>
+    <div class="drow"><button class="dbtn" type="button" id="f-dl">Descargar Word y PDF</button><span class="muted" id="f-ok"></span></div>`;
+    $('#f-code').textContent=code;
+    $('#f-dl').addEventListener('click',()=>$('#f-ok').textContent='En el sistema real aquí se descargan el .docx y el .pdf.');
+  }
+})();
+
+// 7. Tienda (ejemplo): cada venta descuenta el stock y avisa lo que se acaba
+(()=>{
+  const box=$('#d-tienda'), P=[['Arroz extra 5 kg',24.5,9],['Aceite vegetal 1 L',9.9,12],['Azúcar rubia 1 kg',4.2,3],['Leche evaporada',3.8,20],['Fideos tallarín 500 g',3.2,8],['Atún en lata',6.5,2]], cart=new Map();
+  let sold=0, sales=0, tk=230;
+  const total=items=>items.reduce((s,[i,q])=>s+P[i][1]*q,0), left=i=>P[i][2]-(cart.get(i)||0);
+  console.assert(Math.abs(total([[0,2],[3,1]])-52.8)<1e-9,'total de la venta');
+  box.innerHTML=`<div class="kpis"><div class="kpi"><small>Ventas de hoy</small><strong id="t-sold"></strong></div><div class="kpi"><small>Tickets</small><strong id="t-n"></strong></div><div class="kpi"><small>Por agotarse</small><strong id="t-low"></strong></div></div>
+  <div class="split"><div class="prods" id="t-p"></div>
+  <div class="box"><h4>Venta actual</h4><div class="cart" id="t-cart"></div><div class="drow" style="justify-content:space-between"><b>Total</b><b id="t-tot"></b></div><button class="dbtn" id="t-pay" type="button">Cobrar</button></div></div>
+  <div id="t-tk"></div>`;
+  const pill=s=>s===0?'<span class="pill bad">Agotado</span>':s<=3?`<span class="pill warn">Quedan ${s}</span>`:`<span class="pill ok">${s} en stock</span>`;
+  function render(){
+    $('#t-p').innerHTML=P.map(([n,p],i)=>`<button type="button" class="prod" data-add="${i}"${left(i)?'':' disabled'}><b>${n}</b><span>${soles(p)}</span>${pill(left(i))}</button>`).join('');
+    const items=[...cart];
+    $('#t-cart').innerHTML=items.length?items.map(([i,q])=>`<div class="cline"><span>${q} × ${P[i][0]}</span><span>${soles(P[i][1]*q)}</span><button type="button" class="mini" data-rm="${i}" aria-label="Quitar uno de ${P[i][0]}">−</button></div>`).join(''):'<span class="muted">Toque un producto para agregarlo.</span>';
+    $('#t-tot').textContent=soles(total(items)); $('#t-pay').disabled=!items.length;
+    $('#t-sold').textContent=soles(sold); $('#t-n').textContent=sales; $('#t-low').textContent=P.filter(p=>p[2]<=3).length;
+  }
+  box.addEventListener('click',e=>{
+    const a=e.target.closest('[data-add]'), r=e.target.closest('[data-rm]');
+    if(a){const i=+a.dataset.add;if(left(i)>0)cart.set(i,(cart.get(i)||0)+1);render()}
+    if(r){const i=+r.dataset.rm;cart.set(i,cart.get(i)-1);if(!cart.get(i))cart.delete(i);render()}
+  });
+  $('#t-pay').addEventListener('click',()=>{
+    const items=[...cart]; if(!items.length) return;
+    const tot=total(items); items.forEach(([i,q])=>P[i][2]-=q); cart.clear(); sold+=tot; sales++; tk++;
+    const low=P.filter(p=>p[2]<=3).map(p=>`${p[0]} (${p[2]||'agotado'})`), line=(a,b)=>a.slice(0,20).padEnd(20)+b.padStart(10);
+    $('#t-tk').innerHTML=`<div class="split"><div class="ticket">  TIENDA · DEMO\nTicket N° ${String(tk).padStart(6,'0')}\n${new Date().toLocaleString('es-PE',{dateStyle:'short',timeStyle:'short'})}\n${'-'.repeat(30)}\n${items.map(([i,q])=>line(q+' '+P[i][0],soles(P[i][1]*q))).join('\n')}\n${'-'.repeat(30)}\n${line('TOTAL',soles(tot))}</div>${low.length?`<div class="box"><h4>Aviso de inventario</h4><span>Por agotarse: ${low.join(', ')}.</span><span class="muted">Este aviso también puede llegarle por WhatsApp.</span></div>`:''}</div>`;
+    render();
+  });
+  render();
+})();
+
+// 8. Citas (ejemplo): elegir horario libre, reservar y confirmar por WhatsApp
+(()=>{
+  const box=$('#d-citas'), H=['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30'], busy={'09:00':'Rosa Huamán','10:00':'Luis Rojas','11:30':'María Soto'};
+  const d=new Date(); d.setDate(d.getDate()+1);
+  const dia=d.toLocaleDateString('es-PE',{weekday:'long',day:'numeric',month:'long'});
+  let sel='';
+  box.innerHTML=`<div class="drow" style="justify-content:space-between"><b>Agenda de mañana, ${dia}</b><span class="muted" id="c2-n"></span></div>
+  <div class="slots" id="c2-s"></div>
+  <div class="box"><div class="drow"><input class="din" id="c2-name" maxlength="40" placeholder="Nombre del paciente" style="flex:1 1 180px" aria-label="Nombre del paciente"><button class="dbtn" id="c2-go" type="button">Reservar</button></div><span class="muted" id="c2-hint"></span></div>
+  <div id="c2-msg"></div>`;
+  function render(){
+    $('#c2-s').innerHTML=H.map(h=>busy[h]?`<button type="button" class="slot" disabled><span>${h}</span><small>${esc(busy[h])}</small></button>`:`<button type="button" class="slot" data-h="${h}" aria-pressed="${h===sel}"><span>${h}</span><small>Libre</small></button>`).join('');
+    $('#c2-n').textContent=`${Object.keys(busy).length} de ${H.length} ocupadas`;
+    $('#c2-go').disabled=!sel; $('#c2-hint').textContent=sel?'Horario elegido: '+sel:'Elija un horario libre.';
+  }
+  $('#c2-s').addEventListener('click',e=>{const b=e.target.closest('[data-h]');if(b){sel=b.dataset.h;render()}});
+  $('#c2-name').addEventListener('keydown',e=>{if(e.key==='Enter')$('#c2-go').click()});
+  $('#c2-go').addEventListener('click',()=>{
+    const n=$('#c2-name').value.trim(); if(!sel) return; if(!n){$('#c2-name').focus();return}
+    busy[sel]=n;
+    $('#c2-msg').innerHTML=`<div class="wamini"><div class="msg pop">Hola, <strong>${esc(n)}</strong>. Su cita quedó reservada para mañana, ${dia}, a las <strong>${sel}</strong>. Le recordaremos su cita temprano.<time>${new Date().toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'})}</time></div></div>`;
+    sel=''; $('#c2-name').value=''; render();
+  });
+  render();
+})();
+
+// 9. Restaurante (ejemplo): el pedido llega a la pantalla de cocina y se cobra al entregar
+(()=>{
+  const box=$('#d-restaurante'), M=[['Lomo saltado',28],['Ají de gallina',22],['Ceviche',30],['Chicha morada',6]], cur=new Map();
+  let orders=[{n:11,m:'Mesa 2',it:[[2,2],[3,1]],s:0}], next=12, sold=0, done=0;
+  const tot=it=>it.reduce((s,[i,q])=>s+M[i][1]*q,0);
+  console.assert(tot([[0,2],[3,1]])===62,'total del pedido');
+  box.innerHTML=`<div class="kpis"><div class="kpi"><small>Ventas de hoy</small><strong id="r-sold"></strong></div><div class="kpi"><small>Entregados</small><strong id="r-done"></strong></div><div class="kpi"><small>En cocina</small><strong id="r-k"></strong></div></div>
+  <div class="box"><div class="drow" style="justify-content:space-between"><h4>Nuevo pedido</h4><select class="din" id="r-m" aria-label="Mesa o delivery">${[1,2,3,4,5,6,7,8].map(i=>`<option>Mesa ${i}</option>`).join('')}<option>Delivery</option></select></div>
+  <div class="menu" id="r-menu"></div>
+  <div class="drow" style="justify-content:space-between"><b id="r-tot"></b><div class="drow"><button class="dbtn ghost" id="r-clr" type="button">Vaciar</button><button class="dbtn" id="r-go" type="button">Enviar a cocina</button></div></div></div>
+  <div class="kboard"><div class="kcol" id="r-c0"></div><div class="kcol" id="r-c1"></div></div>`;
+  const card=o=>`<div class="kcard"><div class="drow" style="justify-content:space-between"><b>#${o.n} · ${o.m}</b><span class="muted">${soles(tot(o.it))}</span></div><ul>${o.it.map(([i,q])=>`<li>${q} × ${M[i][0]}</li>`).join('')}</ul><button class="dbtn${o.s?'':' ghost'}" type="button" data-o="${o.n}">${o.s?'Entregar y cobrar':'Listo ✓'}</button></div>`;
+  function render(){
+    $('#r-menu').innerHTML=M.map(([n,p],i)=>`<button type="button" class="dish" data-i="${i}"><span>${n}<small class="muted">${soles(p)}</small></span>${cur.get(i)?`<em>×${cur.get(i)}</em>`:''}</button>`).join('');
+    const it=[...cur]; $('#r-tot').textContent='Total: '+soles(tot(it)); $('#r-go').disabled=$('#r-clr').disabled=!it.length;
+    [0,1].forEach(s=>{const l=orders.filter(o=>o.s===s);$('#r-c'+s).innerHTML=`<h4>${s?'Listos para servir':'En cocina'} (${l.length})</h4>`+(l.map(card).join('')||'<span class="muted">Sin pedidos</span>')});
+    $('#r-sold').textContent=soles(sold); $('#r-done').textContent=done; $('#r-k').textContent=orders.filter(o=>!o.s).length;
+  }
+  box.addEventListener('click',e=>{
+    const d=e.target.closest('[data-i]'), o=e.target.closest('[data-o]');
+    if(d){const i=+d.dataset.i;cur.set(i,(cur.get(i)||0)+1);render()}
+    if(o){const x=orders.find(y=>y.n===+o.dataset.o);if(x.s){sold+=tot(x.it);done++;orders=orders.filter(y=>y!==x)}else x.s=1;render()}
+  });
+  $('#r-clr').addEventListener('click',()=>{cur.clear();render()});
+  $('#r-go').addEventListener('click',()=>{if(!cur.size)return;orders.push({n:next++,m:$('#r-m').value,it:[...cur],s:0});cur.clear();render()});
+  render();
+})();
+
+// 10. Copias (ejemplo): el presupuesto sale del PDF real, que se lee en el navegador sin subirse,
+//     y el pago Yape se cruza con las notificaciones que registra el celular del dueño
+const PRECIO={bn:0.10,color:0.50,anillado:3.00,engrapado:0.20}; // precios de ejemplo: por cara y por juego
+const presupuesto=({pags,copias,color,acabado})=>Math.round((pags*copias*(color?PRECIO.color:PRECIO.bn)+copias*(PRECIO[acabado]||0))*100)/100;
+console.assert(presupuesto({pags:23,copias:2,color:false,acabado:'anillado'})===10.6,'presupuesto de ejemplo');
+const verificarYape=(monto,total,log,ahora)=>{
+  if(Math.abs(monto-total)>0.001) return {ok:false,msg:`El monto de la captura (${soles(monto)}) no coincide con el presupuesto (${soles(total)}).`};
+  const p=log.find(x=>!x.usado&&Math.abs(x.monto-monto)<0.001&&ahora-x.t<15*60e3);
+  if(!p) return {ok:false,msg:`El celular del dueño no registró un Yape de ${soles(monto)} en los últimos 15 minutos.`};
+  p.usado=true; return {ok:true,p};
+};
+console.assert(verificarYape(5,5,[{monto:5,t:0}],1e3).ok&&!verificarYape(5,6,[],0).ok&&!verificarYape(5,5,[],0).ok,'verificación del Yape');
+(()=>{
+  const box=$('#d-copias'), PDFJS='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/', log=[];
+  let doc=null, num=51;
+  box.innerHTML=`<div class="split"><div class="acts">
+    <div class="box"><h4>1 · Su documento</h4>
+      <label class="drop" id="cp-drop"><input type="file" id="cp-file" accept="application/pdf,image/*"><b>Toque o arrastre su PDF o una imagen</b><small>Se lee aquí mismo: no se envía a ningún lado.</small></label>
+      <button class="dbtn ghost" id="cp-ej" type="button">Usar un ejemplo (Tesis.pdf, 48 págs.)</button>
+      <div id="cp-doc" class="muted"></div></div>
+    <div class="box step-off" id="cp-2"><h4>2 · Opciones y presupuesto <small class="muted">(precios de ejemplo)</small></h4>
+      <div class="drow"><select class="din" id="cp-color" aria-label="Tipo de impresión"><option value="0">Blanco y negro</option><option value="1">Color</option></select><select class="din" id="cp-caras" aria-label="Caras"><option value="1">Una cara</option><option value="2">Doble cara</option></select></div>
+      <div class="drow"><label class="muted" for="cp-copias">Copias</label><input class="din" id="cp-copias" type="number" min="1" max="50" value="1" style="width:4.5rem"><select class="din" id="cp-acab" aria-label="Acabado"><option value="">Sin acabado</option><option value="anillado">Anillado</option><option value="engrapado">Engrapado</option></select></div>
+      <div class="cuenta" id="cp-cuenta"></div></div>
+    <div class="box step-off" id="cp-3"><h4>3 · Pago con Yape</h4>
+      <div class="yape"><div class="qr" aria-hidden="true"></div><div><b id="cp-monto-yape">S/ 0.00</b><span>a «Copias Demo»</span><small>En la demo no se paga nada.</small></div></div>
+      <div class="drow"><button class="dbtn" id="cp-pagar" type="button">Simular Yape por el total</button><button class="dbtn ghost" id="cp-otro" type="button">Simular otro monto</button></div>
+      <div id="cp-cap" class="acts"></div></div>
+    <div id="cp-res" class="acts"></div>
+  </div>
+  <div class="acts">
+    <div class="phone"><div class="screen"><div class="ownhead"><i></i><div>Celular del dueño<small>App que registra los Yape</small></div></div><div class="chat cp-chat" id="cp-notis"><div class="msg">La app lee las notificaciones de Yape y guarda cada pago.</div></div></div></div>
+    <div class="box"><h4>Pagos registrados</h4><div id="cp-log" class="muted">Aún no llega ningún Yape.</div></div>
+    <div class="box"><h4>Cola de impresión</h4><div id="cp-cola" class="muted">Sin pedidos pagados.</div></div>
+  </div></div>`;
+  const hora=t=>new Date(t).toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'}), cod=n=>String(n).padStart(4,'0');
+  const opciones=()=>({pags:doc.pags,copias:Math.max(1,Math.min(50,Math.round(+$('#cp-copias').value||1))),color:$('#cp-color').value==='1',acabado:$('#cp-acab').value});
+  function cuenta(){
+    if(!doc) return 0;
+    const o=opciones(), t=presupuesto(o), hojas=Math.ceil(o.pags/($('#cp-caras').value==='2'?2:1))*o.copias, caras=o.pags*o.copias;
+    $('#cp-cuenta').innerHTML=`<div>${o.pags} págs × ${o.copias} ${o.copias>1?'copias':'copia'} × ${soles(o.color?PRECIO.color:PRECIO.bn)} (${o.color?'color':'B/N'})</div>${o.acabado?`<div>${o.acabado==='anillado'?'Anillado':'Engrapado'} × ${o.copias} · ${soles(PRECIO[o.acabado])} c/u</div>`:''}<div class="muted">${hojas} ${hojas>1?'hojas':'hoja'} · listo en ${caras<=60?'unos 15 min':caras<=300?'unos 40 min':'mañana temprano'}</div><div class="tot"><span>Total</span><span>${soles(t)}</span></div>`;
+    $('#cp-monto-yape').textContent=soles(t);
+    return t;
+  }
+  async function pdfjs(){
+    if(!window.pdfjsLib){ await new Promise((ok,mal)=>{const sc=document.createElement('script');sc.src=PDFJS+'pdf.min.js';sc.onload=ok;sc.onerror=mal;document.head.appendChild(sc)}); pdfjsLib.GlobalWorkerOptions.workerSrc=PDFJS+'pdf.worker.min.js'; }
+    return pdfjsLib;
+  }
+  async function leer(file){
+    $('#cp-doc').textContent='Leyendo '+file.name+'…';
+    let pags=0, mini=null;
+    if(file.type.startsWith('image/')){ pags=1; mini=new Image(); mini.alt=''; mini.src=URL.createObjectURL(file); }
+    else if(file.type==='application/pdf'||/\.pdf$/i.test(file.name)){
+      const buf=await file.arrayBuffer();
+      try{
+        // isEvalSupported:false evita que un PDF malicioso ejecute código (CVE-2024-4367)
+        const pdf=await (await pdfjs()).getDocument({data:buf.slice(0),isEvalSupported:false}).promise, pg=await pdf.getPage(1), vp=pg.getViewport({scale:112/pg.getViewport({scale:1}).width});
+        pags=pdf.numPages; mini=document.createElement('canvas'); mini.width=vp.width; mini.height=vp.height;
+        await pg.render({canvasContext:mini.getContext('2d'),viewport:vp}).promise;
+      }catch(_){ pags=(new TextDecoder('latin1').decode(buf).match(/\/Type\s*\/Page(?!s)/g)||[]).length; mini=null; } // sin internet: cuenta las páginas en el propio archivo
+    }else{ $('#cp-doc').textContent='La demo lee PDF e imágenes; el sistema real también aceptaría Word.'; return; }
+    usar({nombre:file.name,pags:pags||1,mini});
+  }
+  function usar(d){
+    doc=d; $('#cp-doc').textContent=''; $('#cp-cap').innerHTML=''; $('#cp-res').innerHTML='';
+    const row=document.createElement('div'); row.className='docrow'; if(d.mini) row.appendChild(d.mini);
+    const info=document.createElement('div'); info.innerHTML='<b></b><div class="drow"><label class="muted" for="cp-pags">Páginas</label><input class="din" id="cp-pags" type="number" min="1" max="2000" style="width:5rem"></div>';
+    info.querySelector('b').textContent=d.nombre; row.appendChild(info); $('#cp-doc').appendChild(row);
+    $('#cp-pags').value=d.pags; $('#cp-pags').addEventListener('input',e=>{doc.pags=Math.max(1,Math.min(2000,Math.round(+e.target.value||1)));cuenta()});
+    $('#cp-2').classList.remove('step-off'); $('#cp-3').classList.remove('step-off'); cuenta();
+  }
+  function pintarLog(){
+    $('#cp-log').classList.toggle('muted',!log.length);
+    $('#cp-log').innerHTML=log.length?`<table class="logt">${log.slice(0,5).map(x=>`<tr><td>${hora(x.t)}</td><td>${soles(x.monto)}</td><td>${x.usado?'<span class="pill ok">Usado</span>':'<span class="pill warn">Libre</span>'}</td></tr>`).join('')}</table>`:'Aún no llega ningún Yape.';
+  }
+  function yapear(monto){
+    if(!doc) return;
+    const t=Date.now(); log.unshift({monto,t});
+    const m=document.createElement('div'); m.className='msg pop'; m.innerHTML=`<strong>Yape</strong> · Recibiste ${soles(monto)} de Cliente Demo<time>${hora(t)}</time>`;
+    const chat=$('#cp-notis'); chat.prepend(m); while(chat.children.length>4) chat.lastElementChild.remove();
+    pintarLog();
+    $('#cp-cap').innerHTML=`<div class="recibo"><small>Captura de ejemplo</small><b>Pago enviado: ${soles(monto)}</b><span>a Copias Demo · ${hora(t)}</span></div>
+      <div class="drow"><label class="muted" for="cp-monto">Monto que dice la captura</label><input class="din" id="cp-monto" type="number" min="0" step="0.1" style="width:6rem" value="${monto.toFixed(2)}"></div>
+      <div class="drow"><label class="dbtn ghost" for="cp-capfile">Adjuntar mi captura (opcional)</label><input type="file" id="cp-capfile" accept="image/*" hidden><span class="muted" id="cp-capnom"></span></div>
+      <button class="dbtn" id="cp-enviar" type="button">Enviar pedido</button>`;
+    $('#cp-capfile').addEventListener('change',e=>{$('#cp-capnom').textContent=e.target.files[0]?e.target.files[0].name:''});
+    $('#cp-enviar').addEventListener('click',enviar);
+  }
+  function enviar(){
+    if(!doc) return;
+    const total=cuenta(), monto=Math.round((+$('#cp-monto').value||0)*100)/100, r=verificarYape(monto,total,log,Date.now());
+    if(!r.ok){ $('#cp-res').innerHTML=`<div class="res-bad">✕ ${r.msg}</div>`; return; }
+    const n=cod(num++); pintarLog();
+    const it=document.createElement('div'); it.className='colaitem';
+    it.innerHTML=`<div class="drow" style="justify-content:space-between"><b>#${n}</b><span class="pill ok">Pagado</span></div><span class="muted"></span><button class="dbtn ghost" type="button">Marcar listo</button>`;
+    it.querySelector('.muted').textContent=`${doc.nombre} · ${doc.pags} págs · ${soles(total)}`;
+    it.querySelector('button').addEventListener('click',e=>{it.querySelector('.pill').textContent='Listo';e.target.outerHTML='<span class="muted">Listo para recoger · se avisó al cliente por WhatsApp</span>'});
+    const cola=$('#cp-cola'); if(cola.classList.contains('muted')){cola.classList.remove('muted');cola.textContent=''} cola.prepend(it);
+    $('#cp-res').innerHTML=`<div class="res-ok">✓ Pago verificado: el celular del dueño registró ${soles(monto)} a las ${hora(r.p.t)} y su pedido N° ${n} ya está en la cola de impresión.</div><button class="dbtn ghost" id="cp-nuevo" type="button">Hacer otro pedido</button>`;
+    doc=null; $('#cp-cap').innerHTML=''; $('#cp-2').classList.add('step-off'); $('#cp-3').classList.add('step-off');
+    $('#cp-nuevo').addEventListener('click',()=>{$('#cp-doc').textContent='';$('#cp-res').innerHTML='';$('#cp-file').value=''});
+  }
+  const drop=$('#cp-drop'), fi=$('#cp-file');
+  fi.addEventListener('change',()=>{if(fi.files[0]) leer(fi.files[0])});
+  ['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over')}));
+  ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over')}));
+  drop.addEventListener('drop',e=>{const f=e.dataTransfer.files[0]; if(f) leer(f)});
+  $('#cp-ej').addEventListener('click',()=>usar({nombre:'Tesis.pdf (ejemplo)',pags:48,mini:null}));
+  ['cp-color','cp-caras','cp-acab','cp-copias'].forEach(id=>$('#'+id).addEventListener('input',cuenta));
+  $('#cp-pagar').addEventListener('click',()=>{if(doc) yapear(cuenta())});
+  $('#cp-otro').addEventListener('click',()=>{if(doc) yapear(Math.max(0.5,Math.round((cuenta()-1)*100)/100))});
+})();
+</script>
+</body>
+</html>

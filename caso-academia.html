@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Caso de estudio: academia preuniversitaria · Sistemas a medida</title>
+<meta name="description" content="Cómo una academia preuniversitaria pasó del cuaderno a un sistema propio de cobros, exámenes con fichas ópticas y avisos por WhatsApp.">
+<meta property="og:title" content="Caso de estudio: una academia que pasó del cuaderno a un sistema propio">
+<meta property="og:description" content="Cobros con ticket, exámenes calificados con el celular y avisos automáticos a los padres, en un solo sistema hecho a medida.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://portafolio-academias.vercel.app/caso-academia.html">
+<meta property="og:image" content="https://portafolio-academias.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Sistemas a medida">
+<meta property="og:locale" content="es_PE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1a8cf0">
+<link rel="canonical" href="https://portafolio-academias.vercel.app/caso-academia.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231a8cf0'/%3E%3Cstop offset='1' stop-color='%2313b5a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath d='M24 22l-10 10 10 10M40 22l10 10-10 10M35 18l-6 28' stroke='white' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+/* Caso de estudio. Mismos colores y componentes que index.html: si cambia un color allá, cámbielo también aquí. */
+:root{
+  --bg:#ffffff; --soft:#f1f7fe; --sky:#1a8cf0; --sky-2:#5fb8ff; --teal:#13b5a6;
+  --ink:#10243f; --muted:#5a6b83; --line:#e2ebf5; --ok:#16a34a; --bad:#e2475b; --warn:#f59e0b; --wa:#25d366;
+  --display:"Sora","Segoe UI",system-ui,sans-serif;
+  --body:"DM Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+html{scroll-behavior:smooth;scroll-padding-top:76px;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--body);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:41;background:#fff}
+img{max-width:100%}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(2rem,4.4vw,3.1rem);font-weight:700;letter-spacing:-.025em}
+h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-.015em}
+h3{font-size:1.2rem;font-weight:600}
+p{margin:0;max-width:62ch}
+.eyebrow{display:inline-block;font:700 .75rem/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--sky)}
+.lead{font-size:1.12rem;color:var(--muted)}
+.num{font:600 .8rem var(--mono);color:var(--teal)}
+.note{font-size:.8rem;color:var(--muted);text-align:center;max-width:none;margin-top:1rem}
+:focus-visible{outline:3px solid var(--sky-2);outline-offset:3px;border-radius:6px}
+.head{display:grid;gap:.8rem;margin-bottom:2.4rem;max-width:720px}
+.sec{padding-block:4rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(26,140,240,.45)}
+.btn.primary{background:linear-gradient(90deg,var(--sky),var(--teal));color:#fff;border-color:transparent}
+.btn.wa{background:var(--wa);color:#fff;border-color:transparent}
+.demo-link{font-weight:700;color:var(--sky);text-decoration:none;font-size:.92rem}
+.demo-link:hover{text-decoration:underline}
+
+/* menú */
+.topnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topnav .wrap{display:flex;align-items:center;gap:1.2rem;min-height:60px}
+.brand{display:flex;align-items:center;gap:.55rem;font:700 1rem var(--display);text-decoration:none;color:var(--ink);margin-right:auto;white-space:nowrap}
+.brand i{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--sky),var(--teal));display:grid;place-items:center;color:#fff;font:700 .8rem var(--mono);font-style:normal}
+.back{font-weight:600;font-size:.93rem;color:var(--muted);text-decoration:none;white-space:nowrap}
+.back:hover{color:var(--sky)}
+.topnav .btn{padding:.55rem 1.05rem;font-size:.9rem;white-space:nowrap}
+@media (max-width:560px){.back{display:none}}
+@media (max-width:420px){.brand{font-size:.92rem}.topnav .btn{padding:.5rem .8rem;font-size:.82rem}}
+@media (max-width:360px){.opt{display:none}}
+@media (max-width:380px){.topnav .wrap{gap:.6rem}.brand{font-size:.9rem;gap:.4rem}.brand i{width:24px;height:24px;font-size:.7rem}.topnav .btn{padding:.45rem .75rem;font-size:.8rem}}
+
+/* portada del caso */
+.chero{background:radial-gradient(900px 420px at 85% -10%,#dff0ff 0,transparent 60%),radial-gradient(700px 360px at -10% 20%,#e3fbf7 0,transparent 55%);padding-block:3rem 3.5rem}
+.chero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+.chero-grid>*{min-width:0}
+.ctext{display:grid;gap:1.1rem}
+.ficha{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin:.4rem 0 0}
+.ficha div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:.75rem .9rem}
+.ficha dt{font:700 .68rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+.ficha dd{margin:.15rem 0 0;font-weight:600}
+.chero-img{margin:0;position:relative}
+.chero-img img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 55%;border-radius:24px;box-shadow:0 30px 60px -30px rgba(16,36,63,.5)}
+.chero-img figcaption{position:absolute;right:12px;bottom:12px;font-size:.72rem;color:#fff;background:rgba(16,36,63,.6);padding:.2rem .6rem;border-radius:99px}
+
+/* el reto */
+.retos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+.reto{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.3rem;display:grid;gap:.55rem;align-content:start}
+.reto p{color:var(--muted);font-size:.93rem}
+.ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#ffe9ec,#fff3e0)}
+.ic svg{width:24px;height:24px;stroke:var(--bad);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* la solución: texto + pantalla recreada */
+.sol{background:linear-gradient(180deg,var(--soft),#fff)}
+.feat-row{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:center;padding-block:2.2rem}
+.feat-row>*{min-width:0}
+.feat-row.flip .ftxt{order:2}
+.ftxt{display:grid;gap:.9rem}
+.ftxt p{color:var(--muted)}
+.ticks{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
+.ticks li{display:flex;gap:.6rem;align-items:flex-start}
+.ticks li::before{content:"";flex:none;width:20px;height:20px;margin-top:.15rem;border-radius:50%;background:var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a8cf0' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/12px no-repeat}
+.app{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 60px -30px rgba(16,36,63,.35);overflow:hidden;min-width:0}
+.app .bar{display:flex;align-items:center;gap:.4rem;padding:.6rem .9rem;background:var(--soft);border-bottom:1px solid var(--line)}
+.app .bar i{width:10px;height:10px;border-radius:50%;background:#cfdcea}
+.app .bar span{margin-left:.6rem;font:500 .72rem var(--mono);color:var(--muted)}
+.pill{font-size:.66rem;font-weight:700;padding:.15rem .5rem;border-radius:999px;white-space:nowrap}
+.pill.ok{background:#dcfce7;color:#15803d}.pill.warn{background:#fef3c7;color:#b45309}.pill.bad{background:#ffe1e5;color:#c0263a}
+.scroll{overflow-x:auto}
+.pay table{width:100%;border-collapse:collapse;font-size:.82rem}
+.pay th{text-align:left;font-weight:500;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;padding:.5rem .6rem;border-bottom:1px solid var(--line)}
+.pay td{padding:.55rem .6rem;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.pay tr.hl td{background:#e8f5ff}
+.pay .sum{display:flex;justify-content:space-between;gap:1rem;padding:.8rem;flex-wrap:wrap;font-size:.82rem}
+.meter{height:8px;border-radius:99px;background:var(--soft);overflow:hidden;flex:1 1 140px;align-self:center}
+.meter i{display:block;height:100%;width:78%;background:linear-gradient(90deg,var(--sky),var(--teal));border-radius:99px}
+.exam{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;padding:1rem}
+.exam>div{min-width:0;background:var(--soft);border-radius:12px;padding:.8rem;display:grid;gap:.5rem;align-content:start}
+.exam h4{font-size:.78rem;font-weight:600;display:flex;gap:.4rem;align-items:center}
+.exam h4 span{width:18px;height:18px;border-radius:50%;background:var(--sky);color:#fff;font:600 .65rem var(--mono);display:grid;place-items:center}
+.q{font-size:.7rem;background:#fff;border-radius:6px;padding:.35rem .45rem;color:var(--muted)}
+.q b{color:var(--ink)}
+.omr{display:grid;gap:.28rem}
+.orow{display:grid;grid-template-columns:1.1rem repeat(5,1fr) .9rem;gap:.18rem;align-items:center;font:500 .58rem var(--mono);color:#e86a7c}
+.ob{aspect-ratio:1;border:1px solid #f0a3ae;border-radius:50%;max-width:15px;width:100%;justify-self:center}
+.ob.on{background:#2b2f36;border-color:#2b2f36}
+.res{font-size:.72rem;text-align:center;font-weight:700}
+.res.ok{color:var(--ok)}.res.bad{color:var(--bad)}
+.score{font:600 .74rem var(--mono);text-align:center;color:var(--ink);background:#fff;border-radius:6px;padding:.3rem}
+.rank{display:grid;gap:.3rem}
+.rk{display:grid;grid-template-columns:1rem 1fr auto;gap:.35rem;align-items:center;font-size:.7rem;background:#fff;border-radius:6px;padding:.3rem .4rem}
+.rk b{font-family:var(--mono);color:var(--sky)}
+.rk i{font-style:normal;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.phone{width:min(300px,100%);margin-inline:auto;background:#10243f;border-radius:34px;padding:10px;box-shadow:0 30px 60px -28px rgba(16,36,63,.55)}
+.screen{border-radius:26px;overflow:hidden;background:#efe7dc}
+.wahead{background:#0b7d6e;color:#fff;display:flex;gap:.6rem;align-items:center;padding:.8rem .9rem;font-size:.82rem}
+.wahead i{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--sky-2),var(--teal))}
+.wahead small{display:block;font-size:.66rem;opacity:.8}
+.chat{display:grid;gap:.5rem;padding:.9rem .7rem 1.1rem;align-content:start}
+.msg{background:#fff;border-radius:10px 10px 10px 2px;padding:.5rem .65rem;font-size:.76rem;line-height:1.4;max-width:92%;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.msg time{display:block;text-align:right;font-size:.6rem;color:#8a96a3;margin-top:.15rem}
+.msg strong{color:#0b7d6e}
+
+/* qué cambió */
+.cambios{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+.cam{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;display:grid;align-content:start}
+.cam h3{padding:1rem 1.1rem .7rem;font-size:1.05rem}
+.cam p{padding:.75rem 1.1rem;font-size:.9rem;max-width:none}
+.cam p::before{display:block;font:700 .66rem var(--body);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.15rem}
+.cam .antes{color:var(--muted);background:#f7f8fa;border-top:1px dashed #d9dee5}
+.cam .antes::before{content:"Antes";color:#9aa4b2}
+.cam .ahora{background:linear-gradient(160deg,#eaf5ff,#e6fbf8);font-weight:600}
+.cam .ahora::before{content:"Ahora";color:var(--teal)}
+
+/* cierre y pie */
+.endcta{background:linear-gradient(120deg,var(--sky),var(--teal));color:#fff;border-radius:24px;padding:2.4rem max(1.2rem,3vw);display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between}
+.endcta h2{color:#fff}
+.endcta p{color:#e8f6ff;margin-top:.4rem}
+.endcta .btn{border-color:transparent}
+.row2{display:flex;flex-wrap:wrap;gap:.6rem}
+.foot{background:#0d1f38;color:#b9cde3;margin-top:3rem;padding-block:3.5rem 1.6rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:2rem}
+.foot-grid>*{min-width:0}
+.foot .brand{color:#fff;margin:0}
+.foot-brand{display:grid;gap:1rem;justify-items:start}
+.foot p{color:#b9cde3;font-size:.92rem}
+.foot h3{font:700 .75rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:#7fd8ff;margin-bottom:.4rem}
+.foot-col{display:grid;gap:.45rem;align-content:start;font-size:.93rem}
+.foot a{color:#d6e6f5;text-decoration:none}
+.foot a:hover{color:#fff;text-decoration:underline}
+.foot .btn.wa{color:#fff;text-decoration:none}
+.foot-bar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem;border-top:1px solid rgba(255,255,255,.12);margin-top:2.4rem;padding-top:1.2rem;padding-right:72px;font-size:.85rem}
+.wa-float{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:45;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 26px -8px rgba(37,211,102,.7);transition:transform .2s}
+.wa-float:hover{transform:scale(1.08)}
+
+@media (max-width:960px){
+  .chero-grid,.feat-row{grid-template-columns:1fr}
+  .feat-row.flip .ftxt{order:0}
+  .retos,.cambios{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .chero-img img{aspect-ratio:16/10}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .retos,.cambios,.ficha,.foot-grid{grid-template-columns:1fr}
+  .exam{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Principal">
+  <div class="wrap">
+    <a class="brand" href="index.html"><i>&lt;/&gt;</i>Sistemas a medida</a>
+    <a class="back" href="index.html">← Volver al inicio</a>
+    <a class="btn primary" href="demos.html" target="_blank" rel="noopener"><span class="opt">Probar </span>demos ↗</a>
+  </div>
+</nav>
+<a class="wa-float" href="https://wa.me/51916037021?text=Hola%20Pablo%2C%20le%C3%AD%20el%20caso%20de%20la%20academia%20y%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>
+
+<header class="chero">
+  <div class="wrap chero-grid">
+    <div class="ctext">
+      <span class="eyebrow">Caso de estudio · Educación</span>
+      <h1>Una academia que pasó del cuaderno a un sistema propio</h1>
+      <p class="lead">Cobros, exámenes y avisos a los padres en un solo sistema, hecho según la forma de trabajar de la academia. Hoy se usa todos los días.</p>
+      <dl class="ficha">
+        <div><dt>Rubro</dt><dd>Academia preuniversitaria</dd></div>
+        <div><dt>Quiénes lo usan</dt><dd>Dirección, caja, docentes y padres</dd></div>
+        <div><dt>Módulos</dt><dd>Cobros, exámenes, asistencia y WhatsApp</dd></div>
+        <div><dt>Funciona en</dt><dd>PC y celular</dd></div>
+      </dl>
+    </div>
+    <figure class="chero-img"><img src="img/rubro-academia.webp" alt="Dos estudiantes repasando sus apuntes en un aula" width="800" height="1200" fetchpriority="high"><figcaption>Foto referencial</figcaption></figure>
+  </div>
+</header>
+
+<section class="wrap sec">
+  <div class="head"><span class="eyebrow">El reto</span><h2>Todo dependía del cuaderno y de la memoria</h2></div>
+  <div class="retos">
+    <article class="reto"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M8 7h8M8 11h6"/></svg></div><h3>Cuotas en cuaderno</h3><p>Saber quién debía y desde cuándo tomaba horas.</p></article>
+    <article class="reto"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Simulacros a mano</h3><p>Calificar ficha por ficha y armar el ranking tomaba mucho tiempo.</p></article>
+    <article class="reto"><div class="ic"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></div><h3>Padres sin noticias</h3><p>Avisar de pagos, notas o faltas era llamar uno por uno.</p></article>
+    <article class="reto"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></div><h3>Datos sueltos</h3><p>Cada archivo de Excel tenía una versión distinta de la verdad.</p></article>
+  </div>
+</section>
+
+<section class="sol sec">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">La solución</span><h2>Un solo sistema, hecho a su forma de trabajar</h2></div>
+
+    <div class="feat-row">
+      <div class="ftxt">
+        <span class="num">01 · COBROS Y PAGOS</span>
+        <h3>Cada pago, con ticket y al día</h3>
+        <p>La caja registra el pago, imprime el ticket y la deuda se actualiza sola. La dirección ve en un clic quién está atrasado.</p>
+        <ul class="ticks"><li>Cuotas, pagos parciales, descuentos y becas</li><li>Ticket en impresora térmica</li><li>Lista de morosos y cierre de caja</li></ul>
+        <a class="demo-link" href="demos.html#cobros" target="_blank" rel="noopener">Probar esta pantalla ↗</a>
+      </div>
+      <div class="app pay" role="img" aria-label="Pantalla recreada de cobros con alumnos, cuota, monto y estado">
+        <div class="bar"><i></i><i></i><i></i><span>cobros · ciclo 2026-II</span></div>
+        <div class="scroll"><table>
+          <thead><tr><th>Alumno</th><th>Cuota</th><th>Monto</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td>Ana Quispe</td><td>3 de 4</td><td>S/ 250.00</td><td><span class="pill ok">Pagado</span></td></tr>
+            <tr class="hl"><td>Luis Rojas</td><td>3 de 4</td><td>S/ 250.00</td><td><span class="pill warn">Vence hoy</span></td></tr>
+            <tr><td>María Soto</td><td>2 de 4</td><td>S/ 125.00</td><td><span class="pill ok">Parcial</span></td></tr>
+            <tr><td>Diego Ramos</td><td>2 de 4</td><td>S/ 250.00</td><td><span class="pill bad">Atrasado</span></td></tr>
+            <tr><td>Rosa Huamán</td><td>3 de 4</td><td>S/ 200.00</td><td><span class="pill ok">Beca 20%</span></td></tr>
+          </tbody>
+        </table></div>
+        <div class="sum"><span>Cobrado del ciclo: <b>78%</b></span><div class="meter"><i></i></div><span>S/ 38 450 de S/ 49 300</span></div>
+      </div>
+    </div>
+
+    <div class="feat-row flip">
+      <div class="ftxt">
+        <span class="num">02 · EXÁMENES</span>
+        <h3>Del simulacro al ranking el mismo día</h3>
+        <p>El docente carga la clave, los alumnos marcan su ficha óptica y el celular la califica con una foto. El ranking general y por área sale solo.</p>
+        <ul class="ticks"><li>Banco de preguntas y claves por área</li><li>Fichas ópticas leídas con el celular</li><li>Ranking exportable a Excel y PDF</li></ul>
+        <a class="demo-link" href="demos.html#examenes" target="_blank" rel="noopener">Probar esta pantalla ↗</a>
+      </div>
+      <div class="app" role="img" aria-label="Pantalla recreada del examen: clave, ficha óptica calificada y ranking">
+        <div class="bar"><i></i><i></i><i></i><span>exámenes · simulacro 3</span></div>
+        <div class="exam">
+          <div><h4><span>1</span>Clave</h4><div class="q"><b>P1.</b> Si 3x − 5 = 16, x =</div><div class="q"><b>P2.</b> Sinónimo de «efímero»</div><div class="q"><b>P3.</b> Unidad de la fuerza (SI)</div><div class="q"><b>Clave B:</b> C A D B E C</div></div>
+          <div><h4><span>2</span>Ficha leída</h4>
+            <div class="omr">
+              <div class="orow"><span>1</span><i class="ob"></i><i class="ob"></i><i class="ob on"></i><i class="ob"></i><i class="ob"></i><b class="res ok">✓</b></div>
+              <div class="orow"><span>2</span><i class="ob on"></i><i class="ob"></i><i class="ob"></i><i class="ob"></i><i class="ob"></i><b class="res ok">✓</b></div>
+              <div class="orow"><span>3</span><i class="ob"></i><i class="ob on"></i><i class="ob"></i><i class="ob"></i><i class="ob"></i><b class="res bad">✕</b></div>
+              <div class="orow"><span>4</span><i class="ob"></i><i class="ob on"></i><i class="ob"></i><i class="ob"></i><i class="ob"></i><b class="res ok">✓</b></div>
+              <div class="orow"><span>5</span><i class="ob"></i><i class="ob"></i><i class="ob"></i><i class="ob"></i><i class="ob on"></i><b class="res ok">✓</b></div>
+              <div class="orow"><span>6</span><i class="ob"></i><i class="ob"></i><i class="ob on"></i><i class="ob"></i><i class="ob"></i><b class="res ok">✓</b></div>
+            </div>
+            <div class="score">Puntaje: 29,93</div>
+          </div>
+          <div><h4><span>3</span>Ranking</h4>
+            <div class="rank">
+              <div class="rk"><b>1</b><span>Rosa H.</span><i>1 412,6</i></div>
+              <div class="rk"><b>2</b><span>Ana Q.</span><i>1 380,2</i></div>
+              <div class="rk"><b>3</b><span>Luis R.</span><i>1 351,9</i></div>
+              <div class="rk"><b>4</b><span>María S.</span><i>1 298,4</i></div>
+              <div class="rk"><b>5</b><span>Diego R.</span><i>1 245,3</i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat-row">
+      <div class="ftxt">
+        <span class="num">03 · AVISOS POR WHATSAPP</span>
+        <h3>Los padres se enteran sin que nadie escriba</h3>
+        <p>El sistema envía los avisos desde el número de la academia: cuotas por vencer, faltas y tardanzas, notas de cada simulacro y comunicados.</p>
+        <ul class="ticks"><li>Recordatorio de cuotas antes del vencimiento</li><li>Faltas y tardanzas del día</li><li>Notas y puesto en cada simulacro</li></ul>
+        <a class="demo-link" href="demos.html#whatsapp" target="_blank" rel="noopener">Probar esta pantalla ↗</a>
+      </div>
+      <div class="phone" role="img" aria-label="Celular recreado con avisos de la academia por WhatsApp">
+        <div class="screen">
+          <div class="wahead"><i></i><div>Academia<small>en línea</small></div></div>
+          <div class="chat">
+            <div class="msg">Buenos días, Sra. Ramos. Le recordamos que la <strong>cuota 2</strong> de Diego (S/ 250.00) vence el 15/11.<time>08:00</time></div>
+            <div class="msg">Diego registró <strong>tardanza</strong> hoy a las 8:12 a. m.<time>08:13</time></div>
+            <div class="msg">Resultados del <strong>Simulacro 3</strong>: Diego obtuvo 1 245,3 pts, puesto 12 de 180 en el Área B.<time>18:30</time></div>
+            <div class="msg">Comunicado: el sábado habrá clase de reforzamiento de 9 a 12 h.<time>19:00</time></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <div class="head"><span class="eyebrow">El resultado</span><h2>Qué cambió en el día a día</h2></div>
+  <div class="cambios">
+    <div class="cam"><h3>Cobrar una cuota</h3><p class="antes">Buscar al alumno en el cuaderno y anotar a mano</p><p class="ahora">Se registra al momento y sale el ticket</p></div>
+    <div class="cam"><h3>Saber quién debe</h3><p class="antes">Revisar hoja por hoja</p><p class="ahora">La lista de morosos sale con un clic</p></div>
+    <div class="cam"><h3>Calificar un simulacro</h3><p class="antes">Corregir ficha por ficha</p><p class="ahora">Una foto con el celular y el ranking sale solo</p></div>
+    <div class="cam"><h3>Avisar a los padres</h3><p class="antes">Llamar o escribir uno por uno</p><p class="ahora">Los avisos llegan solos por WhatsApp</p></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="endcta">
+    <div><h2>¿Su negocio necesita algo así?</h2><p>Escuchamos cómo trabaja y le mostramos un prototipo antes de programar.</p></div>
+    <div class="row2"><a class="btn wa" href="https://wa.me/51916037021?text=Hola%20Pablo%2C%20le%C3%AD%20el%20caso%20de%20la%20academia%20y%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir por WhatsApp</a><a class="btn" href="demos.html" target="_blank" rel="noopener">Probar las demos ↗</a></div>
+  </div>
+  <p class="note">Por privacidad no mostramos el nombre de la academia ni datos de sus alumnos. Las pantallas son recreaciones con datos de ejemplo y la foto es referencial.</p>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html"><i>&lt;/&gt;</i>Sistemas a medida</a>
+        <p>Desarrollamos sistemas, páginas web y apps a la medida de cada negocio.</p>
+        <a class="btn wa" href="https://wa.me/51916037021?text=Hola%20Pablo%2C%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
+      <nav class="foot-col" aria-label="Secciones del sitio"><h3>Explorar</h3><a href="index.html#experiencia">Casos reales</a><a href="index.html#negocios">Para quién trabajamos</a><a href="index.html#modulos">Módulos</a><a href="index.html#trabajo">Cómo trabajamos</a><a href="index.html#armar">Arme su sistema</a><a href="index.html#faq">Preguntas frecuentes</a></nav>
+      <nav class="foot-col" aria-label="Recursos"><h3>Recursos</h3><a href="demos.html" target="_blank" rel="noopener">Demos ↗</a><a href="caso-academia.html">Caso de estudio</a><a href="privacidad.html">Aviso de privacidad</a></nav>
+      <div class="foot-col"><h3>Contacto</h3><a href="https://wa.me/51916037021" target="_blank" rel="noopener">WhatsApp +51 916 037 021</a><span>Atención por WhatsApp</span><span>Perú</span></div>
+    </div>
+    <div class="foot-bar"><span>© <span class="year">2026</span> Sistemas a medida · Hecho en Perú</span><a href="privacidad.html">Aviso de privacidad</a></div>
+  </div>
+</footer>
+<script>document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());</script>
+</body>
+</html>
