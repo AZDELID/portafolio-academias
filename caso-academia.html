@@ -203,6 +203,7 @@ p{margin:0;max-width:62ch}
 [data-theme="dark"] .cam .ahora{background:linear-gradient(160deg,rgba(26,140,240,.16),rgba(19,181,166,.13))}
 </style>
 <script>/* tema: el guardado manda; si no hay, el del sistema */(function(){var d=document.documentElement,m=matchMedia('(prefers-color-scheme: dark)'),g;try{g=localStorage.getItem('tema')}catch(e){}d.dataset.theme=g||(m.matches?'dark':'light');if(!g&&m.addEventListener)m.addEventListener('change',function(e){d.dataset.theme=e.matches?'dark':'light'});document.addEventListener('click',function(e){if(!e.target.closest('.tema'))return;var t=d.dataset.theme==='dark'?'light':'dark';d.dataset.theme=t;try{localStorage.setItem('tema',t)}catch(_){}})})();</script>
+<link rel="stylesheet" href="fx.css"><script src="fx.js"></script>
 </head>
 <body>
 

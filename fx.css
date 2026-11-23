@@ -1,0 +1,81 @@
+/* Efectos compartidos por las 5 páginas (intro del logo, hero con luz, scroll, tarjetas y botones).
+   Va enlazado al final del <head> para ganarle a las reglas de cada página. */
+
+/* transición suave al pasar de una página a otra (Chrome/Edge; los demás cambian normal) */
+@media (prefers-reduced-motion:no-preference){@view-transition{navigation:auto}}
+
+/* ---------- intro: el peón aparece, la órbita gira y la corona cae ---------- */
+html.fx-intro body{visibility:hidden}
+.fx-cap{visibility:visible;position:fixed;inset:0;z-index:9999;display:grid;place-content:center;justify-items:center;gap:1.1rem;
+  background:radial-gradient(600px circle at 50% 45%,var(--glow1,#dff0ff),transparent 70%),var(--bg,#fff);
+  clip-path:circle(150% at 50% 45%);transition:clip-path .7s cubic-bezier(.7,0,.2,1)}
+.fx-cap.fx-out{clip-path:circle(0% at 50% 45%)}
+.fx-cap svg,.fx-cap img{width:min(150px,38vw);height:auto;overflow:visible}
+.fx-cap svg *{transform-box:fill-box;transform-origin:center}
+.fx-cap .peon{animation:fx-sube .55s cubic-bezier(.2,.8,.2,1) both}
+.fx-cap .orbita{animation:fx-orb .8s .15s cubic-bezier(.2,.8,.2,1) both}
+.fx-cap .corona{animation:fx-cae .6s .6s cubic-bezier(.3,1.6,.5,1) both}
+.fx-cap img{animation:fx-sube .6s cubic-bezier(.2,.8,.2,1) both}
+.fx-cap p{margin:0;font:700 1.6rem var(--display,system-ui);color:var(--ink,#10243f);letter-spacing:-.01em;animation:fx-sube .6s .9s both}
+.fx-cap p b{color:var(--sky,#1a8cf0);font-weight:inherit}
+@keyframes fx-sube{from{opacity:0;transform:translateY(40%)}}
+@keyframes fx-orb{from{opacity:0;transform:rotate(-220deg) scale(.3)}}
+@keyframes fx-cae{0%{opacity:0;transform:translateY(-160%) rotate(-12deg)}60%{opacity:1}}
+
+/* ---------- hero: aurora que se mueve + foco de luz que sigue al mouse ---------- */
+.hero,.dhero,.chero,.phero{position:relative;isolation:isolate;overflow:hidden}
+.fx-luz{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(520px circle at var(--mx,72%) var(--my,30%),rgba(95,184,255,.26),transparent 60%)}
+.fx-luz::before{content:"";position:absolute;inset:-25%;filter:blur(40px);opacity:.9;
+  background:radial-gradient(35% 45% at 20% 30%,rgba(26,140,240,.20),transparent 70%),
+             radial-gradient(30% 40% at 80% 70%,rgba(19,181,166,.20),transparent 70%),
+             radial-gradient(25% 35% at 60% 15%,rgba(167,139,250,.16),transparent 70%);
+  animation:fx-aurora 16s ease-in-out infinite alternate}
+@keyframes fx-aurora{to{transform:rotate(18deg) scale(1.15) translate(4%,-3%)}}
+/* brillo sobre el panel del inicio, sigue al mouse */
+.hero-art .app::before{content:"";position:absolute;inset:0;z-index:3;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(380px circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.45),transparent 60%);mix-blend-mode:soft-light}
+.hero-art:hover .app::before{opacity:1}
+.hero-art .app{box-shadow:0 40px 80px -36px rgba(16,36,63,.45),0 0 0 1px rgba(95,184,255,.15),0 0 60px -20px rgba(19,181,166,.35)}
+
+/* título del hero: palabra por palabra */
+.fx-w{display:inline-block}
+.fx-go .fx-w{animation:fx-palabra .75s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--i)*70ms + .1s)}
+.fx-go .fx-wi{animation:fx-difuso .9s ease-out backwards;animation-delay:calc(var(--i)*70ms + .1s)}
+@keyframes fx-palabra{from{opacity:0;transform:translateY(.55em) rotate(4deg);filter:blur(6px)}}
+@keyframes fx-difuso{from{opacity:0;filter:blur(8px)}}
+
+/* ---------- scroll: entrar con desenfoque + zoom, títulos subrayados ---------- */
+.rv.in{animation:fx-up .9s cubic-bezier(.2,.7,.2,1) backwards}
+@keyframes fx-up{from{opacity:0;transform:translateY(34px) scale(.96);filter:blur(10px)}}
+.head h2::after{content:"";display:block;width:64px;height:4px;margin-top:.7rem;border-radius:4px;background:linear-gradient(90deg,var(--sky),var(--teal));transform-origin:left}
+.head.center h2::after{margin-inline:auto;transform-origin:center}
+.in h2::after{animation:fx-linea .8s .35s cubic-bezier(.2,.7,.2,1) backwards}
+@keyframes fx-linea{from{transform:scaleX(0)}}
+/* parallax de las fotos: lo mueve el propio scroll, sin JavaScript */
+@supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){
+  .rubro{overflow:clip} /* hidden la volvía contenedor de scroll y view() medía contra la tarjeta, no la página */
+  .rubro img{scale:1.16;animation:fx-par linear both;animation-timeline:view()}
+  .trab-img img,.chero-img img{animation:fx-flota linear both;animation-timeline:view()}
+}}
+@keyframes fx-par{from{translate:0 -7%}to{translate:0 7%}}
+@keyframes fx-flota{from{translate:0 28px}to{translate:0 -28px}}
+
+/* ---------- tarjetas que se inclinan con reflejo ---------- */
+.rubro,.mod{transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.rubro.fx-on,.mod.fx-on{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-5px)}
+.rubro.fx-on{box-shadow:0 34px 50px -28px rgba(16,36,63,.7)}
+.rubro::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(320px circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.35),transparent 60%);mix-blend-mode:overlay}
+.rubro.fx-on::before{opacity:1}
+
+/* ---------- botones: borde de colores que gira + imán ---------- */
+@property --fx-ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+.btn.primary{border:2px solid transparent;
+  background:linear-gradient(90deg,var(--sky),var(--teal)) padding-box,
+             conic-gradient(from var(--fx-ang),var(--sky),var(--teal),#a78bfa,#ffd166,var(--sky)) border-box;
+  box-shadow:0 12px 30px -14px rgba(26,140,240,.7);animation:fx-giro 4s linear infinite}
+@keyframes fx-giro{to{--fx-ang:360deg}}
+.fx-iman{transition:translate .25s cubic-bezier(.2,.7,.2,1)}
+
+@media (prefers-reduced-motion:reduce){.fx-luz::before,.btn.primary,.fx-cap *{animation:none!important}}

@@ -166,6 +166,111 @@ p{margin:0;max-width:62ch}
 @keyframes m2{0%,22%{opacity:0;transform:translateY(10px)}27%,94%{opacity:1;transform:none}100%{opacity:0}}
 @keyframes m3{0%,40%{opacity:0;transform:translateY(10px)}45%,94%{opacity:1;transform:none}100%{opacity:0}}
 @keyframes m4{0%,58%{opacity:0;transform:translateY(10px)}63%,94%{opacity:1;transform:none}100%{opacity:0}}
+/* casos reales plegados: el resumen es el botón */
+.casos-btn{list-style:none;cursor:pointer;display:grid;gap:1.1rem;justify-items:center;padding:1.3rem;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:0 24px 50px -34px rgba(16,36,63,.5);transition:border-color .25s,box-shadow .25s}
+.casos-btn::-webkit-details-marker{display:none}
+.casos{border:0;border-radius:0;background:none;padding:0}
+.casos-btn::after{content:none}
+.casos-btn{grid-template-columns:minmax(0,1fr);justify-content:stretch;font-weight:400}
+.casos p{padding-bottom:0}
+.casos-btn:hover{border-color:#bfe0ff;box-shadow:0 26px 50px -26px rgba(26,140,240,.5)}
+.cb-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;width:100%}
+.cb-t{display:grid;justify-items:center;gap:.55rem;padding:1rem .6rem;border-radius:16px;background:var(--soft);font:600 .95rem var(--display);text-align:center}
+.cb-t svg{width:26px;height:26px;padding:9px;border-radius:12px;background:var(--card);fill:none;stroke:var(--sky);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cb-go{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.5rem;border-radius:999px;color:#fff;font-weight:700;background:linear-gradient(90deg,var(--sky),var(--teal));box-shadow:0 12px 30px -14px rgba(26,140,240,.7)}
+.cb-go svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;transition:transform .35s}
+.cb-ocultar,.casos[open] .cb-ver,.casos[open] .cb-tiles{display:none}
+.casos[open] .cb-ocultar{display:inline}
+.casos[open] .cb-go svg{transform:rotate(180deg)}
+.casos[open] .casos-btn{background:none;border-color:transparent;box-shadow:none;padding:.4rem}
+.casos[open] .casos-body{animation:casos-abre .6s cubic-bezier(.2,.7,.2,1)}
+@keyframes casos-abre{from{opacity:0;transform:translateY(-14px)}}
+
+/* cobros: panel completo + boleta térmica */
+.pay-wrap{position:relative;padding-bottom:1.2rem}
+.pz{display:grid;grid-template-columns:92px minmax(0,1fr)}
+.pz-side{display:grid;align-content:start;gap:.15rem;padding:.7rem .45rem;background:#10243f;color:#9fb3cb;font-size:.66rem}
+.pz-side b{color:#fff;font:700 .7rem var(--display);padding:.15rem .4rem .6rem}
+.pz-side span{padding:.35rem .5rem;border-radius:7px}
+.pz-side .on{background:rgba(95,184,255,.2);color:#fff}
+.pz-main{min-width:0;display:grid;gap:.55rem;padding:.7rem}
+.pz-top{display:flex;gap:.5rem;align-items:center}
+.pz-search{flex:1;min-width:0;font-size:.68rem;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:.35rem .6rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pz-search::before{content:"⌕ ";font-weight:700}
+.pz-btn{font-size:.66rem;font-weight:700;color:#fff;background:var(--sky);border-radius:8px;padding:.4rem .6rem;white-space:nowrap}
+.pz-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem}
+.pz-kpis div{background:var(--soft);border-radius:9px;padding:.4rem .55rem;display:grid}
+.pz-kpis small{font-size:.58rem;color:var(--muted)}
+.pz-kpis b{font:700 .84rem var(--display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pz-kpis .rojo{color:var(--bad)}
+.pz-tabs{display:flex;gap:.3rem;font-size:.6rem;overflow:hidden}
+.pz-tabs span{padding:.2rem .5rem;border-radius:99px;background:var(--soft);color:var(--muted);white-space:nowrap}
+.pz-tabs .on{background:var(--ink);color:#fff}
+.pz .pay table,.pay .pz table{font-size:.72rem}
+.pay .pz th{padding:.4rem .35rem;font-size:.6rem}
+.pay .pz td{padding:.4rem .35rem;white-space:nowrap}
+.pay .sum{padding:.2rem 0 0}
+.av{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--c);color:#fff;font:700 .52rem var(--body);margin-right:.4rem;vertical-align:middle}
+.nm{display:inline-grid;vertical-align:middle;line-height:1.15}
+.nm small{font-size:.56rem;color:var(--muted)}
+.despues,.cobrado .antes{display:none}
+.cobrado .despues{display:inline}
+.cobrado .hl td{animation:none;background:#e9fbef;transition:background .4s}
+.meter i{transition:width .8s}
+.cobrado .meter i{width:79%}
+.ticket{position:absolute;right:-16px;bottom:-4px;z-index:2;width:150px;display:grid;gap:.12rem;padding:.7rem .7rem .9rem;background:#fffdf7;color:#2b2f36;font:500 .56rem/1.35 var(--mono);
+  box-shadow:0 22px 36px -16px rgba(16,36,63,.55);transform:translateY(-24px) rotate(3deg);opacity:0;clip-path:inset(0 0 100% 0);
+  transition:opacity .2s,transform .9s cubic-bezier(.2,.7,.2,1),clip-path .9s cubic-bezier(.2,.7,.2,1)}
+.cobrado .ticket{opacity:1;transform:rotate(3deg);clip-path:inset(0 0 -10px 0)}
+.ticket::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:6px;background:linear-gradient(-45deg,transparent 4px,#fffdf7 0) 0 0/8px 6px,linear-gradient(45deg,transparent 4px,#fffdf7 0) 0 0/8px 6px}
+.ticket b{text-align:center;font-size:.7rem}
+.ticket small{text-align:center;color:#7b8593}
+.ticket span{display:flex;justify-content:space-between;gap:.4rem}
+.ticket i{font-style:normal;color:#7b8593}
+.ticket hr{border:0;border-top:1px dashed #b9c0ca;margin:.25rem 0;width:100%}
+.ticket .tt{font-weight:700;font-size:.66rem}
+.ticket .bc{height:18px;margin-top:.3rem;background:repeating-linear-gradient(90deg,#2b2f36 0 1px,transparent 1px 3px,#2b2f36 3px 5px,transparent 5px 6px)}
+
+/* exámenes: barra superior, cámara que escanea y barras del ranking */
+.ex-top{display:flex;gap:.4rem;align-items:center;padding:.7rem 1rem 0;font-size:.7rem;font-weight:700;flex-wrap:wrap}
+.ex-top>span:first-child{margin-right:auto}
+.ex-chip{font-size:.58rem;padding:.15rem .5rem;border-radius:99px;background:var(--soft);color:var(--muted);font-weight:600}
+.ex-chip.ok{background:#dcfce7;color:#15803d}
+.ex-btn{font-size:.58rem;color:#fff;background:var(--ok);padding:.25rem .55rem;border-radius:7px}
+.q em{float:right;font-style:normal;font-size:.52rem;color:var(--teal);font-weight:700;margin-left:.3rem}
+.cam{position:relative;background:var(--card);border-radius:8px;padding:.35rem;border:1px solid var(--line);overflow:hidden}
+.cam small{display:block;font-size:.54rem;color:var(--bad);font-weight:700;margin-bottom:.25rem}
+.cam::after{content:"";position:absolute;left:0;right:0;top:22%;height:2px;background:var(--teal);box-shadow:0 0 10px 2px rgba(19,181,166,.6);animation:escanea 2.2s ease-in-out infinite alternate}
+@keyframes escanea{to{top:96%}}
+.rk{position:relative;overflow:hidden}
+.rk u{position:absolute;left:0;bottom:0;height:2px;width:var(--w);background:linear-gradient(90deg,var(--sky),var(--teal))}
+.ex-prom{display:flex;justify-content:space-between;font-size:.62rem;color:var(--muted);padding:.2rem .4rem}
+.ex-prom b{color:var(--ink);font-family:var(--mono)}
+
+/* whatsapp: barra de estado, fondo con trama, adjunto, respuesta y caja de texto */
+.wastatus{display:flex;justify-content:space-between;padding:.4rem 1.1rem .1rem;background:#0b7d6e;color:#fff;font-size:.6rem}
+.wahead{padding-top:.5rem}
+.wahead i{display:grid;place-items:center;color:#fff;font:700 .6rem var(--body)}
+.wa-back{font-size:1.4rem;line-height:1;margin-right:-.2rem}
+.wa-ok{display:inline-grid;place-items:center;width:13px;height:13px;border-radius:50%;background:var(--wa);font-size:.5rem;vertical-align:middle}
+.screen .chat{min-height:300px;background-image:radial-gradient(rgba(11,125,110,.08) 1px,transparent 1px);background-size:14px 14px}
+.wa-dia{justify-self:center;font-size:.56rem;font-weight:700;color:#54656f;background:#fff;padding:.15rem .6rem;border-radius:7px;box-shadow:0 1px 1px rgba(0,0,0,.06)}
+.wa-doc{display:grid;grid-template-columns:auto 1fr;column-gap:.45rem;align-items:center;margin-top:.4rem;padding:.4rem .5rem;border-radius:8px;background:#f2f5f7;font-size:.64rem;font-weight:600}
+.wa-doc b{grid-row:span 2;background:var(--bad);color:#fff;font-size:.5rem;padding:.4rem .3rem;border-radius:4px}
+.wa-doc small{font-size:.55rem;color:#8a96a3;font-weight:400}
+.msg.mine{justify-self:end;background:#d9fdd3;border-radius:10px 10px 2px 10px}
+.wa-tick{color:#53bdeb;letter-spacing:-.25em;margin-left:.2rem}
+.wa-input{display:flex;gap:.4rem;align-items:center;padding:.45rem .55rem .65rem;background:#efe7dc}
+.wa-input span{flex:1;background:#fff;border-radius:99px;padding:.4rem .8rem;font-size:.66rem;color:#8a96a3}
+.wa-input i{width:30px;height:30px;border-radius:50%;background:#0b7d6e url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Crect x='9' y='3' width='6' height='12' rx='3'/%3E%3Cpath d='M6 11a6 6 0 0 0 12 0h-2a4 4 0 0 1-8 0zM11 18h2v3h-2z'/%3E%3C/svg%3E") center/15px no-repeat}
+
+@media (max-width:620px){
+  .cb-tiles{grid-template-columns:1fr}
+  .cb-t{grid-template-columns:auto 1fr;justify-items:start;align-items:center;text-align:left;padding:.6rem .8rem}
+  .pz{grid-template-columns:1fr}.pz-side{display:none}
+  .pay .pz th:nth-child(4),.pay .pz td:nth-child(4){display:none}
+  .ticket{right:-4px;width:128px}
+}
 
 /* MÓDULOS */
 .mods-sec{background:linear-gradient(180deg,var(--soft),var(--card))}
@@ -499,6 +604,7 @@ html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
 [data-theme="dark"] .fe.g .ic{background:rgba(22,163,74,.16)}
 </style>
 <script>/* tema: el guardado manda; si no hay, el del sistema */(function(){var d=document.documentElement,m=matchMedia('(prefers-color-scheme: dark)'),g;try{g=localStorage.getItem('tema')}catch(e){}d.dataset.theme=g||(m.matches?'dark':'light');if(!g&&m.addEventListener)m.addEventListener('change',function(e){d.dataset.theme=e.matches?'dark':'light'});document.addEventListener('click',function(e){if(!e.target.closest('.tema'))return;var t=d.dataset.theme==='dark'?'light':'dark';d.dataset.theme=t;try{localStorage.setItem('tema',t)}catch(_){}})})();</script>
+<link rel="stylesheet" href="fx.css"><script src="fx.js"></script>
 </head>
 <body>
 
@@ -613,9 +719,21 @@ html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
     <div class="head center rv">
       <span class="eyebrow">Casos reales</span>
       <h2>Sistemas que ya están funcionando</h2>
-      <p class="lead">Estas son tres piezas que ya construimos para instituciones educativas y que hoy se usan a diario. Las mismas soluciones se adaptan a cualquier negocio: cambian los nombres, la idea es la misma.</p>
+      <p class="lead">Tres piezas que ya construimos y hoy se usan a diario. Se adaptan a cualquier negocio: cambian los nombres, la idea es la misma.</p>
     </div>
 
+    <!-- plegado: el resumen es el botón; adentro van las tres pantallas -->
+    <details class="casos">
+      <summary class="casos-btn rv">
+        <span class="cb-tiles" aria-hidden="true">
+          <span class="cb-t"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>Cobros y pagos</span>
+          <span class="cb-t"><svg viewBox="0 0 24 24"><path d="M9 4h6l1 2h3v15H5V6h3z"/><path d="M9 12l2 2 4-4"/></svg>Exámenes</span>
+          <span class="cb-t"><svg viewBox="0 0 24 24"><path d="M4 20l1.4-4A8 8 0 1 1 8 18.6z"/></svg>Avisos por WhatsApp</span>
+        </span>
+        <span class="cb-go"><span class="cb-ver">Ver cómo funcionan</span><span class="cb-ocultar">Ocultar</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+
+      <div class="casos-body">
     <!-- Pagos -->
     <div class="pillar">
       <div class="txt rv">
@@ -625,19 +743,41 @@ html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
         <ul class="ticks"><li>Cuotas, pagos parciales, descuentos y becas</li><li>Ticket impreso en impresora térmica por cada pago</li><li>Lista de morosos con un clic y recordatorio por WhatsApp</li><li>Cierre de caja diario y mensual</li></ul>
         <a class="demo-link" href="demos.html?a=academias#cobros" target="_blank" rel="noopener">Probar cómo funciona ↗</a>
       </div>
-      <div class="app pay rv d1" role="img" aria-label="Pantalla simulada de control de pagos">
+      <div class="pay-wrap rv d1" id="payWrap">
+      <div class="app pay" role="img" aria-label="Pantalla simulada de control de pagos: se registra un pago, sale la boleta y la deuda se actualiza">
         <div class="bar"><i></i><i></i><i></i><span>pagos · ciclo 2026-II</span></div>
-        <div class="scroll"><table>
-          <thead><tr><th>Alumno</th><th>Cuota</th><th>Monto</th><th>Estado</th></tr></thead>
-          <tbody>
-            <tr><td>Ana Quispe</td><td>3 de 4</td><td>S/ 250.00</td><td><span class="pill ok">Pagado</span></td></tr>
-            <tr class="hl"><td>Luis Rojas</td><td>3 de 4</td><td>S/ 250.00</td><td><span class="pill warn">Vence hoy</span></td></tr>
-            <tr><td>María Soto</td><td>2 de 4</td><td>S/ 125.00</td><td><span class="pill ok">Parcial</span></td></tr>
-            <tr><td>Diego Ramos</td><td>2 de 4</td><td>S/ 250.00</td><td><span class="pill bad">Atrasado</span></td></tr>
-            <tr><td>Rosa Huamán</td><td>3 de 4</td><td>S/ 200.00</td><td><span class="pill ok">Beca 20%</span></td></tr>
-          </tbody>
-        </table></div>
-        <div class="sum"><span>Cobrado del ciclo: <b>78%</b></span><div class="meter"><i></i></div><span>S/ 38 450 de S/ 49 300</span></div>
+        <div class="pz">
+          <aside class="pz-side" aria-hidden="true"><b>◆ Academia</b><span>Inicio</span><span>Alumnos</span><span class="on">Pagos</span><span>Exámenes</span><span>Avisos</span><span>Caja</span><span>Reportes</span></aside>
+          <div class="pz-main">
+            <div class="pz-top"><span class="pz-search">Buscar alumno o código…</span><span class="pz-btn">+ Registrar pago</span></div>
+            <div class="pz-kpis">
+              <div><small>Cobrado hoy</small><b><span class="antes">S/ 1 850</span><span class="despues">S/ 2 100</span></b></div>
+              <div><small>Por cobrar</small><b><span class="antes">S/ 10 850</span><span class="despues">S/ 10 600</span></b></div>
+              <div><small>Atrasados</small><b class="rojo">23</b></div>
+            </div>
+            <div class="pz-tabs"><span class="on">Todos 180</span><span>Al día 141</span><span>Vencen hoy 16</span><span>Atrasados 23</span></div>
+            <div class="scroll"><table>
+              <thead><tr><th>Alumno</th><th>Cuota</th><th>Monto</th><th>Último pago</th><th>Estado</th></tr></thead>
+              <tbody>
+                <tr><td><span class="av" style="--c:#1a8cf0">AQ</span><span class="nm">Ana Quispe<small>A-2 · Ingenierías</small></span></td><td>3 de 4</td><td>S/ 250.00</td><td>14/11</td><td><span class="pill ok">Pagado</span></td></tr>
+                <tr class="hl"><td><span class="av" style="--c:#f59e0b">LR</span><span class="nm">Luis Rojas<small>A-1 · Medicina</small></span></td><td>3 de 4</td><td>S/ 250.00</td><td><span class="antes">15/10</span><span class="despues">Hoy</span></td><td><span class="pill warn antes">Vence hoy</span><span class="pill ok despues">Pagado</span></td></tr>
+                <tr><td><span class="av" style="--c:#13b5a6">MS</span><span class="nm">María Soto<small>B-1 · Letras</small></span></td><td>2 de 4</td><td>S/ 125.00</td><td>02/11</td><td><span class="pill ok">Parcial</span></td></tr>
+                <tr><td><span class="av" style="--c:#e2475b">DR</span><span class="nm">Diego Ramos<small>A-2 · Ingenierías</small></span></td><td>2 de 4</td><td>S/ 250.00</td><td>28/09</td><td><span class="pill bad">Atrasado</span></td></tr>
+                <tr><td><span class="av" style="--c:#8b5cf6">RH</span><span class="nm">Rosa Huamán<small>B-2 · Medicina</small></span></td><td>3 de 4</td><td>S/ 200.00</td><td>10/11</td><td><span class="pill ok">Beca 20%</span></td></tr>
+              </tbody>
+            </table></div>
+            <div class="sum"><span>Cobrado del ciclo: <b><span class="antes">78%</span><span class="despues">79%</span></b></span><div class="meter"><i></i></div><span>S/ <span class="antes">38 450</span><span class="despues">38 700</span> de S/ 49 300</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- boleta que sale de la impresora térmica -->
+      <div class="ticket" aria-hidden="true">
+        <b>ACADEMIA</b><small>Boleta B001-00842</small>
+        <hr><span><i>Alumno</i>Luis Rojas</span><span><i>Concepto</i>Cuota 3 de 4</span><span><i>Pago</i>Yape</span>
+        <hr><span class="tt"><i>Total</i>S/ 250.00</span><span><i>Saldo</i>S/ 250.00</span>
+        <small class="gr">¡Gracias! · 23/11 10:42</small>
+        <span class="bc"></span>
+      </div>
       </div>
     </div>
 
@@ -652,28 +792,31 @@ html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
       </div>
       <div class="app rv d1" role="img" aria-label="Pantalla simulada del flujo de examen: creación, calificación de ficha óptica y ranking">
         <div class="bar"><i></i><i></i><i></i><span>exámenes · simulacro 3</span></div>
+        <div class="ex-top" aria-hidden="true"><span>Simulacro 3 · Área B</span><span class="ex-chip">180 fichas</span><span class="ex-chip ok">162 leídas</span><span class="ex-btn">Exportar Excel</span></div>
         <div class="exam">
           <div>
             <h4><span>1</span>Creación</h4>
-            <div class="q"><b>P1.</b> Si 3x − 5 = 16, x =</div>
-            <div class="q"><b>P2.</b> Sinónimo de «efímero»</div>
-            <div class="q"><b>P3.</b> Unidad de la fuerza (SI)</div>
+            <div class="q"><b>P1.</b> Si 3x − 5 = 16, x =<em>Mat.</em></div>
+            <div class="q"><b>P2.</b> Sinónimo de «efímero»<em>R. V.</em></div>
+            <div class="q"><b>P3.</b> Unidad de la fuerza (SI)<em>Fís.</em></div>
+            <div class="q"><b>P4.</b> Capital del Perú en 1535<em>Hist.</em></div>
             <div class="q"><b>Clave B:</b> C A D B E …</div>
           </div>
           <div>
             <h4><span>2</span>Evaluación</h4>
-            <div class="omr" id="omr"></div>
+            <div class="cam"><small>● Cámara · ficha 0137</small><div class="omr" id="omr"></div></div>
             <div class="score" id="score">Leyendo…</div>
           </div>
           <div>
             <h4><span>3</span>Resultados</h4>
             <div class="rank">
-              <div class="rk"><b>1</b><span>Rosa H.</span><i>1 412.6</i></div>
-              <div class="rk"><b>2</b><span>Ana Q.</span><i>1 380.2</i></div>
-              <div class="rk"><b>3</b><span>Luis R.</span><i>1 351.9</i></div>
-              <div class="rk"><b>4</b><span>María S.</span><i>1 298.4</i></div>
-              <div class="rk"><b>5</b><span>Diego R.</span><i>1 245.3</i></div>
+              <div class="rk"><b>1</b><span>Rosa H.</span><i>1 412.6</i><u style="--w:100%"></u></div>
+              <div class="rk"><b>2</b><span>Ana Q.</span><i>1 380.2</i><u style="--w:93%"></u></div>
+              <div class="rk"><b>3</b><span>Luis R.</span><i>1 351.9</i><u style="--w:87%"></u></div>
+              <div class="rk"><b>4</b><span>María S.</span><i>1 298.4</i><u style="--w:76%"></u></div>
+              <div class="rk"><b>5</b><span>Diego R.</span><i>1 245.3</i><u style="--w:65%"></u></div>
             </div>
+            <div class="ex-prom"><span>Promedio</span><b>982.4</b></div>
           </div>
         </div>
       </div>
@@ -691,18 +834,23 @@ html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
       <div class="rv d1">
         <div class="phone" role="img" aria-label="Celular simulado recibiendo avisos de la academia por WhatsApp">
           <div class="screen">
-            <div class="wahead"><i></i><div>Academia<small>en línea</small></div></div>
+            <div class="wastatus" aria-hidden="true"><b>9:41</b><span>▂▄▆ 4G ▮</span></div>
+            <div class="wahead"><span class="wa-back" aria-hidden="true">‹</span><i>AC</i><div>Academia <span class="wa-ok" aria-hidden="true">✓</span><small>Cuenta de empresa</small></div></div>
             <div class="chat">
-              <div class="msg m1">Buenos días, Sra. Ramos. Le recordamos que la <strong>cuota 2</strong> de Diego (S/ 250.00) vence el 15/11.<time>08:00</time></div>
+              <span class="wa-dia">HOY</span>
+              <div class="msg m1">Buenos días, Sra. Ramos. Le recordamos que la <strong>cuota 2</strong> de Diego (S/ 250.00) vence el 15/11.<span class="wa-doc"><b>PDF</b>Estado_de_cuenta.pdf<small>1 página · 48 kB</small></span><time>08:00</time></div>
               <div class="msg m2">Diego registró <strong>tardanza</strong> hoy a las 8:12 a. m.<time>08:13</time></div>
               <div class="msg m3">Resultados del <strong>Simulacro 3</strong>: Diego obtuvo 1 245.3 pts, puesto 12 de 180 en el Área B.<time>18:30</time></div>
-              <div class="msg m4">Comunicado: el sábado 22/11 habrá clase de reforzamiento de 9 a 12 h.<time>19:00</time></div>
+              <div class="msg mine m4">Gracias, ya pagué por Yape 🙏<time>19:02 <span class="wa-tick">✓✓</span></time></div>
             </div>
+            <div class="wa-input" aria-hidden="true"><span>Mensaje</span><i></i></div>
           </div>
         </div>
       </div>
     </div>
     <p class="note">Pantallas simuladas con datos de ejemplo. <a class="demo-link" href="caso-academia.html">Leer el caso completo →</a></p>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -980,6 +1128,10 @@ if(still){paint(key.length)}else{
   let n=0; paint(0);
   setInterval(()=>{n=n>key.length+5?0:n+1;paint(Math.min(n,key.length))},550);
 }
+
+// cobro de ejemplo: se registra el pago de Luis, sale la boleta y la deuda baja (y vuelve a empezar)
+const pw=document.getElementById('payWrap');
+if(still) pw.classList.add('cobrado'); else setInterval(()=>pw.classList.toggle('cobrado'),3500);
 
 // barra de progreso
 const prog=document.getElementById('prog');
