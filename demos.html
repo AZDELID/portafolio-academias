@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Demos de sistemas</title>
+<title>Demos de sistemas · PaWn Dev</title>
 <meta name="description" content="Pruebe diez demos con datos de ejemplo: cobros, exámenes, avisos por WhatsApp, notas, orientación académica, trámites, punto de venta, reservas, pedidos e impresiones.">
 <meta property="og:title" content="Pruebe nuestros sistemas">
 <meta property="og:description" content="Diez demos que puede usar desde el celular: cobros, exámenes, WhatsApp, ventas, citas, pedidos, impresiones y más.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://portafolio-academias.vercel.app/demos.html">
-<meta property="og:image" content="https://portafolio-academias.vercel.app/og.png">
+<meta property="og:url" content="https://pawn-dev.vercel.app/demos.html">
+<meta property="og:image" content="https://pawn-dev.vercel.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:site_name" content="Sistemas a medida">
+<meta property="og:site_name" content="PaWn Dev">
 <meta property="og:locale" content="es_PE">
-<link rel="canonical" href="https://portafolio-academias.vercel.app/demos.html">
+<link rel="canonical" href="https://pawn-dev.vercel.app/demos.html">
 <script defer src="/_vercel/insights/script.js"></script>
 <meta name="theme-color" content="#1a8cf0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231a8cf0'/%3E%3Cstop offset='1' stop-color='%2313b5a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath d='M24 22l-10 10 10 10M40 22l10 10-10 10M35 18l-6 28' stroke='white' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="img/logo/pawn-simbolo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>
@@ -57,12 +57,12 @@ p{margin:0;max-width:62ch}
 .topnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .topnav .wrap{display:flex;align-items:center;gap:1.2rem;min-height:60px}
 .brand{display:flex;align-items:center;gap:.55rem;font:700 1rem var(--display);text-decoration:none;color:var(--ink);margin-right:auto;white-space:nowrap}
-.brand i{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--sky),var(--teal));display:grid;place-items:center;color:#fff;font:700 .8rem var(--mono);font-style:normal}
+.brand img{width:30px;height:30px;flex:none}.brand b{color:var(--sky);font-weight:inherit}
 .back{font-weight:600;font-size:.93rem;color:var(--muted);text-decoration:none;white-space:nowrap}
 .back:hover{color:var(--sky)}
 .topnav .btn{padding:.55rem 1.05rem;font-size:.9rem}
 @media (max-width:560px){.back{display:none}}
-@media (max-width:380px){.topnav .wrap{gap:.6rem}.brand{font-size:.9rem;gap:.4rem}.brand i{width:24px;height:24px;font-size:.7rem}.topnav .btn{padding:.45rem .75rem;font-size:.8rem}}
+@media (max-width:380px){.topnav .wrap{gap:.6rem}.brand{font-size:.9rem;gap:.4rem}.brand img{width:26px;height:26px}.topnav .btn{padding:.45rem .75rem;font-size:.8rem}}
 
 /* encabezado */
 .dhero{background:radial-gradient(900px 380px at 85% -20%,#dff0ff 0,transparent 60%),radial-gradient(700px 320px at -10% 10%,#e3fbf7 0,transparent 55%);padding-block:2.4rem 1.4rem}
@@ -229,6 +229,160 @@ p{margin:0;max-width:62ch}
 #cp-cola{display:grid;gap:.45rem}
 .colaitem{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.55rem .65rem;display:grid;gap:.3rem;font-size:.8rem;animation:popin .3s both}
 
+.builder{display:grid;grid-template-columns:1.4fr 1fr;gap:1.6rem;align-items:start}
+.builder>*{min-width:0}
+.groups{display:grid;gap:1.2rem}
+.group h3{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;font-family:var(--body);font-weight:700}
+.opts{display:flex;flex-wrap:wrap;gap:.5rem}
+.opt{font:600 .92rem var(--body);display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1rem;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:all .2s}
+.opt::before{content:"";width:18px;height:18px;border-radius:6px;border:2px solid #c3d4e6;transition:all .2s;flex:none}
+.opt:hover{border-color:#bfe0ff}
+.opt[aria-pressed="true"]{border-color:var(--sky);background:#eef7ff}
+.opt[aria-pressed="true"]::before{background:var(--sky) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/12px no-repeat;border-color:var(--sky)}
+.summary{position:sticky;top:84px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.5rem;display:grid;gap:1rem;box-shadow:0 24px 50px -32px rgba(16,36,63,.45)}
+.summary .big{font:700 2.6rem/1 var(--display);background:linear-gradient(90deg,var(--sky),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+.summary ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.35rem;min-height:1.6rem}
+.summary li{font-size:.8rem;background:var(--soft);border-radius:999px;padding:.25rem .65rem;animation:popin .3s both}
+.summary .empty{color:var(--muted);font-size:.9rem}
+.summary label{font-weight:700;font-size:.85rem}
+.summary textarea{font:400 .92rem var(--body);width:100%;box-sizing:border-box;min-height:80px;resize:vertical;border:1.5px solid var(--line);border-radius:12px;padding:.7rem;color:var(--ink);background:#fff}
+.summary textarea:focus{outline:none;border-color:var(--sky-2)}
+.summary .btn{justify-content:center}
+.summary .btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.summary small{color:var(--muted);font-size:.78rem}
+.quick{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.4rem}
+.quick button{font:600 .82rem var(--body);padding:.4rem .85rem;border-radius:999px;border:1px dashed #9fcdf5;background:transparent;color:var(--sky);cursor:pointer}
+@media (max-width:960px){.builder{grid-template-columns:1fr}.summary{position:static}}
+.armador{margin-top:1.4rem;background:linear-gradient(180deg,var(--soft),#fff);border:1px solid var(--line);border-radius:24px;padding:1.4rem;scroll-margin-top:80px}
+.arm-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem}
+.arm-chips button{font:600 .85rem var(--body);padding:.45rem .9rem;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:all .2s}
+.arm-chips button:hover{border-color:#bfe0ff}
+.arm-chips button[aria-pressed="true"]{background:linear-gradient(90deg,var(--sky),var(--teal));color:#fff;border-color:transparent}
+.arm-main{display:grid;gap:.8rem;align-content:start}
+.arm-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.4rem 1rem}
+.arm-head h3{font-size:1.35rem}
+.arm-txt{color:var(--muted)}
+.armador .quick{margin:0}
+.arm-empty{padding:1.4rem;border:1.5px dashed #bfe0ff;border-radius:14px;color:var(--muted);text-align:center;max-width:none}
+.summary li.empty{background:none;padding:0;animation:none}
+
+/* ===== página de cada área (demos.html?a=tiendas): fondo con íconos del rubro y boletas flotando ===== */
+.dhero{position:relative;overflow:hidden;isolation:isolate;padding-block:2.6rem 2rem}
+.dhero .wrap{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;gap:2rem}
+.fondo{position:absolute;inset:0;z-index:-1;background-size:260px;-webkit-mask-image:linear-gradient(100deg,rgba(0,0,0,.25),#000 55%);mask-image:linear-gradient(100deg,rgba(0,0,0,.25),#000 55%);animation:deriva 80s linear infinite}
+@keyframes deriva{to{background-position:520px 260px}}
+.htxt{display:grid;gap:.9rem;justify-items:start}
+.htags{display:flex;flex-wrap:wrap;gap:.4rem}
+.htags span{font-size:.78rem;font-weight:700;padding:.25rem .75rem;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.recibos{position:relative;height:320px}
+.boleta{position:absolute;width:215px;box-sizing:border-box;background:#fff;border-radius:6px 6px 0 0;padding:.85rem 1rem 1rem;font:500 .68rem/1.6 var(--mono);color:var(--ink);box-shadow:0 26px 40px -24px rgba(16,36,63,.5);transform:rotate(var(--r));animation:flota 6s ease-in-out infinite alternate}
+.boleta::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:8px;background:radial-gradient(circle at 6px 0,#fff 5.5px,transparent 6px) 0 0/12px 8px repeat-x}
+.boleta .neg{display:block;font:700 .8rem var(--display);text-align:center}
+.boleta .tipo{display:block;text-align:center;color:var(--teal);font-weight:700;letter-spacing:.06em;border-bottom:1px dashed #b9c7d6;padding-bottom:.35rem;margin-bottom:.35rem}
+.boleta .ln{display:flex;justify-content:space-between;gap:.6rem}
+.boleta .tot{border-top:1px dashed #b9c7d6;margin-top:.35rem;padding-top:.3rem;font-weight:700}
+.boleta:nth-child(1){left:2%;top:4%;--r:-6deg}
+.boleta:nth-child(2){right:0;top:30%;--r:5deg;animation-delay:-2s}
+.aviso{position:absolute;left:14%;bottom:0;display:flex;gap:.55rem;align-items:center;max-width:250px;background:rgba(255,255,255,.95);border-radius:16px;padding:.6rem .75rem;font-size:.74rem;line-height:1.35;box-shadow:0 20px 34px -20px rgba(16,36,63,.55);animation:flota 5s -1s ease-in-out infinite alternate;--r:-1deg}
+.aviso i{flex:none;width:30px;height:30px;border-radius:9px;background:var(--wa);display:grid;place-items:center;color:#fff;font:700 .75rem var(--body);font-style:normal}
+.aviso b{display:block;font-size:.72rem}
+@keyframes flota{from{transform:rotate(var(--r)) translateY(0)}to{transform:rotate(var(--r)) translateY(-12px)}}
+.lab.solo{grid-template-columns:minmax(0,1fr)}
+.lab.solo .dnav{display:none}
+.armsec{display:grid;gap:1.2rem;padding-bottom:2.5rem;scroll-margin-top:76px}
+.armsec .arm-head{display:grid;gap:.4rem;justify-content:start}
+.armsec h2{font-size:clamp(1.3rem,2.4vw,1.7rem)}
+@media (max-width:860px){.dhero .wrap{grid-template-columns:1fr}.recibos{height:230px}.boleta{width:180px;font-size:.62rem}.aviso{left:auto;right:0}}
+@media (max-width:420px){.boleta:nth-child(2){display:none}}
+
+/* celular simulado (taller, app y página dedicada): las notificaciones bajan desde arriba */
+.cel{position:relative;width:min(270px,100%);margin-inline:auto;aspect-ratio:9/18.5;box-sizing:border-box;background:#10243f;border-radius:40px;padding:9px;box-shadow:0 30px 60px -28px rgba(16,36,63,.6)}
+.cel::before{content:"";position:absolute;top:17px;left:50%;width:76px;height:20px;border-radius:99px;background:#10243f;transform:translateX(-50%);z-index:9}
+.cel.android::before{width:12px;height:12px;top:19px}
+.cel-scr{position:relative;height:100%;border-radius:32px;overflow:hidden;background:linear-gradient(160deg,#1a8cf0,#13b5a6 55%,#0d1f38);color:#fff;display:flex;flex-direction:column}
+.cel-bar{display:flex;justify-content:space-between;padding:.6rem 1.4rem 0;font:700 .64rem var(--body);position:relative;z-index:8}
+.cel-reloj{text-align:center;margin-top:1.4rem}
+.cel-reloj b{display:block;font:300 3rem/1 var(--display)}
+.cel-reloj small{font-size:.72rem;opacity:.85}
+.notifs{position:absolute;left:8px;right:8px;top:34px;display:grid;gap:.4rem;z-index:7}
+.notifs.lock{position:static;margin:1.1rem .5rem 0}
+.notif{display:flex;gap:.5rem;align-items:flex-start;background:rgba(255,255,255,.92);color:var(--ink);border-radius:16px;padding:.55rem .65rem;font-size:.7rem;line-height:1.35;box-shadow:0 10px 22px -12px rgba(0,0,0,.5);animation:baja .45s cubic-bezier(.2,1.3,.4,1) both}
+.notif i{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;color:#fff;font:700 .68rem var(--body);font-style:normal}
+.notif b{font-size:.68rem}.notif small{color:var(--muted);font-size:.6rem;margin-left:.3rem}
+.notif p{margin:.1rem 0 0;max-width:none}
+.notif.toca{cursor:pointer;outline:2px solid rgba(255,255,255,.7)}
+.notif.sale{animation:sube-n .35s ease-in forwards}
+@keyframes baja{from{opacity:0;transform:translateY(-26px) scale(.95)}}
+@keyframes sube-n{to{opacity:0;transform:translateY(-30px)}}
+.cel.vibra{animation:vibra .4s}
+@keyframes vibra{20%,60%{transform:translateX(-3px) rotate(-1deg)}40%,80%{transform:translateX(3px) rotate(1deg)}}
+
+/* taller */
+.pasos{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.3rem}
+.pasos li{flex:1 1 92px;font-size:.72rem;font-weight:700;text-align:center;padding:.45rem .3rem;border-radius:10px;background:var(--soft);color:var(--muted);transition:all .3s}
+.pasos li.ok{background:#dcfce7;color:#15803d}
+.pasos li.ya{background:linear-gradient(90deg,var(--sky),var(--teal));color:#fff;box-shadow:0 8px 18px -10px rgba(26,140,240,.8)}
+.rep{display:flex;gap:.5rem;align-items:center}
+.rep span{margin-left:auto;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* app */
+.appui{flex:1;display:flex;flex-direction:column;min-height:0;background:#f6f9fc;color:var(--ink);margin-top:.5rem;border-radius:24px 24px 0 0;overflow:hidden}
+.appui header{background:linear-gradient(90deg,#16a34a,#13b5a6);color:#fff;padding:.7rem .9rem;font:700 .86rem var(--display)}
+.appui header small{display:block;font:500 .6rem var(--body);opacity:.9}
+.aprods{flex:1;overflow:auto;padding:.5rem;display:grid;gap:.4rem;align-content:start}
+.aprod{display:flex;align-items:center;gap:.45rem;background:#fff;border-radius:12px;padding:.4rem .5rem;font-size:.68rem;line-height:1.25;box-shadow:0 2px 6px -3px rgba(16,36,63,.25)}
+.aprod .em{font-size:1.25rem}
+.aprod .q{margin-left:auto;display:flex;align-items:center;gap:.25rem;font-weight:700}
+.aprod button{width:22px;height:22px;border-radius:50%;border:0;background:var(--soft);font-weight:700;cursor:pointer;color:var(--ink)}
+.aprod button.mas{background:#16a34a;color:#fff}
+.carro{margin:.5rem;padding:.6rem;border-radius:12px;border:0;background:#10243f;color:#fff;font:700 .72rem var(--body);cursor:pointer}
+.carro:disabled{opacity:.4;cursor:default}
+.okp{flex:1;display:grid;place-items:center;align-content:center;gap:.45rem;text-align:center;padding:1rem;font-size:.76rem}
+.okp .big{font-size:2.6rem;animation:popin .4s both}
+.publi{list-style:none;margin:0;padding:0;display:grid;gap:.35rem}
+.publi li{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--muted)}
+.publi li::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid #c3d4e6;flex:none;box-sizing:border-box}
+.publi li.va::before{border-color:var(--sky);border-top-color:transparent;animation:gira360 .7s linear infinite}
+.publi li.ok{color:var(--ink);font-weight:600}
+.publi li.ok::before{background:var(--ok);border-color:var(--ok);box-shadow:inset 0 0 0 3px #fff}
+@keyframes gira360{to{transform:rotate(360deg)}}
+.tiendas{display:flex;flex-wrap:wrap;gap:.5rem}
+.tienda-b{display:inline-flex;align-items:center;gap:.5rem;background:#10243f;color:#fff;border-radius:10px;padding:.45rem .85rem;font:700 .76rem/1.15 var(--body);animation:popin .4s both}
+.tienda-b svg{width:18px;height:18px;fill:#fff}
+.tienda-b small{display:block;font-size:.58rem;font-weight:500;opacity:.8}
+
+/* página dedicada */
+.temas{display:flex;flex-wrap:wrap;gap:.4rem}
+.ded{position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;text-align:center;overflow:hidden;color:#6b4500;animation:popin .5s both}
+.ded.flores{background:linear-gradient(180deg,#fffbe8,#ffe27a)}
+.ded.sanvalentin{background:linear-gradient(180deg,#ffe8ee,#ff8fab);color:#7a1030}
+.ded.boda{background:linear-gradient(180deg,#fffaf2,#f1e2c8);color:#5b4630;justify-content:center}
+.ded .txt{position:relative;z-index:2;padding:2.8rem 1rem 0;display:grid;gap:.45rem}
+.ded.boda .txt{padding-top:1rem}
+.ded h3{font:700 1.2rem/1.2 var(--display)}
+.ded .msg-d{font-size:.8rem;line-height:1.5;min-height:4.5em;margin-inline:auto}
+.ded .firma{font-size:.72rem;font-style:italic;opacity:.85;margin-inline:auto}
+.ded svg.jardin{width:100%;display:block;margin-top:auto;position:relative;z-index:1}
+.ded .volver{position:absolute;bottom:.7rem;right:.7rem;z-index:8;border:0;border-radius:99px;background:rgba(255,255,255,.75);color:inherit;font:700 .6rem var(--body);padding:.25rem .6rem;cursor:pointer}
+.p-cae{position:absolute;top:-24px;width:11px;height:17px;border-radius:50% 50% 50% 0;background:#ffcf33;box-shadow:inset -2px -2px 0 #f0a500;animation:petalo linear infinite}
+@keyframes petalo{to{transform:translate(50px,620px) rotate(560deg)}}
+.h-sube{position:absolute;bottom:-34px;font-style:normal;font-size:var(--s);color:#ff4d6d;animation:hsube linear infinite}
+@keyframes hsube{to{transform:translateY(-640px) rotate(25deg);opacity:0}}
+.crece{stroke-dasharray:240;stroke-dashoffset:240;animation:crece 1.4s var(--d,0s) ease-out forwards}
+@keyframes crece{to{stroke-dashoffset:0}}
+.ded .pe{transform-box:fill-box;transform-origin:50% 100%;animation:abre .8s var(--d,0s) cubic-bezier(.3,1.5,.5,1) both}
+.ded .cen{transform-box:fill-box;transform-origin:center;animation:abre .6s var(--d,0s) both}
+.ded .gira{transform-box:fill-box;transform-origin:center;animation:mece 4s 2.4s ease-in-out infinite alternate}
+@keyframes abre{from{transform:scale(.1);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes mece{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
+.ded .cora{transform-box:fill-box;transform-origin:center;animation:latido 1.4s ease-in-out infinite}
+@keyframes latido{0%,40%,100%{transform:scale(1)}15%{transform:scale(1.14)}28%{transform:scale(1.04)}33%{transform:scale(1.1)}}
+.ded .anillos{width:130px;margin:0 auto}
+.ded .cuenta-r{display:flex;justify-content:center;gap:.35rem}
+.ded .cuenta-r span{background:#fff;border-radius:10px;padding:.35rem .3rem;min-width:2.5rem;font:700 .95rem var(--display);font-variant-numeric:tabular-nums;box-shadow:0 6px 14px -8px rgba(91,70,48,.5)}
+.ded .cuenta-r small{display:block;font:500 .52rem var(--body);opacity:.7}
+.ded .conf{margin:.4rem auto 0;border:0;border-radius:99px;padding:.55rem 1.1rem;background:#5b4630;color:#fff;font:700 .72rem var(--body);cursor:pointer}
+
 /* cierre */
 .endcta{background:linear-gradient(120deg,var(--sky),var(--teal));color:#fff;border-radius:24px;padding:2.2rem max(1.2rem,3vw);display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between;margin-bottom:2rem}
 .endcta h2{color:#fff}
@@ -274,7 +428,7 @@ p{margin:0;max-width:62ch}
 
 <nav class="topnav" aria-label="Principal">
   <div class="wrap">
-    <a class="brand" href="index.html"><i>&lt;/&gt;</i>Sistemas a medida</a>
+    <a class="brand" href="index.html"><img src="img/logo/pawn-simbolo.svg" alt="" width="30" height="30">PaWn <b>Dev</b></a>
     <a class="back" href="index.html">← Volver al inicio</a>
     <a class="btn primary wa-link" href="https://wa.me/51916037021" target="_blank" rel="noopener">Contactar</a>
   </div>
@@ -282,14 +436,21 @@ p{margin:0;max-width:62ch}
 <a class="wa-float wa-link" href="https://wa.me/51916037021" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><span>¿Conversamos?</span><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>
 
 <header class="dhero">
+  <div class="fondo" id="a-fondo" aria-hidden="true"></div>
   <div class="wrap">
-    <span class="eyebrow">Pruébelo usted mismo</span>
-    <h1>Sistemas que puede usar ahora</h1>
-    <p class="lead">Elija uno y úselo como si fuera suyo. Nada de lo que haga aquí se guarda ni se envía.</p>
+    <div class="htxt">
+      <span class="eyebrow" id="a-eye">Pruébelo usted mismo</span>
+      <h1 id="a-tit">Sistemas que puede usar ahora</h1>
+      <p class="lead" id="a-lead">Elija uno y úselo como si fuera suyo.</p>
+      <div class="htags" id="a-tags"></div>
+      <div class="row2"><a class="btn primary" href="#lab">Probar la demo</a><a class="btn" href="#armar">Armar mi sistema</a></div>
+      <p class="note">Nada de lo que haga en las demos se guarda ni se envía.</p>
+    </div>
+    <div class="recibos" id="a-rec" aria-hidden="true"></div>
   </div>
 </header>
 
-<main class="wrap lab">
+<main class="wrap lab" id="lab">
   <nav class="dnav" aria-label="Elegir demo">
     <div class="grp"><h2>Casos reales</h2>
       <a href="#cobros" data-d="cobros" data-n="Cobros y pagos"><span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><span class="t"><small>Caso real</small>Cobros y pagos</span></a>
@@ -306,6 +467,9 @@ p{margin:0;max-width:62ch}
       <a href="#citas" data-d="citas" data-n="Reservas y citas"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span><span class="t"><small>Ejemplo</small>Reservas y citas</span></a>
       <a href="#restaurante" data-d="restaurante" data-n="Pedidos a cocina"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 2v7a3 3 0 0 0 6 0V2M6 2v20M18 2c-2 0-3 2-3 5s1 5 3 5v10"/></svg></span><span class="t"><small>Ejemplo</small>Pedidos a cocina</span></a>
       <a href="#copias" data-d="copias" data-n="Copias e impresiones"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><rect x="2" y="9" width="20" height="9" rx="2"/><path d="M6 14h12v8H6z"/></svg></span><span class="t"><small>Ejemplo</small>Copias e impresiones</span></a>
+      <a href="#taller" data-d="taller" data-n="Órdenes del taller"><span class="ic"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span class="t"><small>Ejemplo</small>Órdenes del taller</span></a>
+      <a href="#app" data-d="app" data-n="App con avisos"><span class="ic"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></span><span class="t"><small>Ejemplo</small>App con avisos</span></a>
+      <a href="#dedicada" data-d="dedicada" data-n="Página dedicada"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.2-8.6A5 5 0 0 1 12 6.3a5 5 0 0 1 9.2 5.1C19 15.6 12 20 12 20z"/></svg></span><span class="t"><small>Ejemplo</small>Página dedicada</span></a>
     </div>
   </nav>
 
@@ -411,8 +575,61 @@ p{margin:0;max-width:62ch}
     </section>
 
     <p class="note">Los casos reales y los proyectos ya funcionan. Los ejemplos muestran cómo haríamos el sistema de su negocio. Todos los nombres y montos son inventados.</p>
+
+    <section class="panel" id="p-taller" aria-labelledby="h-taller" hidden>
+      <div class="phead">
+        <span class="num">EJEMPLO · TALLERES</span>
+        <h2 id="h-taller">Cada paso de la reparación le llega al cliente</h2>
+        <ol class="flow"><li>Registre el equipo</li><li>Marque repuestos</li><li>Avance la orden y mire el celular</li></ol>
+        <p class="try"><b>Pruebe:</b> avance la orden hasta «Listo para recoger» y cambie los repuestos: el presupuesto del mensaje cambia solo.</p>
+      </div>
+      <div class="app"><div class="bar"><i></i><i></i><i></i><span>taller · órdenes de servicio</span></div><div class="demo" id="d-taller"></div></div>
+    </section>
+
+    <section class="panel" id="p-app" aria-labelledby="h-app" hidden>
+      <div class="phead">
+        <span class="num">EJEMPLO · APPS</span>
+        <h2 id="h-app">Su app en el celular de sus clientes</h2>
+        <ol class="flow"><li>El cliente pide desde la app</li><li>Le llegan avisos de su pedido</li><li>Usted la publica en Play Store y App Store</li></ol>
+        <p class="try"><b>Pruebe:</b> cambie entre Android e iPhone, haga un pedido y luego toque «Publicar versión 1.0».</p>
+      </div>
+      <div class="app"><div class="bar"><i></i><i></i><i></i><span>app · Bodega Rosita</span></div><div class="demo" id="d-app"></div></div>
+    </section>
+
+    <section class="panel" id="p-dedicada" aria-labelledby="h-dedicada" hidden>
+      <div class="phead">
+        <span class="num">EJEMPLO · PÁGINAS DEDICADAS</span>
+        <h2 id="h-dedicada">Arme una sorpresa y véala llegar</h2>
+        <ol class="flow"><li>Escriba para quién y su mensaje</li><li>Elija el tema</li><li>Mire cómo la recibe en su celular</li></ol>
+        <p class="try"><b>Pruebe:</b> cambie el nombre y el mensaje, elija «San Valentín» o «Boda» y toque el aviso del celular.</p>
+      </div>
+      <div class="app"><div class="bar"><i></i><i></i><i></i><span>página · para María</span></div><div class="demo" id="d-dedicada"></div></div>
+    </section>
   </div>
 </main>
+
+<section class="wrap armsec" id="armar">
+  <div class="armador">
+    <div class="builder">
+      <div class="arm-main">
+        <div class="arm-head"><span class="eyebrow">Arme su sistema</span><h2 id="ar-tit">Elija sus módulos</h2></div>
+        <p class="arm-txt">Estos son los módulos que más se usan en esta área. Marque los que necesita; si falta algo, escríbalo en la nota.</p>
+        <div class="quick" id="ar-quick"><button type="button" data-q="esencial">Lo esencial</button><button type="button" data-q="todo">Marcar todo</button><button type="button" data-q="nada">Limpiar</button></div>
+        <div class="opts" id="ar-opts"></div>
+      </div>
+      <aside class="summary" aria-live="polite">
+        <div><div class="big" id="cnt">0</div><span id="cntTxt">módulos elegidos</span></div>
+        <ul id="picked"></ul>
+        <div style="display:grid;gap:.4rem">
+          <label for="extra">¿Algo más que necesite? (opcional)</label>
+          <textarea id="extra" placeholder="Ej.: tenemos 2 locales, emitimos boletas, queremos vender por internet…"></textarea>
+        </div>
+        <a class="btn wa" id="send" href="#" target="_blank" rel="noopener" aria-disabled="true">Enviar mi lista por WhatsApp</a>
+        <small>Se abre WhatsApp con su lista ya escrita. No se envía nada hasta que usted lo confirme.</small>
+      </aside>
+    </div>
+  </div>
+</section>
 
 <section class="wrap">
   <div class="endcta">
@@ -424,15 +641,15 @@ p{margin:0;max-width:62ch}
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="brand" href="index.html"><i>&lt;/&gt;</i>Sistemas a medida</a>
+        <a class="brand" href="index.html"><img src="img/logo/pawn-simbolo.svg" alt="" width="30" height="30">PaWn <b>Dev</b></a>
         <p>Desarrollamos sistemas, páginas web y apps a la medida de cada negocio.</p>
-        <a class="btn wa wa-link" href="https://wa.me/51916037021" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <div class="row2"><a class="btn wa wa-link" href="https://wa.me/51916037021" target="_blank" rel="noopener">Escribir a Pablo</a><a class="btn wa" href="https://wa.me/51949191693?text=Hola%20Walter%2C%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir a Walter</a></div>
       </div>
-      <nav class="foot-col" aria-label="Secciones del sitio"><h3>Explorar</h3><a href="index.html#experiencia">Casos reales</a><a href="index.html#negocios">Para quién trabajamos</a><a href="index.html#modulos">Módulos</a><a href="index.html#trabajo">Cómo trabajamos</a><a href="index.html#armar">Arme su sistema</a><a href="index.html#faq">Preguntas frecuentes</a></nav>
-      <nav class="foot-col" aria-label="Recursos"><h3>Recursos</h3><a href="demos.html">Demos</a><a href="caso-academia.html">Caso de estudio</a><a href="privacidad.html">Aviso de privacidad</a></nav>
-      <div class="foot-col"><h3>Contacto</h3><a href="https://wa.me/51916037021" target="_blank" rel="noopener">WhatsApp +51 916 037 021</a><span>Atención por WhatsApp</span><span>Perú</span></div>
+      <nav class="foot-col" aria-label="Secciones del sitio"><h3>Explorar</h3><a href="index.html#experiencia">Casos reales</a><a href="index.html#negocios">Para quién trabajamos</a><a href="index.html#modulos">Módulos</a><a href="index.html#trabajo">Cómo trabajamos</a><a href="index.html#negocios">Escoja su área</a><a href="index.html#faq">Preguntas frecuentes</a></nav>
+      <nav class="foot-col" aria-label="Recursos"><h3>Recursos</h3><a href="caso-academia.html">Caso de estudio</a><a href="privacidad.html">Aviso de privacidad</a></nav>
+      <div class="foot-col"><h3>Contacto</h3><a href="https://wa.me/51916037021" target="_blank" rel="noopener">Pablo · +51 916 037 021</a><a href="https://wa.me/51949191693" target="_blank" rel="noopener">Walter · +51 949 191 693</a><span>Atención por WhatsApp</span><span>Perú</span></div>
     </div>
-    <div class="foot-bar"><span>© <span class="year">2026</span> Sistemas a medida · Hecho en Perú</span><a href="privacidad.html">Aviso de privacidad</a></div>
+    <div class="foot-bar"><span>© <span class="year">2026</span> PaWn Dev · Hecho en Perú</span><a href="privacidad.html">Aviso de privacidad</a></div>
   </div>
 </footer>
 
@@ -442,17 +659,145 @@ const $=s=>document.querySelector(s), soles=n=>'S/ '+n.toFixed(2), dec=(n,d=2)=>
 
 document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());
 
-// menú: muestra una demo a la vez; el #hash permite abrir una demo directa desde el inicio (demos.html#tienda)
+// Áreas: cada tarjeta del inicio abre demos.html?a=<área> con sus demos, su fondo y sus módulos.
+// Los nombres de m[] deben existir en el catálogo de index.html (se envían tal cual por WhatsApp).
+const I={ // íconos de 24×24 para el fondo de cada área
+  manzana:'<path d="M12 7c-3-2-7 0-7 5s3 9 5 9c1 0 1.5-.5 2-.5s1 .5 2 .5c2 0 5-4 5-9s-4-7-7-5z"/><path d="M12 7c0-2 1-4 3-4"/>',
+  zanahoria:'<path d="M5 19c3-1 9-7 11-10l-2-2C11 9 5 15 4 18z"/><path d="M16 7l3-3M15 6l1-3M17 8l3-1"/>',
+  pan:'<path d="M4 11a4 4 0 0 1 4-5h8a4 4 0 0 1 4 5v7H4z"/><path d="M9 10v4M12 10v4M15 10v4"/>',
+  botella:'<path d="M10 2h4v4l2 3v12a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V9l2-3z"/><path d="M8 13h8"/>',
+  platano:'<path d="M4 6c2 9 8 13 16 11-1 2-4 4-8 3S3 15 4 6z"/>',
+  bolsa:'<path d="M5 8h14l-1 13H6z"/><path d="M9 8a3 3 0 0 1 6 0"/>',
+  libro:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/>',
+  lapiz:'<path d="M15 4l5 5L9 20H4v-5z"/><path d="M13 6l5 5"/>',
+  birrete:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/>',
+  calcu:'<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M8 6h8M8 11h2M14 11h2M8 15h2M14 15h2M8 19h2M14 19h2"/>',
+  globo:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+  esteto:'<path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v3a4 4 0 0 0 8 0v-2"/><circle cx="18" cy="12" r="2"/>',
+  cruz:'<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>',
+  pastilla:'<path d="M10.5 3.5a5 5 0 0 1 7 7l-7 7a5 5 0 0 1-7-7z"/><path d="M7 7l7 7"/>',
+  pulso:'<path d="M3 12h4l2-5 4 10 2-5h6"/>',
+  corazon:'<path d="M12 20s-7-4.4-9.2-8.6A5 5 0 0 1 12 6.3a5 5 0 0 1 9.2 5.1C19 15.6 12 20 12 20z"/>',
+  termo:'<path d="M14 14V5a2 2 0 0 0-4 0v9a4 4 0 1 0 4 0z"/>',
+  llave:'<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>',
+  engrane:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>',
+  auto:'<path d="M3 16v-4l2-5h14l2 5v4z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>',
+  tornillo:'<path d="M9 3h6l-1 3h-4z"/><path d="M12 6v15M9 9l6 2M9 13l6 2M9 17l6 2"/>',
+  gota:'<path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/>',
+  cubiertos:'<path d="M7 2v7a2 2 0 0 0 4 0V2M9 2v20M17 2c-2 0-3 2-3 5s1 5 3 5v10"/>',
+  taza:'<path d="M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 10h2a2 2 0 0 1 0 4h-2M8 2v3M12 2v3"/>',
+  olla:'<path d="M4 10h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M2 10h20M9 6h6"/>',
+  pizza:'<path d="M12 3L3 20h18z"/><circle cx="11" cy="13" r="1.3"/><circle cx="14" cy="17" r="1.3"/><circle cx="9" cy="17" r="1.3"/>',
+  pez:'<path d="M3 12c4-6 12-6 15 0-3 6-11 6-15 0z"/><path d="M18 12l3-3v6z"/>',
+  impresora:'<path d="M6 9V2h12v7"/><rect x="2" y="9" width="20" height="9" rx="2"/><path d="M6 14h12v8H6z"/>',
+  hoja:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/>',
+  clip:'<path d="M21 11l-9 9a6 6 0 0 1-8.5-8.5l9-9a4 4 0 0 1 5.7 5.7l-9 9a2 2 0 0 1-2.8-2.8l8.5-8.5"/>',
+  anillado:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M3 7h4M3 11h4M3 15h4M3 19h4"/>',
+  tijera:'<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.1 8.1L20 20M8.1 15.9L20 4"/>',
+  edificio:'<path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M2 10l10-6 10 6z"/>',
+  sello:'<path d="M9 3h6v6l2 3H7l2-3z"/><path d="M5 15h14v3H5zM4 21h16"/>',
+  carpeta:'<path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+  doc:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/>',
+  firma:'<path d="M3 17c3-6 5-6 5-2s2 4 4 0 3-3 4 0 3 1 5-1"/><path d="M3 21h18"/>',
+  flor:'<circle cx="12" cy="8" r="2.4"/><path d="M12 5.6c0-3 4-3 3.2.4M14.3 7.3c3-1 4 3 .4 3.4M13.4 10.2c1.8 2.6-1.6 4.8-2.8 1.5M10.6 10.2c-1.8 2.6-5-1-1.6-2.5M9.7 7.3C6.6 6.4 8 2.4 11 5M12 10.5V22M12 17c-2-2-4-2-5-1 1 2 3 2 5 1z"/>',
+  estrella:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',
+  regalo:'<rect x="3" y="8" width="18" height="4"/><path d="M5 12v9h14v-9M12 8v13M12 8C10 4 6 4 7 7c.5 1 2.5 1 5 1zM12 8c2-4 6-4 5-1-.5 1-2.5 1-5 1z"/>',
+  anillos:'<circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M13 6l2-3 2 3-2 2z"/>',
+  sobre:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+  celu:'<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/>',
+  campana:'<path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/>',
+  codigo:'<path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/>',
+  nube:'<path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z"/>',
+  play:'<path d="M6 3l14 9-14 9z"/>'
+};
+const AREAS={
+  academias:{n:'Academias y colegios',c:'#1a8cf0',g:'una academia o colegio',demos:['cobros','examenes','whatsapp','notas','orientacion'],
+    h1:'Pagos, exámenes y avisos de su academia en un solo sistema',lead:'Estas demos salen de sistemas que ya funcionan en academias reales. Pruébelas como si fueran suyas.',
+    tags:['Pagos','Exámenes','Notas','WhatsApp'],arm:'Arme el sistema de su academia',ic:['libro','lapiz','birrete','calcu','globo','corazon'],
+    rec:[{neg:'Academia Nova',tipo:'RECIBO N° 000125',l:[['Mensualidad nov.','350.00'],['Simulacro 4','15.00']],tot:'365.00'},{neg:'Resultados',tipo:'SIMULACRO 4',l:[['Puesto','3 de 120'],['Puntaje','98.50'],['Matemática','18/20']]}],
+    av:['Academia Nova','Diego registró su asistencia a las 7:58 a. m.'],
+    m:['Pagos y cobranzas','Evaluaciones y exámenes','Avisos por WhatsApp','Personal y asistencia','Portal para clientes','Trámites y documentos','Pagos con Yape','Reportes','Usuarios y permisos']},
+  tiendas:{n:'Tiendas y bodegas',c:'#16a34a',g:'una tienda o bodega',demos:['tienda','app'],
+    h1:'Venda, controle su stock y reciba pedidos sin cuaderno',lead:'Cobre en segundos, sepa qué se está acabando y deje que sus clientes le pidan desde el celular.',
+    tags:['Ventas y caja','Inventario','Boletas','App de pedidos'],arm:'Arme el sistema de su tienda',ic:['manzana','zanahoria','pan','botella','platano','bolsa'],
+    rec:[{neg:'Bodega Rosita',tipo:'BOLETA B001-004521',l:[['Arroz 5 kg','24.90'],['Aceite 1 L','11.50'],['Leche x6','24.00']],tot:'60.40'},{neg:'Rojas SAC',tipo:'FACTURA F001-000233',l:[['Azúcar 50 kg','165.00'],['Fideos x20','38.00']],tot:'203.00'}],
+    av:['Bodega Rosita','Stock bajo: quedan 3 botellas de aceite.'],
+    m:['Ventas y caja','Inventario','Facturación electrónica','Pagos con Yape','Compras y proveedores','Clientes','Gastos y ganancia','Reportes','Tienda en línea','App para celular']},
+  consultorios:{n:'Consultorios y clínicas',c:'#13b5a6',g:'un consultorio o clínica',demos:['citas'],
+    h1:'Citas ordenadas y pacientes que no se olvidan de venir',lead:'Sus pacientes reservan, el sistema les recuerda por WhatsApp y usted ve su día de un vistazo.',
+    tags:['Citas','Pacientes','Recordatorios'],arm:'Arme el sistema de su consultorio',ic:['esteto','cruz','pastilla','pulso','corazon','termo'],
+    rec:[{neg:'Clínica Vida',tipo:'BOLETA B001-000871',l:[['Consulta general','60.00'],['Análisis de sangre','45.00']],tot:'105.00'},{neg:'Clínica Vida',tipo:'TICKET DE CITA',l:[['Paciente','Ana Quispe'],['Hora','10:30 a. m.'],['Médico','Dr. Ramos']]}],
+    av:['Clínica Vida','Recordatorio: su cita es mañana a las 10:30 a. m.'],
+    m:['Reservas y citas','Clientes','Avisos por WhatsApp','Pagos y cobranzas','Historial y respaldos','Facturación electrónica','Portal para clientes','Reportes']},
+  talleres:{n:'Talleres y servicios',c:'#f59e0b',g:'un taller o negocio de servicios',demos:['taller'],
+    h1:'Cada reparación con su orden, y el cliente avisado al instante',lead:'Registre el equipo, cotice los repuestos y deje que el sistema le escriba al cliente en cada paso.',
+    tags:['Órdenes','Repuestos','Avisos'],arm:'Arme el sistema de su taller',ic:['llave','engrane','auto','tornillo','gota','engrane'],
+    rec:[{neg:'Taller El Rápido',tipo:'ORDEN N° 0187',l:[['Cambio de aceite','38.00'],['Pastillas de freno','45.00'],['Mano de obra','60.00']],tot:'143.00'},{neg:'Taller El Rápido',tipo:'BOLETA B001-000912',l:[['Servicio moto','143.00'],['Pagado con','Yape']],tot:'143.00'}],
+    av:['Taller El Rápido','Su moto está lista. Puede recogerla hoy.'],
+    m:['Clientes','Pagos y cobranzas','Avisos por WhatsApp','Inventario','Reservas y citas','Personal y asistencia','Pagos con Yape','Reportes']},
+  restaurantes:{n:'Restaurantes',c:'#e2475b',g:'un restaurante',demos:['restaurante'],
+    h1:'Del pedido a la cocina sin papelitos',lead:'El mozo toma el pedido, la cocina lo ve al instante y la caja cobra sin errores.',
+    tags:['Pedidos','Cocina','Delivery'],arm:'Arme el sistema de su restaurante',ic:['cubiertos','taza','olla','pizza','pez','cubiertos'],
+    rec:[{neg:'Sabor Andino',tipo:'COMANDA · MESA 4',l:[['Lomo saltado x2','56.00'],['Chicha 1 L','12.00']],tot:'68.00'},{neg:'Sabor Andino',tipo:'BOLETA B001-002210',l:[['Menú x3','45.00'],['Delivery','5.00']],tot:'50.00'}],
+    av:['Sabor Andino','Su pedido va en camino 🛵'],
+    m:['Ventas y caja','Pedidos y delivery','Inventario','Pagos con Yape','Compras y proveedores','Personal y asistencia','Facturación electrónica','Dashboards']},
+  copias:{n:'Copias e impresiones',c:'#5a6b83',g:'un centro de copias e impresiones',demos:['copias'],
+    h1:'Sus clientes mandan el archivo, pagan y lo recogen listo',lead:'El presupuesto sale solo del PDF, el pago con Yape se verifica y usted imprime sin filas.',
+    tags:['Pedidos en línea','Yape','Anillados'],arm:'Arme el sistema de su centro de copias',ic:['impresora','hoja','clip','anillado','tijera','hoja'],
+    rec:[{neg:'Copias Express',tipo:'PEDIDO #318',l:[['Tesis.pdf · 120 p.','12.00'],['Anillado','3.00']],tot:'15.00'},{neg:'Copias Express',tipo:'BOLETA B001-001540',l:[['Impresión color','8.00'],['Pagado con','Yape']],tot:'8.00'}],
+    av:['Copias Express','Yape recibido: S/ 15.00. Su pedido entra a impresión.'],
+    m:['Pedidos con archivo','Pagos con Yape','Ventas y caja','Avisos por WhatsApp','Clientes','Inventario','Reportes','Página web']},
+  instituciones:{n:'Instituciones',c:'#1a8cf0',g:'una institución',demos:['fut'],
+    h1:'Trámites claros, sin colas ni formularios perdidos',lead:'El usuario explica qué necesita y el sistema arma el documento listo para presentar.',
+    tags:['Trámites','Documentos','Permisos'],arm:'Arme el sistema de su institución',ic:['edificio','sello','carpeta','doc','firma','sello'],
+    rec:[{neg:'Mesa de partes',tipo:'FUT N° 2026-0451',l:[['Trámite','Constancia'],['Tasa','15.00']],tot:'15.00'},{neg:'Mesa de partes',tipo:'CARGO DE RECEPCIÓN',l:[['Expediente','0451'],['Estado','Recibido']]}],
+    av:['Mesa de partes','Su trámite N° 0451 fue aprobado.'],
+    m:['Trámites y documentos','Usuarios y permisos','Reportes','Portal para clientes','Dashboards','Historial y respaldos','Avisos por WhatsApp','Página web']},
+  dedicadas:{n:'Páginas dedicadas',c:'#d4537e',g:'',t:'me interesa:',demos:['dedicada'],
+    h1:'Una página hecha solo para esa persona especial',lead:'Flores amarillas, San Valentín, aniversarios o su boda: con sus fotos, su mensaje y un link para enviar por WhatsApp.',
+    tags:['Flores amarillas','San Valentín','Bodas','Cumpleaños'],arm:'Arme su página dedicada',ic:['corazon','flor','estrella','regalo','anillos','sobre'],
+    rec:[{neg:'Para María 💛',tipo:'DEDICATORIA',l:[['De','Carlos'],['Tema','Flores amarillas'],['Fecha','21 de septiembre']]},{neg:'Nos casamos',tipo:'INVITACIÓN',l:[['Novios','Ana & Luis'],['Fecha','14 de febrero'],['Confirmados','86']]}],
+    av:['WhatsApp','Carlos te envió una sorpresa 💛'],
+    m:['Página dedicada','Invitación digital']},
+  apps:{n:'Apps para Play Store y App Store',c:'#7c5cff',g:'un negocio',t:'quiero una app con:',demos:['app'],
+    h1:'Su negocio con app propia en Android y iPhone',lead:'La diseñamos, la programamos y la publicamos en Play Store y App Store a su nombre, con notificaciones para sus clientes.',
+    tags:['Android','iPhone','Notificaciones'],arm:'Arme su app',ic:['celu','campana','codigo','nube','play','estrella'],
+    rec:[{neg:'Bodega Rosita',tipo:'PEDIDO EN LA APP #1043',l:[['Arroz 5 kg','24.90'],['Leche x6','24.00']],tot:'48.90'},{neg:'Versión 1.0',tipo:'PUBLICACIÓN',l:[['Play Store','Publicada'],['App Store','Publicada'],['Descargas','1 240']]}],
+    av:['Bodega Rosita','Su pedido está en camino 🛵'],
+    m:['App para celular','Publicación en Play Store y App Store','Portal para clientes','Avisos por WhatsApp','Pagos con Yape','Usuarios y permisos','Dashboards','Tienda en línea']}
+};
+console.assert(Object.values(AREAS).every(a=>a.ic.every(k=>I[k])&&a.demos.every(d=>document.getElementById('p-'+d))),'cada área tiene sus íconos y sus demos');
+const qs=new URLSearchParams(location.search), AK=AREAS[qs.get('a')]?qs.get('a'):Object.keys(AREAS).find(k=>AREAS[k].demos.includes(location.hash.slice(1)));
+if(!AK) location.replace('index.html#negocios'); // sin área: se elige en el inicio
+const A=AREAS[AK]||AREAS.academias;
+
+// encabezado del área: íconos de fondo, boletas flotando y aviso de WhatsApp
+const patron=(ic,c)=>{
+  const pos=[[16,18,-12],[150,26,10],[84,104,0],[18,178,8],[176,150,-8],[112,212,14]];
+  const g=pos.map((p,i)=>`<g transform="translate(${p[0]} ${p[1]}) scale(1.5) rotate(${p[2]} 12 12)">${I[ic[i%ic.length]]}</g>`).join('');
+  return `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="260" height="260" viewBox="0 0 260 260"><g fill="none" stroke="${c}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".3">${g}</g></svg>`)}")`;
+};
+const boleta=b=>`<div class="boleta"><span class="neg">${b.neg}</span><span class="tipo">${b.tipo}</span>${b.l.map(([x,y])=>`<span class="ln"><span>${x}</span><span>${y}</span></span>`).join('')}${b.tot?`<span class="ln tot"><span>TOTAL S/</span><span>${b.tot}</span></span>`:''}</div>`;
+document.title=A.n+' · PaWn Dev';
+$('#a-eye').textContent=A.n; $('#a-tit').textContent=A.h1; $('#a-lead').textContent=A.lead; $('#ar-tit').textContent=A.arm;
+$('#a-tags').innerHTML=A.tags.map(t=>`<span>${t}</span>`).join('');
+$('#a-fondo').style.backgroundImage=patron(A.ic,A.c);
+$('#a-rec').innerHTML=A.rec.map(boleta).join('')+`<div class="aviso"><i>${A.av[0][0]}</i><span><b>${A.av[0]}</b>${A.av[1]}</span></div>`;
+
+// menú: solo las demos del área; el #hash abre una demo directa (demos.html?a=academias#examenes)
 const WA='51916037021', links=[...document.querySelectorAll('.dnav a')];
+links.forEach(a=>a.hidden=!A.demos.includes(a.dataset.d));
+document.querySelectorAll('.dnav .grp').forEach(g=>g.hidden=!g.querySelector('a:not([hidden])'));
+$('.lab').classList.toggle('solo',A.demos.length===1);
 let curId;
 function show(id){
-  if(!document.getElementById('p-'+id)) id='cobros';
+  if(!A.demos.includes(id)) id=A.demos[0];
   curId=id;
   links.forEach(a=>a.setAttribute('aria-current',a.dataset.d===id));
   document.querySelectorAll('.panel').forEach(p=>p.hidden=p.id!=='p-'+id);
   const cur=links.find(a=>a.dataset.d===id), nav=cur.closest('.dnav');
   nav.scrollLeft+=cur.getBoundingClientRect().left-nav.getBoundingClientRect().left-16; // en celular el menú es una fila: la corre hasta la demo elegida
-  const href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola Pablo, probé la demo «'+cur.dataset.n+'» y quisiera conversar sobre un sistema para mi negocio');
+  const href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola Pablo, probé la demo «'+cur.dataset.n+'» y quisiera conversar sobre '+(AK==='dedicadas'?'una página dedicada':AK==='apps'?'una app':'un sistema para mi negocio'));
   document.querySelectorAll('.wa-link').forEach(a=>a.href=href);
 }
 links.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();show(a.dataset.d);try{history.replaceState(null,'','#'+a.dataset.d)}catch(_){}}));
@@ -796,6 +1141,179 @@ console.assert(verificarYape(5,5,[{monto:5,t:0}],1e3).ok&&!verificarYape(5,6,[],
   ['cp-color','cp-caras','cp-acab','cp-copias'].forEach(id=>$('#'+id).addEventListener('input',cuenta));
   $('#cp-pagar').addEventListener('click',()=>{if(doc) yapear(cuenta())});
   $('#cp-otro').addEventListener('click',()=>{if(doc) yapear(Math.max(0.5,Math.round((cuenta()-1)*100)/100))});
+})();
+
+// Celular simulado de las demos nuevas: pantalla bloqueada (avisos en fila) o una app con avisos que bajan y se van
+const celHTML=(p,cuerpo)=>`<div class="cel android" id="${p}-cel"><div class="cel-scr"><div class="cel-bar"><span class="hora"></span><span>4G ▮▮▮</span></div>${cuerpo?cuerpo+'<div class="notifs"></div>':'<div class="cel-reloj"><b class="hora"></b><small class="fecha"></small></div><div class="notifs lock"></div>'}</div></div>`;
+function push(cel,{ic,ab,app,txt,toca}){
+  const box=cel.querySelector('.notifs'), n=document.createElement('div');
+  n.className='notif'+(toca?' toca':''); n.innerHTML=`<i style="background:${ic}">${ab}</i><div><b>${app}</b><small>ahora</small><p>${txt}</p></div>`;
+  box.prepend(n); while(box.children.length>3) box.lastElementChild.remove();
+  if(!box.classList.contains('lock')) setTimeout(()=>{n.classList.add('sale');setTimeout(()=>n.remove(),400)},4200);
+  cel.classList.remove('vibra'); void cel.offsetWidth; cel.classList.add('vibra');
+  return n;
+}
+function reloj(){
+  const d=new Date();
+  document.querySelectorAll('.cel .hora').forEach(e=>e.textContent=d.toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit',hour12:false}));
+  document.querySelectorAll('.cel .fecha').forEach(e=>e.textContent=d.toLocaleDateString('es-PE',{weekday:'long',day:'numeric',month:'long'}));
+}
+
+// 11. Taller (ejemplo): cada cambio de estado de la orden le llega al cliente por WhatsApp
+const ESTADOS=['Recibido','En diagnóstico','Esperando repuesto','Listo para recoger','Entregado'];
+const REP=[['Cambio de aceite 20W50',38],['Pastillas de freno',45],['Cadena y piñones',120],['Mano de obra',60]];
+const totalOrden=sel=>REP.reduce((s,r,i)=>s+(sel.has(i)?r[1]:0),0);
+console.assert(totalOrden(new Set([0,1,3]))===143,'total de la orden del taller');
+(()=>{
+  const box=$('#d-taller'), sel=new Set([0,1,3]); let st=0;
+  box.innerHTML=`<div class="split"><div style="display:grid;gap:.8rem;align-content:start">
+    <div class="box"><h4>Orden N° 0187 · Jorge Paucar</h4>
+      <select class="din" id="tl-eq" aria-label="Equipo"><option>moto Honda CB190</option><option>laptop HP 15</option><option>refrigeradora LG</option></select>
+      <input class="din" id="tl-falla" value="Frena con ruido y le falta potencia" aria-label="Falla que reporta el cliente"></div>
+    <ol class="pasos" id="tl-pasos">${ESTADOS.map(e=>`<li>${e}</li>`).join('')}</ol>
+    <div class="box"><h4>Repuestos y servicios</h4>${REP.map((r,i)=>`<label class="rep"><input type="checkbox" data-r="${i}" ${sel.has(i)?'checked':''}>${r[0]}<span>${soles(r[1])}</span></label>`).join('')}
+      <div class="rep"><b>Total</b><b id="tl-tot" style="margin-left:auto"></b></div></div>
+    <div class="drow"><button class="dbtn" id="tl-next" type="button"></button><button class="dbtn ghost" id="tl-new" type="button">Nueva orden</button></div>
+  </div>${celHTML('tl')}</div>`;
+  const cel=$('#tl-cel'), eq=()=>$('#tl-eq').value, lista=()=>REP.filter((r,i)=>sel.has(i)&&i!==3).map(r=>r[0].toLowerCase()).join(', ')||'revisión general';
+  const MSG=[
+    ()=>`Hola Jorge, recibimos su ${eq()}. Su orden es la N° 0187.`,
+    ()=>`Su ${eq()} ya está en diagnóstico. Le avisamos apenas sepamos qué tiene.`,
+    ()=>`Encontramos el problema: ${lista()}. Presupuesto: <strong>${soles(totalOrden(sel))}</strong>. Responda SÍ para aprobar.`,
+    ()=>`¡Listo! Su ${eq()} está reparado. Total ${soles(totalOrden(sel))}. Puede recogerlo hoy hasta las 7 p. m.`,
+    ()=>`Gracias por su confianza, Jorge. Tiene 30 días de garantía. ⭐ ¿Nos califica del 1 al 5?`];
+  const aviso=()=>push(cel,{ic:'var(--wa)',ab:'W',app:'Taller El Rápido',txt:MSG[st]()});
+  function pintar(){
+    $('#tl-pasos').querySelectorAll('li').forEach((l,i)=>{l.className=i<st?'ok':i===st?'ya':''});
+    $('#tl-tot').textContent=soles(totalOrden(sel));
+    const b=$('#tl-next'); b.disabled=st===ESTADOS.length-1; b.textContent=b.disabled?'Orden entregada ✓':`Pasar a «${ESTADOS[st+1]}»`;
+  }
+  $('#tl-next').addEventListener('click',()=>{st++;pintar();aviso()});
+  $('#tl-new').addEventListener('click',()=>{st=0;cel.querySelector('.notifs').innerHTML='';pintar();aviso()});
+  box.addEventListener('change',e=>{const r=e.target.dataset.r;if(r===undefined)return;e.target.checked?sel.add(+r):sel.delete(+r);pintar()});
+  pintar(); aviso();
+})();
+
+// 12. App (ejemplo): la app de la tienda en el celular del cliente, con avisos, y su publicación en las tiendas de apps
+const PROD=[['Arroz Costeño 5 kg',24.9,'🍚'],['Aceite vegetal 1 L',11.5,'🫒'],['Leche x6',24,'🥛'],['Pan francés x10',3,'🥖'],['Huevos x15',14,'🥚']];
+const totalCarro=c=>Math.round(c.reduce((s,n,i)=>s+n*PROD[i][1],0)*100)/100;
+console.assert(totalCarro([1,0,1,0,0])===48.9,'total del carrito de la app');
+(()=>{
+  const box=$('#d-app'), PASOS=['Diseño de pantallas','Programación','Pruebas en celulares reales','Revisión de Google Play','Revisión de App Store','Publicada'];
+  let c=PROD.map(()=>0), ped=1043, vista='lista', tm=[];
+  box.innerHTML=`<div class="split"><div style="display:grid;gap:.8rem;align-content:start">
+    <div class="drow"><span class="muted">Ver en:</span><button class="dbtn ghost" type="button" data-os="android" aria-pressed="true">Android</button><button class="dbtn ghost" type="button" data-os="ios" aria-pressed="false">iPhone</button></div>
+    <div class="box"><h4>Publicación de la app</h4><ol class="publi" id="ap-pasos">${PASOS.map(p=>`<li>${p}</li>`).join('')}</ol>
+      <div class="drow"><button class="dbtn" id="ap-pub" type="button">Publicar versión 1.0</button></div><div class="tiendas" id="ap-tiendas"></div></div>
+    <p class="try"><b>Pruebe:</b> agregue productos en la app del celular y toque «Pedir». Mire cómo le llegan los avisos.</p>
+  </div>${celHTML('ap','<div class="appui" id="ap-ui"></div>')}</div>`;
+  const cel=$('#ap-cel'), ui=$('#ap-ui'), av=txt=>push(cel,{ic:'#16a34a',ab:'BR',app:'Bodega Rosita',txt});
+  function pintar(){
+    const n=c.reduce((a,b)=>a+b,0);
+    ui.innerHTML=vista==='lista'
+      ?`<header>Bodega Rosita<small>Pedidos a domicilio · Cerro de Pasco</small></header><div class="aprods">${PROD.map((p,i)=>`<div class="aprod"><span class="em">${p[2]}</span><span>${p[0]}<br><b>${soles(p[1])}</b></span><span class="q">${c[i]?`<button type="button" data-m="${i}" aria-label="Quitar ${p[0]}">−</button>${c[i]}`:''}<button class="mas" type="button" data-p="${i}" aria-label="Agregar ${p[0]}">+</button></span></div>`).join('')}</div>
+        <button class="carro" type="button" id="ap-ped" ${n?'':'disabled'}>${n?`Pedir ${n} ${n===1?'producto':'productos'} · ${soles(totalCarro(c))}`:'Agregue productos'}</button>`
+      :`<header>Bodega Rosita<small>Su pedido</small></header><div class="okp"><span class="big">✅</span><b>Pedido #${ped} recibido</b><span>Le avisaremos por aquí cada paso.</span><button class="carro" type="button" id="ap-otra">Seguir comprando</button></div>`;
+  }
+  ui.addEventListener('click',e=>{
+    const t=e.target.closest('button'); if(!t) return;
+    if(t.dataset.p) c[t.dataset.p]++; else if(t.dataset.m) c[t.dataset.m]--;
+    else if(t.id==='ap-ped'){ vista='ok'; tm.forEach(clearTimeout);
+      const k=still?0:1;
+      tm=[setTimeout(()=>av(`Estamos preparando su pedido #${ped} 🧺`),1200*k),setTimeout(()=>av('Su pedido está en camino 🛵 Llega en 15 min.'),3800*k),setTimeout(()=>av(`¡Llegó su pedido! Total ${soles(totalCarro(c))}. Gracias por su compra.`),7000*k)];
+    } else if(t.id==='ap-otra'){ vista='lista'; c=PROD.map(()=>0); ped++; }
+    pintar();
+  });
+  box.addEventListener('click',e=>{const b=e.target.closest('[data-os]');if(!b)return;
+    box.querySelectorAll('[data-os]').forEach(x=>x.setAttribute('aria-pressed',x===b));cel.className='cel '+b.dataset.os;});
+  $('#ap-pub').addEventListener('click',e=>{
+    const b=e.currentTarget, li=[...$('#ap-pasos').children]; b.disabled=true; $('#ap-tiendas').innerHTML='';
+    li.forEach(l=>l.className='');
+    li.forEach((l,i)=>setTimeout(()=>{ if(i) li[i-1].className='ok'; l.className=i===li.length-1?'ok':'va';
+      if(i===li.length-1){ b.disabled=false; b.textContent='Publicar otra versión';
+        $('#ap-tiendas').innerHTML=`<span class="tienda-b"><svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9z"/></svg><span><small>Disponible en</small>Google Play</span></span><span class="tienda-b"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/></svg><span><small>Descárguela en</small>App Store</span></span>`;
+        push(cel,{ic:'#10243f',ab:'▶',app:'Tienda de apps',txt:'Bodega Rosita ya está disponible. Toque para instalar.'}); }
+    },(still?0:650)*i));
+  });
+  pintar();
+})();
+
+// 13. Página dedicada (ejemplo): el visitante la arma y la ve llegar al celular como la recibiría su pareja
+const flor=(x,y,s,dl)=>`<path class="crece" style="--d:${dl}s" d="M${x} 172C${x-10} ${(172+y)/2} ${x+10} ${y+28} ${x} ${y}" fill="none" stroke="#3f8f3a" stroke-width="3"/>
+  <path class="pe" style="--d:${dl+.7}s" d="M${x} ${y+40}c-14-2-20-10-20-18 10 0 18 6 20 18z" fill="#5fae4f"/>
+  <g transform="translate(${x} ${y}) scale(${s})"><g class="gira">${Array.from({length:10},(_,k)=>`<g transform="rotate(${k*36})"><ellipse class="pe" style="--d:${(dl+1+k*.06).toFixed(2)}s" cx="0" cy="-15" rx="6.5" ry="14" fill="#ffd43b" stroke="#f0a500" stroke-width="1"/></g>`).join('')}<circle class="cen" style="--d:${dl+1.6}s" r="8" fill="#8b5a2b"/></g></g>`;
+const PAG={
+  flores:(p,d)=>Array.from({length:9},(_,i)=>`<i class="p-cae" style="left:${(i*11+4)%96}%;animation-duration:${5+i%4}s;animation-delay:${(-i*.8).toFixed(1)}s"></i>`).join('')
+    +`<div class="txt"><h3>Para ${p} 🌻</h3><p class="msg-d"></p><p class="firma">Con todo mi cariño, ${d}</p></div>
+    <svg class="jardin" viewBox="0 0 240 172">${flor(55,82,.9,0)}${flor(125,58,1.1,.4)}${flor(192,90,.85,.8)}<path class="cora" d="M120 168c-13-8-18-17-11-23 4-3.5 9-2 11 2.5 2-4.5 7-6 11-2.5 7 6 2 15-11 23z" fill="#ff6b6b"/></svg>`,
+  sanvalentin:(p,d,ini)=>Array.from({length:12},(_,i)=>`<i class="h-sube" style="left:${(i*17+3)%94}%;--s:${12+i%4*6}px;animation-duration:${4+i%5}s;animation-delay:${(-i*.6).toFixed(1)}s">♥</i>`).join('')
+    +`<div class="txt"><h3>Feliz San Valentín, ${p}</h3><p class="msg-d"></p><p class="firma">Te quiere, ${d}</p></div>
+    <svg class="jardin" viewBox="0 0 240 150"><path class="cora" d="M120 142c-52-33-70-68-45-88 15-12 37-7 45 9 8-16 30-21 45-9 25 20 7 55-45 88z" fill="#ff4d6d"/><text x="120" y="96" text-anchor="middle" fill="#fff" font-size="24" font-weight="700" font-family="Sora,sans-serif">${ini}</text></svg>`,
+  boda:(p,d)=>`<div class="txt"><svg class="anillos" viewBox="0 0 130 74"><circle class="crece" cx="50" cy="44" r="24" fill="none" stroke="#c9a227" stroke-width="5"/><circle class="crece" style="--d:.5s" cx="80" cy="44" r="24" fill="none" stroke="#c9a227" stroke-width="5"/><path class="cen" style="--d:1.5s" d="M80 22l-6-7 6-7 6 7z" fill="#bfe3ff" stroke="#8fb8d8"/></svg>
+    <p class="firma">Nos casamos</p><h3 style="font:400 1.45rem Georgia,serif">${p} &amp; ${d}</h3><p class="msg-d"></p><div class="cuenta-r"></div><button class="conf" type="button">Confirmar asistencia</button></div>`
+};
+(()=>{
+  const box=$('#d-dedicada'); let tema='flores', tm=[];
+  box.innerHTML=`<div class="split"><div style="display:grid;gap:.7rem;align-content:start">
+    <label class="drow">Para <input class="din" id="dd-para" value="María" maxlength="20" style="flex:1"></label>
+    <label class="drow">De <input class="din" id="dd-de" value="Carlos" maxlength="20" style="flex:1"></label>
+    <textarea class="din" id="dd-msg" rows="3" maxlength="140" aria-label="Mensaje">Eres la flor más bonita de mi vida. Gracias por cada día a tu lado.</textarea>
+    <div class="temas" id="dd-temas"><button class="dbtn ghost" type="button" data-t="flores" aria-pressed="true">🌻 Flores amarillas</button><button class="dbtn ghost" type="button" data-t="sanvalentin" aria-pressed="false">💘 San Valentín</button><button class="dbtn ghost" type="button" data-t="boda" aria-pressed="false">💍 Boda</button></div>
+    <div class="drow"><button class="dbtn" id="dd-env" type="button">Enviar sorpresa</button></div>
+    <p class="note">Así la ve quien la recibe. Con la página real se agregan fotos y música, y tiene su propio link.</p>
+  </div>${celHTML('dd')}</div>`;
+  const cel=$('#dd-cel'), scr=cel.querySelector('.cel-scr'), nf=cel.querySelector('.notifs'), val=id=>$(id).value.trim()||'…';
+  const limpiar=()=>{tm.forEach(clearInterval);tm=[];scr.querySelector('.ded')?.remove();nf.innerHTML=''};
+  function abrir(){
+    if(scr.querySelector('.ded')) return;
+    nf.innerHTML=''; // al abrirla, el aviso ya cumplió
+    const para=val('#dd-para'), de=val('#dd-de'), msg=val('#dd-msg'), d=document.createElement('div');
+    d.className='ded '+tema;
+    d.innerHTML='<button class="volver" type="button">↺ Ver de nuevo</button>'+PAG[tema](esc(para),esc(de),esc(para[0]+' ♥ '+de[0]));
+    scr.appendChild(d);
+    d.querySelector('.volver').addEventListener('click',enviar);
+    const out=d.querySelector('.msg-d'); let i=0;
+    if(still) out.textContent=msg; else { const t=setInterval(()=>{out.textContent=msg.slice(0,++i); if(i>=msg.length) clearInterval(t)},45); tm.push(t); }
+    if(tema==='boda'){
+      const fin=Date.now()+60*864e5, cu=d.querySelector('.cuenta-r'), dos=n=>String(n).padStart(2,'0');
+      const pinta=()=>{const s=Math.max(0,Math.floor((fin-Date.now())/1000));cu.innerHTML=[[Math.floor(s/86400),'días'],[dos(Math.floor(s%86400/3600)),'horas'],[dos(Math.floor(s%3600/60)),'min'],[dos(s%60),'seg']].map(([v,l])=>`<span>${v}<small>${l}</small></span>`).join('')};
+      pinta(); tm.push(setInterval(pinta,1000));
+      d.querySelector('.conf').addEventListener('click',e=>{e.currentTarget.textContent='✓ Asistencia confirmada';e.currentTarget.disabled=true});
+    }
+  }
+  function enviar(){
+    limpiar();
+    push(cel,{ic:'var(--wa)',ab:'W',app:'WhatsApp',txt:`<strong>${esc(val('#dd-de'))}:</strong> Te mandé algo especial 💛 Toque para abrir`,toca:true}).addEventListener('click',abrir);
+    tm.push(setTimeout(abrir,still?0:2400));
+  }
+  $('#dd-env').addEventListener('click',enviar);
+  $('#dd-temas').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(!b)return;tema=b.dataset.t;
+    $('#dd-temas').querySelectorAll('[data-t]').forEach(x=>x.setAttribute('aria-pressed',x===b));enviar()});
+  enviar();
+})();
+reloj(); setInterval(reloj,20000);
+
+// Arme su sistema: los módulos del área elegida, y la lista sale por WhatsApp
+(()=>{
+  const opts=$('#ar-opts'), send=$('#send'), extra=$('#extra'), chosen=new Set();
+  opts.innerHTML=A.m.map(n=>`<button type="button" class="opt" aria-pressed="false" data-n="${n}">${n}</button>`).join('');
+  const waLink=(list,note)=>{
+    let t='Hola Pablo, '+(A.t||(A.g?'tengo '+A.g+' y ':'')+'me interesa un sistema con estos módulos:')+'\n'+list.map(n=>'• '+n).join('\n');
+    if(note.trim()) t+='\n\nAdemás: '+note.trim();
+    return 'https://wa.me/'+WA+'?text='+encodeURIComponent(t);
+  };
+  console.assert(waLink(['Pagos'],'').endsWith(encodeURIComponent('• Pagos')),'enlace de WhatsApp del armador');
+  function render(){
+    const list=A.m.filter(n=>chosen.has(n));
+    opts.querySelectorAll('.opt').forEach(o=>o.setAttribute('aria-pressed',chosen.has(o.dataset.n)));
+    $('#cnt').textContent=list.length; $('#cntTxt').textContent=list.length===1?'módulo elegido':'módulos elegidos';
+    $('#picked').innerHTML=list.length?list.map(n=>`<li>${n}</li>`).join(''):'<li class="empty">Marque los módulos que necesita.</li>';
+    send.href=list.length?waLink(list,extra.value):'#'; send.setAttribute('aria-disabled',!list.length);
+  }
+  opts.addEventListener('click',e=>{const o=e.target.closest('.opt');if(!o)return;chosen.has(o.dataset.n)?chosen.delete(o.dataset.n):chosen.add(o.dataset.n);render()});
+  $('#ar-quick').addEventListener('click',e=>{const b=e.target.closest('[data-q]');if(!b)return;chosen.clear();(b.dataset.q==='esencial'?A.m.slice(0,4):b.dataset.q==='todo'?A.m:[]).forEach(n=>chosen.add(n));render()});
+  extra.addEventListener('input',render);
+  render();
 })();
 </script>
 </body>

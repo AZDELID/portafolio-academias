@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sistemas a medida para su negocio · Perú</title>
+<title>PaWn Dev · Sistemas a medida para su negocio · Perú</title>
 <meta name="description" content="Desarrollamos sistemas a medida para negocios e instituciones: ventas, inventario, cobros, citas, avisos por WhatsApp, páginas web y apps.">
 <meta property="og:title" content="Sistemas a medida para su negocio">
 <meta property="og:description" content="Ventas, inventario, cobros, citas, avisos por WhatsApp, web y apps, hechos a la medida de su negocio.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://portafolio-academias.vercel.app/">
-<meta property="og:image" content="https://portafolio-academias.vercel.app/og.png">
+<meta property="og:url" content="https://pawn-dev.vercel.app/">
+<meta property="og:image" content="https://pawn-dev.vercel.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#1a8cf0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231a8cf0'/%3E%3Cstop offset='1' stop-color='%2313b5a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath d='M24 22l-10 10 10 10M40 22l10 10-10 10M35 18l-6 28' stroke='white' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="img/logo/pawn-simbolo.svg">
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta property="og:site_name" content="Sistemas a medida">
+<meta property="og:site_name" content="PaWn Dev">
 <meta property="og:locale" content="es_PE">
-<link rel="canonical" href="https://portafolio-academias.vercel.app/">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Sistemas a medida","url":"https://portafolio-academias.vercel.app/","description":"Desarrollo de sistemas, páginas web y apps a la medida de cada negocio: ventas, inventario, cobros, citas y avisos por WhatsApp.","areaServed":"PE","address":{"@type":"PostalAddress","addressCountry":"PE"},"contactPoint":{"@type":"ContactPoint","telephone":"+51-916-037-021","contactType":"sales","areaServed":"PE","availableLanguage":"es"}}</script>
+<link rel="canonical" href="https://pawn-dev.vercel.app/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PaWn Dev","slogan":"Llegamos a su negocio y nos adaptamos a lo que necesite.","logo":"https://pawn-dev.vercel.app/img/logo/pawn-simbolo.svg","url":"https://pawn-dev.vercel.app/","description":"Desarrollo de sistemas, páginas web y apps a la medida de cada negocio: ventas, inventario, cobros, citas y avisos por WhatsApp.","areaServed":"PE","address":{"@type":"PostalAddress","addressCountry":"PE"},"contactPoint":{"@type":"ContactPoint","telephone":"+51-916-037-021","contactType":"sales","areaServed":"PE","availableLanguage":"es"}}</script>
 <!-- Estadísticas de Vercel (Web Analytics): empiezan a contar cuando se activan en el panel del proyecto -->
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -219,6 +219,7 @@ details p{padding-bottom:1rem;color:var(--muted)}
 .card small{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700}
 .card .n{font:600 1.35rem var(--display);user-select:all;overflow-wrap:anywhere}
 .row2{display:flex;flex-wrap:wrap;gap:.6rem}
+.ct-per{display:grid;gap:.6rem}.ct-per+.ct-per{border-top:1px solid var(--line);padding-top:1rem}
 .copy{font:700 .85rem var(--body);padding:.75rem 1.1rem;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
 footer.site{padding-block:2.4rem;color:var(--muted);font-size:.85rem;text-align:center}
 .note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:.8rem;max-width:none}
@@ -250,7 +251,7 @@ html{scroll-behavior:smooth;scroll-padding-top:72px}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:41;background:#fff}
 .topnav .wrap{display:flex;align-items:center;gap:1.4rem;min-height:60px}
 .brand{display:flex;align-items:center;gap:.55rem;font:700 1rem var(--display);text-decoration:none;color:var(--ink);margin-right:auto;white-space:nowrap}
-.brand i{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--sky),var(--teal));display:grid;place-items:center;color:#fff;font:700 .8rem var(--mono);font-style:normal}
+.brand img{width:30px;height:30px;flex:none}.brand b{color:var(--sky);font-weight:inherit}
 .links{display:flex;gap:1.3rem}
 .links a{font-weight:500;font-size:.93rem;color:var(--muted);text-decoration:none;transition:color .2s}
 .links a:hover{color:var(--sky)}
@@ -266,30 +267,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .wa-float:hover span,.wa-float:focus-visible span{opacity:1;transform:none}
 
 /* arme su sistema */
-.builder{display:grid;grid-template-columns:1.4fr 1fr;gap:1.6rem;align-items:start}
-.builder>*{min-width:0}
-.groups{display:grid;gap:1.2rem}
-.group h3{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;font-family:var(--body);font-weight:700}
-.opts{display:flex;flex-wrap:wrap;gap:.5rem}
-.opt{font:600 .92rem var(--body);display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1rem;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:all .2s}
-.opt::before{content:"";width:18px;height:18px;border-radius:6px;border:2px solid #c3d4e6;transition:all .2s;flex:none}
-.opt:hover{border-color:#bfe0ff}
-.opt[aria-pressed="true"]{border-color:var(--sky);background:#eef7ff}
-.opt[aria-pressed="true"]::before{background:var(--sky) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/12px no-repeat;border-color:var(--sky)}
-.summary{position:sticky;top:84px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.5rem;display:grid;gap:1rem;box-shadow:0 24px 50px -32px rgba(16,36,63,.45)}
-.summary .big{font:700 2.6rem/1 var(--display);background:linear-gradient(90deg,var(--sky),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
-.summary ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.35rem;min-height:1.6rem}
-.summary li{font-size:.8rem;background:var(--soft);border-radius:999px;padding:.25rem .65rem;animation:popin .3s both}
-.summary .empty{color:var(--muted);font-size:.9rem}
-.summary label{font-weight:700;font-size:.85rem}
-.summary textarea{font:400 .92rem var(--body);width:100%;box-sizing:border-box;min-height:80px;resize:vertical;border:1.5px solid var(--line);border-radius:12px;padding:.7rem;color:var(--ink);background:#fff}
-.summary textarea:focus{outline:none;border-color:var(--sky-2)}
-.summary .btn{justify-content:center}
-.summary .btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
-.summary small{color:var(--muted);font-size:.78rem}
-.quick{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.4rem}
-.quick button{font:600 .82rem var(--body);padding:.4rem .85rem;border-radius:999px;border:1px dashed #9fcdf5;background:transparent;color:var(--sky);cursor:pointer}
-@media (max-width:960px){.builder{grid-template-columns:1fr}.summary{position:static}}
 html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} img{max-width:100%}
 /* ===== EFECTOS ===== */
 /* barra de progreso de lectura */
@@ -360,14 +337,6 @@ html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
 @keyframes flow{50%{background-position:100% 50%}}
 .card{animation:float 6s ease-in-out infinite}
 
-/* ===== ACCESO A LAS DEMOS (las demos viven en demos.html) ===== */
-.lab-cta{display:grid;grid-template-columns:1fr 1.15fr;gap:2rem;align-items:center;background:linear-gradient(135deg,#eaf5ff,#e6fbf8);border:1px solid #c7e5ff;border-radius:24px;padding:2.2rem max(1.2rem,3vw)}
-.lab-cta>*{min-width:0}
-.lab-txt{display:grid;gap:1rem;justify-items:start}
-.lab-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}
-.lab-list a{display:grid;gap:.1rem;height:100%;box-sizing:border-box;padding:.7rem .85rem;border-radius:14px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:700;font-size:.88rem;line-height:1.3;transition:transform .2s,box-shadow .2s,border-color .2s}
-.lab-list a:hover{transform:translateY(-3px);border-color:#bfe0ff;box-shadow:0 14px 26px -18px rgba(26,140,240,.6)}
-.lab-list small{font:700 .6rem var(--body);letter-spacing:.09em;text-transform:uppercase;color:var(--teal)}
 .demo-link{font-weight:700;color:var(--sky);text-decoration:none;font-size:.92rem}
 .demo-link:hover{text-decoration:underline}
 /* panel del inicio: botones para ver el panel de cada rubro */
@@ -376,8 +345,6 @@ html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
 .rsw button:hover{border-color:#bfe0ff}
 .rsw button[aria-pressed="true"]{background:linear-gradient(90deg,var(--sky),var(--teal));color:#fff;border-color:transparent}
 .dmain.swap{animation:popin .4s both}
-@media (max-width:960px){.lab-cta{grid-template-columns:1fr}}
-@media (max-width:620px){.lab-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* ===== CÓMO TRABAJAMOS ===== */
 .steps .when{font:600 .72rem var(--mono);color:var(--teal)}
@@ -394,39 +361,51 @@ html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
 @media (max-width:620px){.feat{grid-template-columns:1fr}}
 
 /* ===== RUBROS CON FOTOS (mosaico de 4 columnas; en celular, fila que se desliza) ===== */
-.rubros{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,250px);grid-template-areas:"ti ac co ta" "ti re cp in";gap:1rem}
+.rubros{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:250px 250px 220px;grid-template-areas:"ti ac co ta" "ti re cp in" "ap ap pd pd";gap:1rem}
 .rubro{position:relative;display:block;border-radius:20px;overflow:hidden;isolation:isolate;color:#fff;text-decoration:none;background:#10243f;box-shadow:0 22px 40px -28px rgba(16,36,63,.6)}
 .rubro img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .rubro::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(16,36,63,0) 35%,rgba(16,36,63,.88))}
 .rubro:hover img{transform:scale(1.07)}
 .rb-txt{position:absolute;left:0;right:0;bottom:0;padding:1rem 1.1rem;display:grid;gap:.45rem}
 .rb-name{display:block;color:#fff;font:600 1.15rem/1.2 var(--display)}
-button.rubro{border:0;padding:0;margin:0;font:inherit;text-align:left;cursor:pointer;width:100%;-webkit-appearance:none;appearance:none}
-.rubro[aria-pressed="true"]{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--sky),0 22px 40px -28px rgba(16,36,63,.6)}
-.rubro[aria-pressed="true"]::before{content:"✓";position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:50%;background:var(--sky);color:#fff;font-weight:700;display:grid;place-items:center;box-shadow:0 0 0 3px #fff}
 .rubro.ilus{background:linear-gradient(150deg,#1a8cf0,#13b5a6)}
 .rb-ilus{position:absolute;left:50%;top:10%;width:60%;max-width:190px;transform:translateX(-50%);z-index:-2;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .rubro.ilus:hover .rb-ilus{transform:translateX(-50%) scale(1.07)}
-/* armador debajo del mosaico (reemplaza a la sección «Arme su sistema»; usa sus estilos .builder/.opt/.summary) */
-.armador{margin-top:1.4rem;background:linear-gradient(180deg,var(--soft),#fff);border:1px solid var(--line);border-radius:24px;padding:1.4rem;scroll-margin-top:80px}
-.arm-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem}
-.arm-chips button{font:600 .85rem var(--body);padding:.45rem .9rem;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:all .2s}
-.arm-chips button:hover{border-color:#bfe0ff}
-.arm-chips button[aria-pressed="true"]{background:linear-gradient(90deg,var(--sky),var(--teal));color:#fff;border-color:transparent}
-.arm-main{display:grid;gap:.8rem;align-content:start}
-.arm-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.4rem 1rem}
-.arm-head h3{font-size:1.35rem}
-.arm-txt{color:var(--muted)}
-.armador .quick{margin:0}
-.arm-empty{padding:1.4rem;border:1.5px dashed #bfe0ff;border-radius:14px;color:var(--muted);text-align:center;max-width:none}
-.summary li.empty{background:none;padding:0;animation:none}
+/* páginas dedicadas: es para personas, no negocios; franja ancha con su propio color */
+.rubro.dedi{background:linear-gradient(110deg,#d4537e,#ef7f6a 55%,#efb027)}
+.rubro.dedi::after{background:linear-gradient(90deg,rgba(75,21,40,.55),rgba(75,21,40,0) 70%)}
+.rubro.dedi .rb-ilus{left:auto;right:5%;top:50%;width:auto;height:84%;max-width:none;transform:translateY(-50%)}
+.rubro.dedi:hover .rb-ilus{transform:translateY(-50%) scale(1.07)}
+.rubro.dedi .rb-txt{top:0;align-content:center;max-width:56%}
+.rubro.dedi .rb-name{font-size:1.4rem}
+.rubro.dedi .rb-go{color:#ffe7a3}
+.vive .pt,.vive .centro,.vive .co,.vive .sube,.vive .cae,.vive .br{transform-box:fill-box;transform-origin:center} /* solo lo animado: en SVG el origen también mueve los rotate() de los pétalos */
+.vive .tallo{transform-box:view-box;transform-origin:80px 163px;animation:mece 4s ease-in-out infinite alternate}
+.vive .flor{transform-box:view-box;transform-origin:80px 70px;animation:gira 7s ease-in-out infinite alternate}
+.vive .pt{transform-origin:50% 100%;animation:abre .9s var(--d) cubic-bezier(.3,1.5,.5,1) both,respira 2.6s calc(1.2s + var(--d)) ease-in-out infinite alternate}
+.vive .centro{animation:late 2.6s 1s ease-in-out infinite}
+.vive .co{animation:latido 1.5s ease-in-out infinite}
+.vive .sube{opacity:0;animation:sube 4.5s ease-out infinite}.vive .s2{animation-delay:1.5s}.vive .s3{animation-delay:3s}
+.vive .cae{opacity:0;animation:cae 6s 2s ease-in infinite}
+.vive .br{animation:brilla 2.2s ease-in-out infinite}.vive .b2{animation-delay:.7s}.vive .b3{animation-delay:1.4s}
+@keyframes abre{from{transform:scale(.15);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes respira{to{transform:scale(1.07)}}
+@keyframes mece{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+@keyframes gira{from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+@keyframes late{50%{transform:scale(1.15)}}
+@keyframes latido{0%,40%,100%{transform:scale(1)}15%{transform:scale(1.14)}28%{transform:scale(1.04)}33%{transform:scale(1.1)}}
+@keyframes sube{0%{opacity:0;transform:translateY(0) scale(.6)}15%{opacity:1}100%{opacity:0;transform:translateY(-120px) scale(1.1) rotate(15deg)}}
+@keyframes cae{0%{opacity:0;transform:translate(0,0) rotate(0)}10%{opacity:1}100%{opacity:0;transform:translate(46px,96px) rotate(220deg)}}
+@keyframes brilla{50%{opacity:.25;transform:scale(.6) rotate(45deg)}}
+.otro-neg{text-align:center;margin-top:1.4rem;color:var(--muted)}
+.otro-neg a{font-weight:700;color:var(--sky);text-decoration:none}
 .rb-tags{display:flex;flex-wrap:wrap;gap:.3rem}
 .rb-tags span{font-size:.7rem;font-weight:600;padding:.18rem .55rem;border-radius:999px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .rb-go{font-size:.8rem;font-weight:700;color:#bfe6ff;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
 .rubro:hover .rb-go,.rubro:focus-visible .rb-go{opacity:1;transform:none}
 @media (hover:none){.rb-go{opacity:1;transform:none}}
-@media (max-width:960px){.rubros{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,220px);grid-template-areas:"ti ac" "ti co" "re cp" "ta in"}}
-@media (max-width:620px){.rubros{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:.8rem;padding:8px 6px .7rem;scrollbar-width:thin}.rubro{flex:0 0 78%;height:340px;scroll-snap-align:start}}
+@media (max-width:960px){.rubros{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,220px) 200px 200px;grid-template-areas:"ti ac" "ti co" "re cp" "ta in" "ap ap" "pd pd"}}
+@media (max-width:620px){.rubros{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:.8rem;padding:8px 6px .7rem;scrollbar-width:thin}.rubro{flex:0 0 78%;height:340px;scroll-snap-align:start}.rubro.dedi .rb-ilus{right:50%;top:10%;height:auto;width:66%;transform:translateX(50%)}.rubro.dedi:hover .rb-ilus{transform:translateX(50%) scale(1.07)}.rubro.dedi .rb-txt{top:auto;max-width:none}.rubro.dedi::after{background:linear-gradient(180deg,rgba(75,21,40,0) 40%,rgba(75,21,40,.6))}}
 
 /* antes y después con foto: la de «antes» en blanco y negro */
 .vs-img{display:block;width:calc(100% + 3.2rem);max-width:none;height:210px;margin:-1.6rem -1.6rem .3rem;object-fit:cover;border-radius:17px 17px 0 0}
@@ -487,6 +466,7 @@ button.rubro{border:0;padding:0;margin:0;font:inherit;text-align:left;cursor:poi
 .foot .brand{color:#fff;margin:0}
 .foot-brand{display:grid;gap:1rem;justify-items:start}
 .foot p{color:#b9cde3;font-size:.92rem}
+.foot .slogan{color:#fff;font:600 1.05rem/1.4 var(--display);max-width:30ch}
 .foot h3{font:700 .75rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:#7fd8ff;margin-bottom:.4rem}
 .foot-col{display:grid;gap:.45rem;align-content:start;font-size:.93rem}
 .foot a{color:#d6e6f5;text-decoration:none}
@@ -505,13 +485,12 @@ button.rubro{border:0;padding:0;margin:0;font:inherit;text-align:left;cursor:poi
 <div class="progress" aria-hidden="true"><i id="prog"></i></div>
 <nav class="topnav" aria-label="Secciones">
   <div class="wrap">
-    <a class="brand" href="#"><i>&lt;/&gt;</i>Sistemas a medida</a>
+    <a class="brand" href="#"><img src="img/logo/pawn-simbolo.svg" alt="" width="30" height="30">PaWn <b>Dev</b></a>
     <div class="links">
       <a href="#experiencia">Experiencia</a>
-      <a href="demos.html" target="_blank" rel="noopener">Demos ↗</a>
       <a href="#modulos">Módulos</a>
       <a href="#trabajo">Cómo trabajamos</a>
-      <a href="#armar">Arme su sistema</a>
+      <a href="#negocios">Su área</a>
       <a href="#faq">Preguntas</a>
     </div>
     <a class="btn primary" href="#contacto">Contactar</a>
@@ -528,7 +507,7 @@ button.rubro{border:0;padding:0;margin:0;font:inherit;text-align:left;cursor:poi
       <p class="lead">No vendemos programas ya hechos. Escuchamos cómo trabaja y desarrollamos un sistema a su medida: ventas, inventario, cobros, citas, avisos por WhatsApp, páginas web, apps o lo que su negocio necesite.</p>
       <div class="cta">
         <a class="btn primary" href="#contacto">Conversemos su proyecto</a>
-        <a class="btn" href="demos.html" target="_blank" rel="noopener">Probar las demos ↗</a>
+        <a class="btn" href="#negocios">Ver ejemplos de su rubro</a>
       </div>
       <div class="chips">
         <span class="chip"><b>✓</b> Hecho a su medida</span>
@@ -574,53 +553,35 @@ button.rubro{border:0;padding:0;margin:0;font:inherit;text-align:left;cursor:poi
 <!-- CIFRAS -->
 <div class="wrap">
   <div class="stats">
-    <div class="stat rv"><strong><span class="count n" data-to="23">23</span> módulos</strong><span>que podemos construir y combinar</span></div>
-    <div class="stat rv d1"><strong><span class="count n" data-to="6">6</span> rubros</strong><span>educación, comercio, salud, servicios y más</span></div>
+    <div class="stat rv"><strong><span class="count n" data-to="26">26</span> módulos</strong><span>que podemos construir y combinar</span></div>
+    <div class="stat rv d1"><strong><span class="count n" data-to="9">9</span> áreas</strong><span>comercio, educación, salud, apps y más</span></div>
     <div class="stat rv d2"><strong><span class="n">24/7</span> avisos</strong><span>automáticos a sus clientes por WhatsApp</span></div>
     <div class="stat rv d3"><strong><span class="count n" data-to="0">0</span> papeles</strong><span>perdidos: todo queda guardado en la nube</span></div>
   </div>
 </div>
 <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
 
-<!-- Fotos de Pexels (licencia libre para uso comercial, sin atribución obligatoria). IDs: rubros 38703834 37739914 7108317 6937464 8985702 8117466 · antes 6539032 · después 6627440 · cómo trabajamos 3855606 -->
+<!-- Fotos de Pexels (licencia libre para uso comercial, sin atribución obligatoria). IDs: rubros 38703834 37739914 7108317 6937464 8985702 8117466 · antes 6539032 · después 6627440 · cómo trabajamos 3855606 · apps 7213210 · copias 12203646 -->
 <!-- RUBROS -->
 <section id="negocios" style="padding-block:4rem 1rem">
   <div class="wrap">
     <div class="head center rv">
-      <span class="eyebrow">Arme su sistema</span>
+      <span class="eyebrow">Escoja su área</span>
       <h2>Un sistema distinto para cada negocio</h2>
-      <p class="lead">Toque su rubro: le mostramos solo los módulos que le sirven y arma su lista en un minuto.</p>
+      <p class="lead">Elija el área que le interesa: verá sus demos funcionando, ejemplos de su rubro y los módulos que le sirven.</p>
     </div>
     <div class="rubros">
-      <button type="button" class="rubro rv" style="grid-area:ti" data-rb="ti" aria-pressed="false" aria-controls="armar"><img src="img/rubro-tienda.webp" alt="" width="800" height="1066" loading="lazy" decoding="async"><span class="rb-txt"><span class="rb-name">Tiendas y bodegas</span><span class="rb-tags"><span>Ventas y caja</span><span>Inventario</span><span>Facturación</span></span><span class="rb-go">Ver sus módulos ↓</span></span></button>
-      <button type="button" class="rubro rv d1" style="grid-area:ac" data-rb="ac" aria-pressed="false" aria-controls="armar"><img src="img/rubro-academia.webp" alt="" width="800" height="1200" loading="lazy" decoding="async" style="object-position:center 55%"><span class="rb-txt"><span class="rb-name">Academias y colegios</span><span class="rb-tags"><span>Pagos</span><span>Exámenes</span><span>WhatsApp</span></span><span class="rb-go">Ver sus módulos ↓</span></span></button>
-      <button type="button" class="rubro rv d2" style="grid-area:co" data-rb="co" aria-pressed="false" aria-controls="armar"><img src="img/rubro-consultorio.webp" alt="" width="800" height="1198" loading="lazy" decoding="async" style="object-position:center 35%"><span class="rb-txt"><span class="rb-name">Consultorios y clínicas</span><span class="rb-tags"><span>Citas</span><span>Pacientes</span><span>Recordatorios</span></span><span class="rb-go">Ver sus módulos ↓</span></span></button>
-      <button type="button" class="rubro rv d3" style="grid-area:ta" data-rb="ta" aria-pressed="false" aria-controls="armar"><img src="img/rubro-taller.webp" alt="" width="800" height="1422" loading="lazy" decoding="async" style="object-position:center 30%"><span class="rb-txt"><span class="rb-name">Talleres y servicios</span><span class="rb-tags"><span>Clientes</span><span>Repuestos</span><span>Avisos</span></span><span class="rb-go">Ver sus módulos ↓</span></span></button>
-      <button type="button" class="rubro rv d1" style="grid-area:re" data-rb="re" aria-pressed="false" aria-controls="armar"><img src="img/rubro-restaurante.webp" alt="" width="800" height="534" loading="lazy" decoding="async"><span class="rb-txt"><span class="rb-name">Restaurantes</span><span class="rb-tags"><span>Pedidos</span><span>Cocina</span><span>Delivery</span></span><span class="rb-go">Ver sus módulos ↓</span></span></button>
-      <button type="button" class="rubro ilus rv d2" style="grid-area:cp" data-rb="cp" aria-pressed="false" aria-controls="armar"><svg class="rb-ilus" viewBox="0 0 200 170" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M58 58V22h84v36"/><rect x="30" y="58" width="140" height="62" rx="14"/><path d="M58 98h84v56H58z" fill="rgba(255,255,255,.18)"/><path d="M72 116h56M72 130h38"/><circle cx="150" cy="78" r="4" fill="#fff" stroke="none"/></g></svg><span class="rb-txt"><span class="rb-name">Copias e impresiones</span><span class="rb-tags"><span>Pedidos en línea</span><span>Yape</span><span>Anillados</span></span><span class="rb-go">Ver sus módulos ↓</span></span></button>
-      <button type="button" class="rubro rv d3" style="grid-area:in" data-rb="in" aria-pressed="false" aria-controls="armar"><img src="img/rubro-instituciones.webp" alt="" width="800" height="1200" loading="lazy" decoding="async"><span class="rb-txt"><span class="rb-name">Instituciones</span><span class="rb-tags"><span>Trámites</span><span>Documentos</span><span>Permisos</span></span><span class="rb-go">Ver sus módulos ↓</span></span></button>
+      <a class="rubro rv" style="grid-area:ti" href="demos.html?a=tiendas"><img src="img/rubro-tienda.webp" alt="" width="800" height="1066" loading="lazy" decoding="async"><span class="rb-txt"><span class="rb-name">Tiendas y bodegas</span><span class="rb-tags"><span>Ventas y caja</span><span>Inventario</span><span>Facturación</span></span><span class="rb-go">Ver demos y módulos →</span></span></a>
+      <a class="rubro rv d1" style="grid-area:ac" href="demos.html?a=academias"><img src="img/rubro-academia.webp" alt="" width="800" height="1200" loading="lazy" decoding="async" style="object-position:center 55%"><span class="rb-txt"><span class="rb-name">Academias y colegios</span><span class="rb-tags"><span>Pagos</span><span>Exámenes</span><span>WhatsApp</span></span><span class="rb-go">Ver demos y módulos →</span></span></a>
+      <a class="rubro rv d2" style="grid-area:co" href="demos.html?a=consultorios"><img src="img/rubro-consultorio.webp" alt="" width="800" height="1198" loading="lazy" decoding="async" style="object-position:center 35%"><span class="rb-txt"><span class="rb-name">Consultorios y clínicas</span><span class="rb-tags"><span>Citas</span><span>Pacientes</span><span>Recordatorios</span></span><span class="rb-go">Ver demos y módulos →</span></span></a>
+      <a class="rubro rv d3" style="grid-area:ta" href="demos.html?a=talleres"><img src="img/rubro-taller.webp" alt="" width="800" height="1422" loading="lazy" decoding="async" style="object-position:center 30%"><span class="rb-txt"><span class="rb-name">Talleres y servicios</span><span class="rb-tags"><span>Clientes</span><span>Repuestos</span><span>Avisos</span></span><span class="rb-go">Ver demos y módulos →</span></span></a>
+      <a class="rubro rv d1" style="grid-area:re" href="demos.html?a=restaurantes"><img src="img/rubro-restaurante.webp" alt="" width="800" height="534" loading="lazy" decoding="async"><span class="rb-txt"><span class="rb-name">Restaurantes</span><span class="rb-tags"><span>Pedidos</span><span>Cocina</span><span>Delivery</span></span><span class="rb-go">Ver demos y módulos →</span></span></a>
+      <a class="rubro rv d2" style="grid-area:cp" href="demos.html?a=copias"><img src="img/rubro-copias.webp" alt="" width="800" height="1200" loading="lazy" decoding="async" style="object-position:center 18%"><span class="rb-txt"><span class="rb-name">Copias e impresiones</span><span class="rb-tags"><span>Pedidos en línea</span><span>Yape</span><span>Anillados</span></span><span class="rb-go">Ver demos y módulos →</span></span></a>
+      <a class="rubro rv d3" style="grid-area:in" href="demos.html?a=instituciones"><img src="img/rubro-instituciones.webp" alt="" width="800" height="1200" loading="lazy" decoding="async"><span class="rb-txt"><span class="rb-name">Instituciones</span><span class="rb-tags"><span>Trámites</span><span>Documentos</span><span>Permisos</span></span><span class="rb-go">Ver demos y módulos →</span></span></a>
+      <a class="rubro rv d1" style="grid-area:ap" href="demos.html?a=apps"><img src="img/rubro-apps.webp" alt="" width="800" height="533" loading="lazy" decoding="async" style="object-position:center 40%"><span class="rb-txt"><span class="rb-name">Apps para Play Store y App Store</span><span class="rb-tags"><span>Android</span><span>iPhone</span><span>Notificaciones</span></span><span class="rb-go">Ver demos y módulos →</span></span></a>
+      <a class="rubro ilus dedi rv" style="grid-area:pd" href="demos.html?a=dedicadas"><svg class="rb-ilus vive" viewBox="0 0 260 170" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><g class="tallo"><path d="M80 113v50M80 145c-15-2-25-11-27-24 14 0 24 9 27 24zM80 132c12-2 20-9 22-19-11 0-19 7-22 19z"/><g class="flor"><g fill="rgba(255,226,110,.6)" stroke-width="4"><g transform="rotate(0 80 70)"><ellipse class="pt" style="--d:0.00s" cx="80" cy="46" rx="12" ry="23"/></g><g transform="rotate(60 80 70)"><ellipse class="pt" style="--d:0.12s" cx="80" cy="46" rx="12" ry="23"/></g><g transform="rotate(120 80 70)"><ellipse class="pt" style="--d:0.24s" cx="80" cy="46" rx="12" ry="23"/></g><g transform="rotate(180 80 70)"><ellipse class="pt" style="--d:0.36s" cx="80" cy="46" rx="12" ry="23"/></g><g transform="rotate(240 80 70)"><ellipse class="pt" style="--d:0.48s" cx="80" cy="46" rx="12" ry="23"/></g><g transform="rotate(300 80 70)"><ellipse class="pt" style="--d:0.60s" cx="80" cy="46" rx="12" ry="23"/></g></g><circle class="centro" cx="80" cy="70" r="12" fill="#fff"/><g fill="#e8a317" stroke="none"><circle cx="76" cy="67" r="1.8"/><circle cx="84" cy="68" r="1.8"/><circle cx="79" cy="74" r="1.8"/></g></g></g><g transform="translate(108 64)"><ellipse class="cae" rx="4" ry="8" fill="rgba(255,226,110,.8)" stroke-width="2"/></g><path class="co" d="M180 128c-34-22-46-46-30-60 10-9 24-5 30 6 6-11 20-15 30-6 16 14 4 38-30 60z" fill="rgba(255,255,255,.25)"/><g stroke-width="2.5" fill="rgba(255,255,255,.7)"><g transform="translate(150 150)"><path class="sube" d="M0 8c-7-5-9-10-6-12.5 2.2-2 4.6-1 6 1.2 1.4-2.2 3.8-3.2 6-1.2 3 2.5 1 7.5-6 12.5z"/></g><g transform="translate(214 156)"><path class="sube s2" d="M0 8c-7-5-9-10-6-12.5 2.2-2 4.6-1 6 1.2 1.4-2.2 3.8-3.2 6-1.2 3 2.5 1 7.5-6 12.5z"/></g><g transform="translate(186 160)"><path class="sube s3" d="M0 6c-5-3.5-6.5-7.5-4.5-9.3 1.6-1.4 3.4-.8 4.5.9 1.1-1.7 2.9-2.3 4.5-.9 2 1.8.5 5.8-4.5 9.3z"/></g></g><path class="br" d="M228 28v16M220 36h16"/><path class="br b2" d="M140 20v12M134 26h12"/><path class="br b3" d="M240 92v10M235 97h10"/></g></svg><span class="rb-txt"><span class="rb-name">Páginas dedicadas</span><span class="rb-tags"><span>San Valentín</span><span>Bodas</span><span>Flores amarillas</span><span>Cumpleaños</span></span><span class="rb-go">Ver ejemplos →</span></span></a>
     </div>
-    <div class="armador" id="armar">
-      <div class="arm-chips" id="ar-chips" role="group" aria-label="Elegir rubro"></div>
-      <div class="builder">
-        <div class="arm-main">
-          <div class="arm-head"><h3 id="ar-tit">Elija su negocio</h3><a class="demo-link" id="ar-demo" href="demos.html" target="_blank" rel="noopener" hidden>Ver su demo ↗</a></div>
-          <p class="arm-txt" id="ar-txt">Toque un rubro de arriba o elija uno aquí: le mostramos solo los módulos que le sirven.</p>
-          <div class="quick" id="ar-quick" hidden><button type="button" data-q="esencial">Lo esencial</button><button type="button" data-q="todo">Marcar todo</button><button type="button" data-q="nada">Limpiar</button></div>
-          <div class="groups" id="ar-opts"><p class="arm-empty">↑ Elija su rubro para ver sus módulos.</p></div>
-        </div>
-        <aside class="summary" aria-live="polite">
-          <div><div class="big" id="cnt">0</div><span id="cntTxt">módulos elegidos</span></div>
-          <ul id="picked"><li class="empty">Elija un rubro y marque sus módulos.</li></ul>
-          <div style="display:grid;gap:.4rem">
-            <label for="extra">¿Algo más que necesite? (opcional)</label>
-            <textarea id="extra" placeholder="Ej.: tenemos 2 locales, emitimos boletas, queremos vender por internet…"></textarea>
-          </div>
-          <a class="btn wa" id="send" href="#" target="_blank" rel="noopener" aria-disabled="true">Enviar mi lista por WhatsApp</a>
-          <small>Se abre WhatsApp con su lista ya escrita. No se envía nada hasta que usted lo confirme.</small>
-        </aside>
-      </div>
-    </div>
+    <p class="otro-neg rv">¿Su negocio no está aquí? <a href="https://wa.me/51916037021?text=Hola%20Pablo%2C%20tengo%20otro%20tipo%20de%20negocio%20y%20quisiera%20conversar%20sobre%20un%20sistema" target="_blank" rel="noopener">Cuéntenos por WhatsApp →</a></p>
   </div>
 </section>
 
@@ -640,7 +601,7 @@ button.rubro{border:0;padding:0;margin:0;font:inherit;text-align:left;cursor:poi
         <h3 style="font-size:1.7rem">Sepa quién debe, cuánto y desde cuándo</h3>
         <p class="lead">En una academia son cuotas de alumnos; en un gimnasio, membresías; en una tienda, ventas al crédito. Se registra el pago, sale el ticket y la deuda se actualiza al instante.</p>
         <ul class="ticks"><li>Cuotas, pagos parciales, descuentos y becas</li><li>Ticket impreso en impresora térmica por cada pago</li><li>Lista de morosos con un clic y recordatorio por WhatsApp</li><li>Cierre de caja diario y mensual</li></ul>
-        <a class="demo-link" href="demos.html#cobros" target="_blank" rel="noopener">Probar cómo funciona ↗</a>
+        <a class="demo-link" href="demos.html?a=academias#cobros" target="_blank" rel="noopener">Probar cómo funciona ↗</a>
       </div>
       <div class="app pay rv d1" role="img" aria-label="Pantalla simulada de control de pagos">
         <div class="bar"><i></i><i></i><i></i><span>pagos · ciclo 2026-II</span></div>
@@ -665,7 +626,7 @@ button.rubro{border:0;padding:0;margin:0;font:inherit;text-align:left;cursor:poi
         <h3 style="font-size:1.7rem">Crear, calificar y publicar resultados el mismo día</h3>
         <p class="lead">El docente carga las preguntas y la clave, se imprimen las fichas ópticas y se califican con la cámara del celular. El ranking sale solo.</p>
         <ul class="ticks"><li><b>Creación:</b> banco de preguntas, solucionario y clave por área</li><li><b>Evaluación:</b> fichas ópticas personalizadas leídas con el celular</li><li><b>Resultados:</b> ranking general y por área, exportable a Excel y PDF</li><li>Puntaje con la escala de la academia (ej. +6 / −0,07 / 0)</li></ul>
-        <a class="demo-link" href="demos.html#examenes" target="_blank" rel="noopener">Probar cómo funciona ↗</a>
+        <a class="demo-link" href="demos.html?a=academias#examenes" target="_blank" rel="noopener">Probar cómo funciona ↗</a>
       </div>
       <div class="app rv d1" role="img" aria-label="Pantalla simulada del flujo de examen: creación, calificación de ficha óptica y ranking">
         <div class="bar"><i></i><i></i><i></i><span>exámenes · simulacro 3</span></div>
@@ -703,7 +664,7 @@ button.rubro{border:0;padding:0;margin:0;font:inherit;text-align:left;cursor:poi
         <h3 style="font-size:1.7rem">Sus clientes se enteran por WhatsApp, sin que nadie tenga que escribir</h3>
         <p class="lead">El sistema envía los mensajes solo, desde el número de su negocio. En la academia avisa a los padres; en su negocio puede confirmar pedidos, recordar citas o cobrar deudas.</p>
         <ul class="ticks"><li>Recordatorio de cuotas antes del vencimiento</li><li>Notas y puesto en cada simulacro</li><li>Faltas y tardanzas del día</li><li>Comunicados generales a todo un ciclo o aula</li></ul>
-        <a class="demo-link" href="demos.html#whatsapp" target="_blank" rel="noopener">Probar cómo funciona ↗</a>
+        <a class="demo-link" href="demos.html?a=academias#whatsapp" target="_blank" rel="noopener">Probar cómo funciona ↗</a>
       </div>
       <div class="rv d1">
         <div class="phone" role="img" aria-label="Celular simulado recibiendo avisos de la academia por WhatsApp">
@@ -720,32 +681,6 @@ button.rubro{border:0;padding:0;margin:0;font:inherit;text-align:left;cursor:poi
       </div>
     </div>
     <p class="note">Pantallas simuladas con datos de ejemplo. <a class="demo-link" href="caso-academia.html">Leer el caso completo →</a></p>
-  </div>
-</section>
-
-<!-- DEMOS: viven en demos.html y se abren en otra ventana -->
-<section id="demos" style="padding-block:2.5rem 1rem">
-  <div class="wrap">
-    <div class="lab-cta rv">
-      <div class="lab-txt">
-        <span class="eyebrow">Pruébelo usted mismo</span>
-        <h2>10 demos que puede usar ahora</h2>
-        <p class="lead">Registre un pago, califique un examen, cobre una venta o reserve una cita, como si el sistema fuera suyo.</p>
-        <a class="btn primary" href="demos.html" target="_blank" rel="noopener">Abrir las demos ↗</a>
-      </div>
-      <ul class="lab-list">
-        <li><a href="demos.html#cobros" target="_blank" rel="noopener"><small>Caso real</small>Cobros y pagos</a></li>
-        <li><a href="demos.html#examenes" target="_blank" rel="noopener"><small>Caso real</small>Exámenes</a></li>
-        <li><a href="demos.html#whatsapp" target="_blank" rel="noopener"><small>Caso real</small>Avisos por WhatsApp</a></li>
-        <li><a href="demos.html#notas" target="_blank" rel="noopener"><small>Proyecto</small>Notas escolares</a></li>
-        <li><a href="demos.html#orientacion" target="_blank" rel="noopener"><small>Proyecto</small>Orientación académica</a></li>
-        <li><a href="demos.html#fut" target="_blank" rel="noopener"><small>Proyecto</small>Generador de FUT</a></li>
-        <li><a href="demos.html#tienda" target="_blank" rel="noopener"><small>Ejemplo</small>Punto de venta</a></li>
-        <li><a href="demos.html#citas" target="_blank" rel="noopener"><small>Ejemplo</small>Reservas y citas</a></li>
-        <li><a href="demos.html#restaurante" target="_blank" rel="noopener"><small>Ejemplo</small>Pedidos a cocina</a></li>
-        <li><a href="demos.html#copias" target="_blank" rel="noopener"><small>Ejemplo</small>Copias e impresiones</a></li>
-      </ul>
-    </div>
   </div>
 </section>
 
@@ -790,6 +725,9 @@ button.rubro{border:0;padding:0;margin:0;font:inherit;text-align:left;cursor:poi
       <article class="mod rv" data-cat="web"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><span class="cat">Web y apps</span><h3>Página web</h3><ul><li>Presentación de su negocio</li><li>Se ve bien en celular y PC</li><li>Botón directo a WhatsApp</li><li>Aparece en Google</li></ul></article>
       <article class="mod rv" data-cat="web"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 9l1-5h16l1 5"/><path d="M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"/><path d="M5 13v8h14v-8"/></svg></div><span class="cat">Web y apps</span><h3>Tienda en línea</h3><ul><li>Catálogo con fotos y precios</li><li>Carrito y pedido por WhatsApp</li><li>Conectada a su inventario</li><li>Promociones y descuentos</li></ul></article>
       <article class="mod rv" data-cat="web"><div class="ic"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/><path d="M9 7l2 2 4-4"/></svg></div><span class="cat">Web y apps</span><h3>App para celular</h3><ul><li>Se instala como una app</li><li>Funciona sin internet</li><li>Notificaciones al celular</li><li>Para clientes o para su equipo</li></ul></article>
+      <article class="mod rv" data-cat="web"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9z"/></svg></div><span class="cat">Web y apps</span><h3>Publicación en Play Store y App Store</h3><ul><li>Cuentas de desarrollador a su nombre</li><li>Ficha con fotos, descripción y versión</li><li>Revisión de Google y Apple hasta que salga</li><li>Actualizaciones sin perder usuarios</li></ul></article>
+      <article class="mod rv" data-cat="web"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.2-8.6A5 5 0 0 1 12 6.3a5 5 0 0 1 9.2 5.1C19 15.6 12 20 12 20z"/></svg></div><span class="cat">Web y apps</span><h3>Página dedicada</h3><ul><li>San Valentín, aniversario o flores amarillas</li><li>Sus fotos, su música y su mensaje</li><li>Sorpresa animada al abrirla</li><li>Un link listo para enviar por WhatsApp</li></ul></article>
+      <article class="mod rv" data-cat="web"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><span class="cat">Web y apps</span><h3>Invitación digital</h3><ul><li>Bodas, quinceañeros y cumpleaños</li><li>Cuenta regresiva y mapa del lugar</li><li>Confirmación de asistencia</li><li>Galería de fotos después del evento</li></ul></article>
     </div>
   </div>
 </section>
@@ -870,9 +808,9 @@ button.rubro{border:0;padding:0;margin:0;font:inherit;text-align:left;cursor:poi
       <h2>También hemos desarrollado</h2>
     </div>
     <div class="others">
-      <article class="other rv"><h3>Plataforma de notas escolares</h3><p>Paneles para administración, docentes, estudiantes y soporte. Registro de calificaciones por curso y ranking de estudiantes.</p><div class="tags"><span>React</span><span>TypeScript</span></div><a class="demo-link" href="demos.html#notas" target="_blank" rel="noopener">Probar la demo ↗</a></article>
-      <article class="other rv d1"><h3>Plataforma de orientación académica</h3><p>Mapa de la carrera, test de especialización, planificador de horarios, calculadora de promedios y simulador de avance.</p><div class="tags"><span>React</span><span>Vite</span></div><a class="demo-link" href="demos.html#orientacion" target="_blank" rel="noopener">Probar la demo ↗</a></article>
-      <article class="other rv d2"><h3>Generador de FUT para universitarios</h3><p>Genera el Formulario Único de Trámite en minutos, sin buscar el PDF, imprimirlo ni pasarlo a Word para editarlo. El estudiante escribe qué necesita, el sistema le sugiere el trámite, completa sus datos con su código y le da los textos ya redactados (solicito, sumilla, fundamentación). Al final descarga el documento en Word y PDF.</p><div class="tags"><span>Python</span><span>Word · PDF</span><span>Asistente paso a paso</span></div><a class="demo-link" href="demos.html#fut" target="_blank" rel="noopener">Probar la demo ↗</a></article>
+      <article class="other rv"><h3>Plataforma de notas escolares</h3><p>Paneles para administración, docentes, estudiantes y soporte. Registro de calificaciones por curso y ranking de estudiantes.</p><div class="tags"><span>React</span><span>TypeScript</span></div><a class="demo-link" href="demos.html?a=academias#notas" target="_blank" rel="noopener">Probar la demo ↗</a></article>
+      <article class="other rv d1"><h3>Plataforma de orientación académica</h3><p>Mapa de la carrera, test de especialización, planificador de horarios, calculadora de promedios y simulador de avance.</p><div class="tags"><span>React</span><span>Vite</span></div><a class="demo-link" href="demos.html?a=academias#orientacion" target="_blank" rel="noopener">Probar la demo ↗</a></article>
+      <article class="other rv d2"><h3>Generador de FUT para universitarios</h3><p>Genera el Formulario Único de Trámite en minutos, sin buscar el PDF, imprimirlo ni pasarlo a Word para editarlo. El estudiante escribe qué necesita, el sistema le sugiere el trámite, completa sus datos con su código y le da los textos ya redactados (solicito, sumilla, fundamentación). Al final descarga el documento en Word y PDF.</p><div class="tags"><span>Python</span><span>Word · PDF</span><span>Asistente paso a paso</span></div><a class="demo-link" href="demos.html?a=instituciones#fut" target="_blank" rel="noopener">Probar la demo ↗</a></article>
     </div>
   </div>
 </section>
@@ -944,11 +882,15 @@ button.rubro{border:0;padding:0;margin:0;font:inherit;text-align:left;cursor:poi
         <p>Conversamos, escuchamos sus necesidades y le mostramos ejemplos de lo que ya construimos. A partir de ahí diseñamos su sistema.</p>
       </div>
       <div class="card">
-        <small>WhatsApp · Pablo</small>
-        <span class="n" id="wa">+51 916 037 021</span>
-        <div class="row2">
-          <a class="btn wa" href="https://wa.me/51916037021?text=Hola%20Pablo%2C%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-          <button class="copy" type="button" id="copy">Copiar número</button>
+        <div class="ct-per">
+          <small>WhatsApp · Pablo</small>
+          <span class="n">+51 916 037 021</span>
+          <div class="row2"><a class="btn wa" href="https://wa.me/51916037021?text=Hola%20Pablo%2C%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir a Pablo</a><button class="copy" type="button">Copiar número</button></div>
+        </div>
+        <div class="ct-per">
+          <small>WhatsApp · Walter</small>
+          <span class="n">+51 949 191 693</span>
+          <div class="row2"><a class="btn wa" href="https://wa.me/51949191693?text=Hola%20Walter%2C%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir a Walter</a><button class="copy" type="button">Copiar número</button></div>
         </div>
       </div>
     </div>
@@ -959,15 +901,16 @@ button.rubro{border:0;padding:0;margin:0;font:inherit;text-align:left;cursor:poi
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="brand" href="#"><i>&lt;/&gt;</i>Sistemas a medida</a>
+        <a class="brand" href="#"><img src="img/logo/pawn-simbolo.svg" alt="" width="30" height="30">PaWn <b>Dev</b></a>
+        <p class="slogan">Llegamos a su negocio y nos adaptamos a lo que necesite.</p>
         <p>Desarrollamos sistemas, páginas web y apps a la medida de cada negocio.</p>
-        <a class="btn wa" href="https://wa.me/51916037021?text=Hola%20Pablo%2C%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <div class="row2"><a class="btn wa" href="https://wa.me/51916037021?text=Hola%20Pablo%2C%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir a Pablo</a><a class="btn wa" href="https://wa.me/51949191693?text=Hola%20Walter%2C%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir a Walter</a></div>
       </div>
-      <nav class="foot-col" aria-label="Secciones del sitio"><h3>Explorar</h3><a href="#experiencia">Casos reales</a><a href="#negocios">Para quién trabajamos</a><a href="#modulos">Módulos</a><a href="#trabajo">Cómo trabajamos</a><a href="#armar">Arme su sistema</a><a href="#faq">Preguntas frecuentes</a></nav>
-      <nav class="foot-col" aria-label="Recursos"><h3>Recursos</h3><a href="demos.html" target="_blank" rel="noopener">Demos ↗</a><a href="caso-academia.html">Caso de estudio</a><a href="privacidad.html">Aviso de privacidad</a></nav>
-      <div class="foot-col"><h3>Contacto</h3><a href="https://wa.me/51916037021" target="_blank" rel="noopener">WhatsApp +51 916 037 021</a><span>Atención por WhatsApp</span><span>Perú</span></div>
+      <nav class="foot-col" aria-label="Secciones del sitio"><h3>Explorar</h3><a href="#experiencia">Casos reales</a><a href="#negocios">Para quién trabajamos</a><a href="#modulos">Módulos</a><a href="#trabajo">Cómo trabajamos</a><a href="#negocios">Escoja su área</a><a href="#faq">Preguntas frecuentes</a></nav>
+      <nav class="foot-col" aria-label="Recursos"><h3>Recursos</h3><a href="caso-academia.html">Caso de estudio</a><a href="privacidad.html">Aviso de privacidad</a></nav>
+      <div class="foot-col"><h3>Contacto</h3><a href="https://wa.me/51916037021" target="_blank" rel="noopener">Pablo · +51 916 037 021</a><a href="https://wa.me/51949191693" target="_blank" rel="noopener">Walter · +51 949 191 693</a><span>Atención por WhatsApp</span><span>Perú</span></div>
     </div>
-    <div class="foot-bar"><span>© <span class="year">2026</span> Sistemas a medida · Hecho en Perú</span><a href="privacidad.html">Aviso de privacidad</a></div>
+    <div class="foot-bar"><span>© <span class="year">2026</span> PaWn Dev · Hecho en Perú</span><a href="privacidad.html">Aviso de privacidad</a></div>
   </div>
 </footer>
 
@@ -1084,65 +1027,12 @@ document.querySelectorAll('.f').forEach(b=>b.addEventListener('click',()=>{
   });
 }));
 
-// Arme su sistema: al tocar un rubro se muestran solo sus módulos (los nombres deben existir en el catálogo)
-const WA='51916037021', areas={ven:'Ventas',ope:'Operaciones',fin:'Finanzas',com:'Comunicación',dir:'Dirección',web:'Web y apps'};
-const RUB={
-  ti:{n:'Tiendas y bodegas',g:'una tienda o bodega',demo:'tienda',m:['Ventas y caja','Inventario','Facturación electrónica','Pagos con Yape','Compras y proveedores','Clientes','Gastos y ganancia','Reportes','Tienda en línea']},
-  ac:{n:'Academias y colegios',g:'una academia o colegio',demo:'cobros',m:['Pagos y cobranzas','Evaluaciones y exámenes','Avisos por WhatsApp','Personal y asistencia','Portal para clientes','Trámites y documentos','Pagos con Yape','Reportes','Usuarios y permisos']},
-  co:{n:'Consultorios y clínicas',g:'un consultorio o clínica',demo:'citas',m:['Reservas y citas','Clientes','Avisos por WhatsApp','Pagos y cobranzas','Historial y respaldos','Facturación electrónica','Portal para clientes','Reportes']},
-  ta:{n:'Talleres y servicios',g:'un taller o negocio de servicios',demo:'',m:['Clientes','Pagos y cobranzas','Avisos por WhatsApp','Inventario','Reservas y citas','Personal y asistencia','Pagos con Yape','Reportes']},
-  re:{n:'Restaurantes',g:'un restaurante',demo:'restaurante',m:['Ventas y caja','Pedidos y delivery','Inventario','Pagos con Yape','Compras y proveedores','Personal y asistencia','Facturación electrónica','Dashboards']},
-  cp:{n:'Copias e impresiones',g:'un centro de copias e impresiones',demo:'copias',m:['Pedidos con archivo','Pagos con Yape','Ventas y caja','Avisos por WhatsApp','Clientes','Inventario','Reportes','Página web']},
-  in:{n:'Instituciones',g:'una institución',demo:'fut',m:['Trámites y documentos','Usuarios y permisos','Reportes','Portal para clientes','Dashboards','Historial y respaldos','Avisos por WhatsApp','Página web']},
-  otro:{n:'Otro negocio',g:'',demo:'',m:null,e:['Ventas y caja','Inventario','Pagos y cobranzas','Reportes']}
-};
-const catalogo=mods.map(m=>m.querySelector('h3').textContent);
-console.assert(Object.values(RUB).every(r=>(r.m||r.e).every(x=>catalogo.includes(x))),'cada módulo de un rubro existe en el catálogo');
-const arOpts=document.getElementById('ar-opts'), arChips=document.getElementById('ar-chips'), arQuick=document.getElementById('ar-quick'), arDemo=document.getElementById('ar-demo'), send=document.getElementById('send'), extra=document.getElementById('extra'), chosen=new Set();
-let rub='';
-arChips.innerHTML=Object.entries(RUB).map(([k,r])=>`<button type="button" data-rb2="${k}" aria-pressed="false">${r.n}</button>`).join('');
-const optBtn=n=>`<button type="button" class="opt" aria-pressed="false" data-n="${n}">${n}</button>`;
-function elegirRubro(k,bajar){
-  rub=k; const r=RUB[k]; chosen.clear();
-  document.querySelectorAll('.rubro').forEach(b=>b.setAttribute('aria-pressed',b.dataset.rb===k));
-  arChips.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.rb2===k));
-  document.getElementById('ar-tit').textContent=r.n;
-  document.getElementById('ar-txt').textContent=r.m?'Estos son los módulos que más usan. Marque los que necesita; si falta algo, escríbalo en la nota.':'Todos los módulos, agrupados por área. Marque los que necesita.';
-  arOpts.innerHTML=r.m?`<div class="opts">${r.m.map(optBtn).join('')}</div>`:Object.entries(areas).map(([a,l])=>`<div class="group"><h3>${l}</h3><div class="opts">${mods.filter(m=>m.dataset.cat===a).map(m=>optBtn(m.querySelector('h3').textContent)).join('')}</div></div>`).join('');
-  arQuick.hidden=false; arDemo.hidden=!r.demo; if(r.demo) arDemo.href='demos.html#'+r.demo;
-  render();
-  if(bajar) document.getElementById('armar').scrollIntoView({behavior:still?'auto':'smooth',block:'start'});
-}
-function waLink(list,note){
-  const r=RUB[rub];
-  let t='Hola Pablo, '+(r&&r.g?'tengo '+r.g+' y ':'')+'me interesa un sistema con estos módulos:\n'+list.map(n=>'• '+n).join('\n');
-  if(note.trim()) t+='\n\nAdemás: '+note.trim();
-  return 'https://wa.me/'+WA+'?text='+encodeURIComponent(t);
-}
-console.assert(waLink(['Pagos'],'').endsWith(encodeURIComponent('• Pagos')),'enlace de WhatsApp');
-function render(){
-  const btns=[...arOpts.querySelectorAll('.opt')];
-  btns.forEach(o=>o.setAttribute('aria-pressed',chosen.has(o.dataset.n)));
-  const list=btns.map(o=>o.dataset.n).filter(n=>chosen.has(n));
-  document.getElementById('cnt').textContent=list.length;
-  document.getElementById('cntTxt').textContent=list.length===1?'módulo elegido':'módulos elegidos';
-  document.getElementById('picked').innerHTML=list.length?list.map(n=>`<li>${n}</li>`).join(''):`<li class="empty">${rub?'Marque los módulos que necesita.':'Elija un rubro y marque sus módulos.'}</li>`;
-  send.href=list.length?waLink(list,extra.value):'#';
-  send.setAttribute('aria-disabled',!list.length);
-}
-document.querySelectorAll('.rubro').forEach(b=>b.addEventListener('click',()=>elegirRubro(b.dataset.rb,true)));
-arChips.addEventListener('click',e=>{const b=e.target.closest('[data-rb2]');if(b)elegirRubro(b.dataset.rb2,false)});
-arOpts.addEventListener('click',e=>{const o=e.target.closest('.opt');if(!o)return;chosen.has(o.dataset.n)?chosen.delete(o.dataset.n):chosen.add(o.dataset.n);render()});
-arQuick.addEventListener('click',e=>{const b=e.target.closest('[data-q]');if(!b||!rub)return;const r=RUB[rub],todos=[...arOpts.querySelectorAll('.opt')].map(o=>o.dataset.n);chosen.clear();(b.dataset.q==='esencial'?(r.e||r.m.slice(0,4)):b.dataset.q==='todo'?todos:[]).forEach(n=>chosen.add(n));render()});
-extra.addEventListener('input',render);
-render();
-
 document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());
 
-document.getElementById('copy').addEventListener('click',e=>{
-  const b=e.currentTarget, el=document.getElementById('wa');
+document.querySelectorAll('.ct-per .copy').forEach(b=>b.addEventListener('click',()=>{
+  const el=b.closest('.ct-per').querySelector('.n'); // cada botón copia el número de su persona
   navigator.clipboard.writeText(el.textContent.replace(/\s/g,'')).then(()=>{b.textContent='Copiado'},()=>{getSelection().selectAllChildren(el)});
-});
+}));
 </script>
 </body>
 </html>

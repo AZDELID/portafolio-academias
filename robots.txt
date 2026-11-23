@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portafolio-academias.vercel.app/sitemap.xml
+Sitemap: https://pawn-dev.vercel.app/sitemap.xml

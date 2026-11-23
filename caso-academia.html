@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Caso de estudio: academia preuniversitaria · Sistemas a medida</title>
+<title>Caso de estudio: academia preuniversitaria · PaWn Dev</title>
 <meta name="description" content="Cómo una academia preuniversitaria pasó del cuaderno a un sistema propio de cobros, exámenes con fichas ópticas y avisos por WhatsApp.">
 <meta property="og:title" content="Caso de estudio: una academia que pasó del cuaderno a un sistema propio">
 <meta property="og:description" content="Cobros con ticket, exámenes calificados con el celular y avisos automáticos a los padres, en un solo sistema hecho a medida.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://portafolio-academias.vercel.app/caso-academia.html">
-<meta property="og:image" content="https://portafolio-academias.vercel.app/og.png">
+<meta property="og:url" content="https://pawn-dev.vercel.app/caso-academia.html">
+<meta property="og:image" content="https://pawn-dev.vercel.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:site_name" content="Sistemas a medida">
+<meta property="og:site_name" content="PaWn Dev">
 <meta property="og:locale" content="es_PE">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#1a8cf0">
-<link rel="canonical" href="https://portafolio-academias.vercel.app/caso-academia.html">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231a8cf0'/%3E%3Cstop offset='1' stop-color='%2313b5a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath d='M24 22l-10 10 10 10M40 22l10 10-10 10M35 18l-6 28' stroke='white' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="canonical" href="https://pawn-dev.vercel.app/caso-academia.html">
+<link rel="icon" type="image/svg+xml" href="img/logo/pawn-simbolo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
 <script defer src="/_vercel/insights/script.js"></script>
@@ -59,14 +59,14 @@ p{margin:0;max-width:62ch}
 .topnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .topnav .wrap{display:flex;align-items:center;gap:1.2rem;min-height:60px}
 .brand{display:flex;align-items:center;gap:.55rem;font:700 1rem var(--display);text-decoration:none;color:var(--ink);margin-right:auto;white-space:nowrap}
-.brand i{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--sky),var(--teal));display:grid;place-items:center;color:#fff;font:700 .8rem var(--mono);font-style:normal}
+.brand img{width:30px;height:30px;flex:none}.brand b{color:var(--sky);font-weight:inherit}
 .back{font-weight:600;font-size:.93rem;color:var(--muted);text-decoration:none;white-space:nowrap}
 .back:hover{color:var(--sky)}
 .topnav .btn{padding:.55rem 1.05rem;font-size:.9rem;white-space:nowrap}
 @media (max-width:560px){.back{display:none}}
 @media (max-width:420px){.brand{font-size:.92rem}.topnav .btn{padding:.5rem .8rem;font-size:.82rem}}
 @media (max-width:360px){.opt{display:none}}
-@media (max-width:380px){.topnav .wrap{gap:.6rem}.brand{font-size:.9rem;gap:.4rem}.brand i{width:24px;height:24px;font-size:.7rem}.topnav .btn{padding:.45rem .75rem;font-size:.8rem}}
+@media (max-width:380px){.topnav .wrap{gap:.6rem}.brand{font-size:.9rem;gap:.4rem}.brand img{width:26px;height:26px}.topnav .btn{padding:.45rem .75rem;font-size:.8rem}}
 
 /* portada del caso */
 .chero{background:radial-gradient(900px 420px at 85% -10%,#dff0ff 0,transparent 60%),radial-gradient(700px 360px at -10% 20%,#e3fbf7 0,transparent 55%);padding-block:3rem 3.5rem}
@@ -189,9 +189,9 @@ p{margin:0;max-width:62ch}
 
 <nav class="topnav" aria-label="Principal">
   <div class="wrap">
-    <a class="brand" href="index.html"><i>&lt;/&gt;</i>Sistemas a medida</a>
+    <a class="brand" href="index.html"><img src="img/logo/pawn-simbolo.svg" alt="" width="30" height="30">PaWn <b>Dev</b></a>
     <a class="back" href="index.html">← Volver al inicio</a>
-    <a class="btn primary" href="demos.html" target="_blank" rel="noopener"><span class="opt">Probar </span>demos ↗</a>
+    <a class="btn primary" href="demos.html?a=academias" target="_blank" rel="noopener"><span class="opt">Probar </span>demos ↗</a>
   </div>
 </nav>
 <a class="wa-float" href="https://wa.me/51916037021?text=Hola%20Pablo%2C%20le%C3%AD%20el%20caso%20de%20la%20academia%20y%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>
@@ -233,7 +233,7 @@ p{margin:0;max-width:62ch}
         <h3>Cada pago, con ticket y al día</h3>
         <p>La caja registra el pago, imprime el ticket y la deuda se actualiza sola. La dirección ve en un clic quién está atrasado.</p>
         <ul class="ticks"><li>Cuotas, pagos parciales, descuentos y becas</li><li>Ticket en impresora térmica</li><li>Lista de morosos y cierre de caja</li></ul>
-        <a class="demo-link" href="demos.html#cobros" target="_blank" rel="noopener">Probar esta pantalla ↗</a>
+        <a class="demo-link" href="demos.html?a=academias#cobros" target="_blank" rel="noopener">Probar esta pantalla ↗</a>
       </div>
       <div class="app pay" role="img" aria-label="Pantalla recreada de cobros con alumnos, cuota, monto y estado">
         <div class="bar"><i></i><i></i><i></i><span>cobros · ciclo 2026-II</span></div>
@@ -257,7 +257,7 @@ p{margin:0;max-width:62ch}
         <h3>Del simulacro al ranking el mismo día</h3>
         <p>El docente carga la clave, los alumnos marcan su ficha óptica y el celular la califica con una foto. El ranking general y por área sale solo.</p>
         <ul class="ticks"><li>Banco de preguntas y claves por área</li><li>Fichas ópticas leídas con el celular</li><li>Ranking exportable a Excel y PDF</li></ul>
-        <a class="demo-link" href="demos.html#examenes" target="_blank" rel="noopener">Probar esta pantalla ↗</a>
+        <a class="demo-link" href="demos.html?a=academias#examenes" target="_blank" rel="noopener">Probar esta pantalla ↗</a>
       </div>
       <div class="app" role="img" aria-label="Pantalla recreada del examen: clave, ficha óptica calificada y ranking">
         <div class="bar"><i></i><i></i><i></i><span>exámenes · simulacro 3</span></div>
@@ -293,7 +293,7 @@ p{margin:0;max-width:62ch}
         <h3>Los padres se enteran sin que nadie escriba</h3>
         <p>El sistema envía los avisos desde el número de la academia: cuotas por vencer, faltas y tardanzas, notas de cada simulacro y comunicados.</p>
         <ul class="ticks"><li>Recordatorio de cuotas antes del vencimiento</li><li>Faltas y tardanzas del día</li><li>Notas y puesto en cada simulacro</li></ul>
-        <a class="demo-link" href="demos.html#whatsapp" target="_blank" rel="noopener">Probar esta pantalla ↗</a>
+        <a class="demo-link" href="demos.html?a=academias#whatsapp" target="_blank" rel="noopener">Probar esta pantalla ↗</a>
       </div>
       <div class="phone" role="img" aria-label="Celular recreado con avisos de la academia por WhatsApp">
         <div class="screen">
@@ -323,7 +323,7 @@ p{margin:0;max-width:62ch}
 <section class="wrap">
   <div class="endcta">
     <div><h2>¿Su negocio necesita algo así?</h2><p>Escuchamos cómo trabaja y le mostramos un prototipo antes de programar.</p></div>
-    <div class="row2"><a class="btn wa" href="https://wa.me/51916037021?text=Hola%20Pablo%2C%20le%C3%AD%20el%20caso%20de%20la%20academia%20y%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir por WhatsApp</a><a class="btn" href="demos.html" target="_blank" rel="noopener">Probar las demos ↗</a></div>
+    <div class="row2"><a class="btn wa" href="https://wa.me/51916037021?text=Hola%20Pablo%2C%20le%C3%AD%20el%20caso%20de%20la%20academia%20y%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir por WhatsApp</a><a class="btn" href="demos.html?a=academias" target="_blank" rel="noopener">Probar las demos ↗</a></div>
   </div>
   <p class="note">Por privacidad no mostramos el nombre de la academia ni datos de sus alumnos. Las pantallas son recreaciones con datos de ejemplo y la foto es referencial.</p>
 </section>
@@ -332,15 +332,15 @@ p{margin:0;max-width:62ch}
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="brand" href="index.html"><i>&lt;/&gt;</i>Sistemas a medida</a>
+        <a class="brand" href="index.html"><img src="img/logo/pawn-simbolo.svg" alt="" width="30" height="30">PaWn <b>Dev</b></a>
         <p>Desarrollamos sistemas, páginas web y apps a la medida de cada negocio.</p>
-        <a class="btn wa" href="https://wa.me/51916037021?text=Hola%20Pablo%2C%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <div class="row2"><a class="btn wa" href="https://wa.me/51916037021?text=Hola%20Pablo%2C%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir a Pablo</a><a class="btn wa" href="https://wa.me/51949191693?text=Hola%20Walter%2C%20quisiera%20conversar%20sobre%20un%20sistema%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir a Walter</a></div>
       </div>
-      <nav class="foot-col" aria-label="Secciones del sitio"><h3>Explorar</h3><a href="index.html#experiencia">Casos reales</a><a href="index.html#negocios">Para quién trabajamos</a><a href="index.html#modulos">Módulos</a><a href="index.html#trabajo">Cómo trabajamos</a><a href="index.html#armar">Arme su sistema</a><a href="index.html#faq">Preguntas frecuentes</a></nav>
-      <nav class="foot-col" aria-label="Recursos"><h3>Recursos</h3><a href="demos.html" target="_blank" rel="noopener">Demos ↗</a><a href="caso-academia.html">Caso de estudio</a><a href="privacidad.html">Aviso de privacidad</a></nav>
-      <div class="foot-col"><h3>Contacto</h3><a href="https://wa.me/51916037021" target="_blank" rel="noopener">WhatsApp +51 916 037 021</a><span>Atención por WhatsApp</span><span>Perú</span></div>
+      <nav class="foot-col" aria-label="Secciones del sitio"><h3>Explorar</h3><a href="index.html#experiencia">Casos reales</a><a href="index.html#negocios">Para quién trabajamos</a><a href="index.html#modulos">Módulos</a><a href="index.html#trabajo">Cómo trabajamos</a><a href="index.html#negocios">Escoja su área</a><a href="index.html#faq">Preguntas frecuentes</a></nav>
+      <nav class="foot-col" aria-label="Recursos"><h3>Recursos</h3><a href="caso-academia.html">Caso de estudio</a><a href="privacidad.html">Aviso de privacidad</a></nav>
+      <div class="foot-col"><h3>Contacto</h3><a href="https://wa.me/51916037021" target="_blank" rel="noopener">Pablo · +51 916 037 021</a><a href="https://wa.me/51949191693" target="_blank" rel="noopener">Walter · +51 949 191 693</a><span>Atención por WhatsApp</span><span>Perú</span></div>
     </div>
-    <div class="foot-bar"><span>© <span class="year">2026</span> Sistemas a medida · Hecho en Perú</span><a href="privacidad.html">Aviso de privacidad</a></div>
+    <div class="foot-bar"><span>© <span class="year">2026</span> PaWn Dev · Hecho en Perú</span><a href="privacidad.html">Aviso de privacidad</a></div>
   </div>
 </footer>
 <script>document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());</script>
